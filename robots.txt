@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ismael-sarmiento.github.io/sitemap.xml
+Sitemap: https://ismael-sarmiento.github.io/isacademy/sitemap.xml
