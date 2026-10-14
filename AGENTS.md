@@ -1,4 +1,10 @@
-# AGENTS.md
+# AGENTS.md — ismael-sarmiento.github.io
+
+## Parent
+
+Global roots (L0):
+- Claude Code: `~/.claude/CLAUDE.md`
+- Codex: `~/.codex/AGENTS.md`
 
 ## Purpose
 
@@ -8,7 +14,7 @@ The project keeps its governance local. Do not assume any centralized DATM gover
 
 ## Source Of Truth
 
-- Product, narrative, positioning, and continuity source of truth: `PROJECT_CONTEXT.md`
+- Product, narrative, positioning, and continuity source of truth: `.private/PROJECT_CONTEXT.md` (local working notes, never published)
 - Human/repo onboarding: `README.md`
 - Technical map: `docs/ARCHITECTURE.md`
 - Deferred work: `docs/TODO.md`
@@ -17,12 +23,12 @@ The project keeps its governance local. Do not assume any centralized DATM gover
 ## Mandatory Read Order
 
 1. `README.md`
-2. `PROJECT_CONTEXT.md`
+2. `.private/PROJECT_CONTEXT.md`
 3. `docs/ARCHITECTURE.md`
 4. `docs/ARTICLES.md`
 5. `docs/TODO.md`
 
-If the task is substantial, pay special attention in `PROJECT_CONTEXT.md` to:
+If the task is substantial, pay special attention in `.private/PROJECT_CONTEXT.md` to:
 
 - sections `0.2` and `0.3`
 - section `2`
@@ -30,15 +36,20 @@ If the task is substantial, pay special attention in `PROJECT_CONTEXT.md` to:
 - section `5`
 - sections `18` to `22`
 
+## Branch Rules
+
+This repo has a single branch: `main`. No branch switching needed.
+All changes go directly to `main`, which GitHub Pages publishes.
+
 ## Repo Rules
 
 - Keep the project as a static site compatible with GitHub Pages unless there is a strong, explicit reason to change that.
 - Do not introduce a backend, framework migration, or build step by default.
 - Keep all relevant governance and continuity docs inside this repository.
-- Treat `PROJECT_CONTEXT.md` as authoritative. Do not reopen closed decisions without a strong reason.
+- Treat `.private/PROJECT_CONTEXT.md` as authoritative. Do not reopen closed decisions without a strong reason.
 - Any important change affecting product, tone, naming, SEO, structure, article workflow, or analytics must update:
-  - the stable layer in `PROJECT_CONTEXT.md`
-  - the dated traceability log in `PROJECT_CONTEXT.md`
+  - the stable layer in `.private/PROJECT_CONTEXT.md`
+  - the dated traceability log in `.private/PROJECT_CONTEXT.md`
 - If you add or modify public pages, update:
   - `sitemap.xml`
   - canonical and hreflang metadata where applicable
