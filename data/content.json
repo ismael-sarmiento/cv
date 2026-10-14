@@ -234,12 +234,8 @@
       "en": "Governance, Interoperability & Data Quality"
     },
     "subtitle": {
-      "es": "Construyo productos y plataformas de datos gobernados, interoperables y confiables.",
-      "en": "I build governed, interoperable and reliable data products and platforms."
-    },
-    "message": {
-      "es": "Transformo problemas complejos del dato en plataformas confiables e interoperables que ayudan a tomar decisiones con impacto real.",
-      "en": "I transform complex data problems into reliable, interoperable platforms that help teams make real-world decisions."
+      "es": "Construyo productos y plataformas de datos gobernados, interoperables y confiables que ayudan a tomar decisiones con impacto real.",
+      "en": "I build governed, interoperable and reliable data products and platforms that drive decisions with real impact."
     },
     "trajectoryHeading": {
       "es": "Resumen de trayectoria",
@@ -320,13 +316,15 @@
         "Crecimiento interno en Savana: Senior Data Engineer → Lead Data Engineer → Head of Data Management",
         "Certificación CDMP (Associate) de DAMA International y miembro activo de DAMA Spain",
         "Especialización en gobierno del dato, interoperabilidad clínica y calidad del dato",
-        "Perfil técnico con foco en producto, escalabilidad y equipos sólidos"
+        "Perfil técnico con foco en producto y escalabilidad",
+        "Liderazgo de equipos de alto rendimiento"
       ],
       "en": [
         "Internal growth at Savana: Senior Data Engineer → Lead Data Engineer → Head of Data Management",
         "CDMP (Associate) certified by DAMA International and active member of DAMA Spain",
         "Focused on data governance, clinical interoperability, and data quality",
-        "Technical profile with a product mindset, scalability focus, and strong team habits"
+        "Technical profile focused on product and scalability",
+        "Leading high-performing teams"
       ]
     }
   },

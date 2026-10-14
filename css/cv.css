@@ -30,8 +30,7 @@ body.intro-open { overflow: hidden; }
 .hero h1 { margin-bottom: 18px; }
 .h1-main { display: block; font-size: clamp(42px, 6.4vw, 72px); letter-spacing: -.035em; line-height: 1.02; }
 .h1-sub { display: block; font-size: clamp(20px, 2.6vw, 28px); color: var(--gold-text); font-weight: 500; margin-top: 10px; }
-.hero-message { color: var(--text-2); }
-.hero-facts { margin: 20px 0 36px; }
+.ticks.hero-facts { margin: 20px 0 36px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
 .eco-label { margin-bottom: 10px; }
 .hero-panel .card p { color: var(--text-2); font-size: 15px; }

@@ -323,7 +323,6 @@ def main():
           <p class="eyebrow">Ismael Sarmiento · CV Online</p>
           <h1 id="hero-title">{T('hero.headlinePrimary', 'span', 'h1-main')}{T('hero.headlineSecondary', 'span', 'h1-sub')}</h1>
           {T('hero.subtitle', 'p', 'lead')}
-          {T('hero.message', 'p', 'hero-message')}
           <ul class="ticks hero-facts">{li('hero.quickFacts')}</ul>
           <div class="hero-cta">
             <a class="btn btn-primary btn-lg btn-arrow" href="#summary">{T('ui.actions.summaryCta')}</a>
