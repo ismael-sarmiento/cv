@@ -1,0 +1,177 @@
+/* CV Online — page styles on top of /assets/ds (tokens + base). Colours only through tokens.
+   1. Intro   2. Hero   3. Sections   4. Read more and Alan   5. Summary mode   6. Responsive */
+
+/* ===================== 1. Intro ===================== */
+/* only with JavaScript (the boot script adds .js); otherwise the CV shows straight away */
+#intro { display: none; }
+.js #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: var(--bg); overflow: hidden;
+  transition: opacity .45s var(--ease-out); }
+.js #intro[hidden] { display: none; }
+#intro.leaving { opacity: 0; }
+body.intro-open { overflow: hidden; }
+.intro-top { position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; align-items: center; }
+.intro-stage { width: min(92vw, 880px); text-align: center; }
+.intro-sig .sig { width: min(820px, 100%); margin: 0 auto; }
+.intro-after, .intro-actions { opacity: 0; transform: translateY(8px); transition: opacity .7s ease, transform .7s var(--ease-out); }
+#intro.after .intro-after, #intro.ready .intro-actions { opacity: 1; transform: none; }
+.intro-tag { display: table; margin: 6px auto 14px; }
+.intro-hook { font-size: clamp(16px, 2.1vw, 20px); color: var(--text-2); max-width: 46ch; margin: 0 auto 22px; }
+.intro-milestones { width: min(520px, 100%); margin: 0 auto 26px; }
+.intro-segs { display: grid; grid-auto-flow: column; gap: 6px; margin-bottom: 12px; }
+.intro-segs span { height: 3px; border-radius: 3px; background: var(--line); transition: background .5s ease; }
+.intro-segs span.on { background: linear-gradient(90deg, var(--gold), var(--gold-2)); }
+.intro-step { min-height: 1.6em; margin: 0; color: var(--text); font-weight: 500; }
+.intro-step.swap { animation: step-in .45s var(--ease-out); }
+@keyframes step-in { from { opacity: 0; transform: translateY(6px); } }
+
+/* ===================== 2. Hero ===================== */
+.hero { padding: 72px 0 80px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: start; }
+.hero h1 { margin-bottom: 18px; }
+.h1-main { display: block; font-size: clamp(42px, 6.4vw, 72px); letter-spacing: -.035em; line-height: 1.02; }
+.h1-sub { display: block; font-size: clamp(20px, 2.6vw, 28px); color: var(--gold-text); font-weight: 500; margin-top: 10px; }
+.hero-message { color: var(--text-2); }
+.hero-facts { margin: 20px 0 36px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+.eco-label { margin-bottom: 10px; }
+.hero-panel .card p { color: var(--text-2); font-size: 15px; }
+.panel-title { font-size: 22px; margin-bottom: 12px; }
+.layers-title { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-text); margin: 26px 0 12px; }
+.layers { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.layer { display: flex; gap: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.layer h3 { font-size: 16px; margin-bottom: 4px; }
+.layer p { margin: 0; color: var(--text-2); font-size: 14.5px; }
+.node { width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; border: 2px solid var(--gold); flex: none; }
+
+/* lists with a gold tick, used across the page */
+.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.ticks li { position: relative; padding-left: 22px; color: var(--text-2); }
+.ticks li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); }
+
+/* ===================== 3. Sections ===================== */
+/* the long summary on the left, the three contributions stacked on the right */
+.summary-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 18px; }
+.summary-copy { grid-row: span 3; }
+.card > p { color: var(--text-2); }
+.summary-copy p { color: var(--text-2); font-size: 17px; }
+.summary-copy p:first-child { color: var(--text); font-size: 19px; }
+.card h3 { font-size: 19px; margin-bottom: 8px; }
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 28px; }
+.pillar { border-top: 2px solid var(--gold); padding-top: 14px; }
+.pillar h3 { font-size: 17px; margin-bottom: 6px; }
+.pillar p { color: var(--text-2); font-size: 15px; margin: 0; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 40px; align-items: start; }
+.about-grid p { color: var(--text-2); }
+.stats { display: grid; gap: 18px; }
+.stat strong { display: block; color: var(--gold-text); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+.stat p { margin: 0; color: var(--text); }
+.story-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 32px; align-items: start; }
+.story-copy p { color: var(--text-2); }
+/* career ladder: first role at the bottom, current role at the top; it climbs when it enters the screen */
+.ladder { list-style: none; position: relative; display: flex; flex-direction: column-reverse; gap: 16px; margin: 4px 0 24px; padding: 0 0 0 2px; }
+.ladder::before { content: ""; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px; border-radius: 2px;
+  background: linear-gradient(0deg, rgba(200, 149, 63, .35), var(--gold)); transform: scaleY(0); transform-origin: 50% 100%;
+  transition: transform 1.1s var(--ease-out) .1s; }
+.ladder.in::before { transform: scaleY(1); }
+.rung { position: relative; display: flex; align-items: center; gap: 14px; opacity: 0; transform: translateY(14px);
+  transition: opacity .5s ease, transform .6s var(--ease-out); }
+.ladder.in .rung { opacity: 1; transform: none; }
+.ladder.in .rung[data-step="0"] { transition-delay: .1s; }
+.ladder.in .rung[data-step="1"] { transition-delay: .45s; }
+.ladder.in .rung[data-step="2"] { transition-delay: .8s; }
+.rung-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--gold); background: var(--surface); flex: none; z-index: 1; }
+.rung-name { font-weight: 500; color: var(--text-2); }
+.rung-now .rung-dot { background: var(--gold); box-shadow: 0 0 0 5px rgba(200, 149, 63, .18); }
+.rung-now .rung-name { color: var(--text); font-weight: 600; }
+.rung-tag { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
+  border: 1px solid var(--gold); color: var(--gold-text); }
+.ladder.reveal { opacity: 1; transform: none; }
+.focus-label { margin-top: 6px; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.case .ticks { margin-top: 12px; }
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; position: relative; }
+.tl-item { position: relative; padding: 22px 24px 22px 28px; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: var(--radius); background: var(--surface); }
+.tl-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 8px; }
+.tl-head h3 { font-size: 20px; }
+.tl-role { margin: 2px 0 0; color: var(--gold-text); font-size: 14.5px; }
+.tl-period { font-family: var(--font-mono); font-size: 13px; color: var(--text-2); white-space: nowrap; }
+.tl-item > p { color: var(--text-2); margin: 0; }
+.creds-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.contact-links { display: grid; gap: 10px; margin-top: 14px; }
+.contact-link { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  color: var(--text); text-decoration: none; transition: border-color .2s ease, background .2s ease; }
+.contact-link span { color: var(--text-2); }
+.contact-link strong { font-weight: 500; overflow-wrap: anywhere; text-align: right; }
+.contact-link:hover { border-color: var(--gold); background: rgba(200, 149, 63, .06); }
+
+/* ===================== 4. Read more and Alan ===================== */
+/* long texts open on demand: a quiet gold link with a chevron that turns */
+.more { margin-top: 12px; }
+.more summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--gold-text);
+  font-weight: 600; font-size: 15px; border-radius: 6px; }
+.more summary::-webkit-details-marker { display: none; }
+.more summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px); transition: transform .3s var(--ease-out); }
+.more[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.more summary:hover span { text-decoration: underline; text-underline-offset: 4px; }
+.more-body { padding-top: 6px; }
+.more-body p { color: var(--text-2); }
+.case .more { margin-top: auto; }
+.case { display: flex; flex-direction: column; }
+
+/* the assistant section: Alan's avatar, what he is (local, beta, private) and the two ways to use him */
+.alan { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: center; padding: 32px; }
+.alan-avatar { width: 132px; height: 132px; }
+.alan h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
+.alan-body > p { color: var(--text-2); max-width: 62ch; }
+.alan .eyebrow { display: flex; align-items: center; gap: 10px; }
+.alan .as-badge { border-color: var(--gold); color: var(--gold-text); }
+.alan-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+/* ecosystem: what I work with, grouped by what it solves */
+.eco-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { .eco-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .eco-grid { grid-template-columns: 1fr; } }
+.eco h3 { font-size: 17px; margin-bottom: 12px; }
+.eco .chips li { background: transparent; }
+
+/* ===================== 5. Summary mode ===================== */
+/* a quiet notice under the bar says what is shown and how to go back */
+.summary-notice { display: none; border-top: 1px solid var(--line); background: rgba(200, 149, 63, .10); }
+body.summary-mode .summary-notice { display: block; animation: notice-in .35s var(--ease-out); }
+@keyframes notice-in { from { opacity: 0; transform: translateY(-6px); } }
+.summary-notice-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; padding: 6px 0; }
+.summary-notice p { margin: 0; font-size: 14px; color: var(--text); }
+body.summary-mode .detail { display: none; }
+/* the menu only lists what is on the page */
+body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="cases"], body.summary-mode .nav a[data-nav="timeline"] { display: none; }
+
+/* ===================== 6. Responsive ===================== */
+@media (max-width: 1000px) {
+  .hero-grid, .about-grid, .story-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .summary-copy { grid-row: auto; }
+  .creds-grid, .cases-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 40px 0 56px; }
+  .cases-grid, .contact-grid { grid-template-columns: 1fr; }
+  .tools .view-btn { display: none; }
+  .tl-head { flex-direction: column; gap: 4px; }
+  .alan { grid-template-columns: 1fr; text-align: left; padding: 24px; }
+  .alan-avatar { width: 96px; height: 96px; }
+  .intro-top { left: 16px; justify-content: flex-end; flex-wrap: wrap; }
+  .contact-link { flex-direction: column; gap: 2px; }
+  .contact-link strong { text-align: left; }
+}
+
+/* articles (articles/_template) */
+.article { padding: 64px 0 80px; }
+.article h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 14px; }
+.article article p, .article article li { color: var(--text-2); line-height: 1.75; }
+
+/* summary mode button: both labels are in the HTML (translated by i18n); the pressed state picks one */
+.view-btn .when-on, .view-btn[aria-pressed="true"] .when-off { display: none; }
+.view-btn[aria-pressed="true"] .when-on { display: inline; }

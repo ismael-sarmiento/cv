@@ -1,81 +1,34 @@
-# ismael-sarmiento.github.io Architecture
+# CV Online · architecture
 
-## Purpose
+## Where it lives
 
-This repository hosts Ismael Sarmiento's official personal website and online CV.
+- Repository `ismael-sarmiento/cv`, published by GitHub Pages at `https://ismael-sarmiento.github.io/cv/`.
+- One page: Spanish at `/cv/`, English at `/cv/?lang=en` (shared i18n module, as in IsAcademy). Old addresses
+  (`/index_en.html`, `/articles/`) are redirected by the portada.
+- It depends on the portada repository (`ismael-sarmiento.github.io`) for the shared design system in `/assets/ds/`:
+  `tokens.css`, `base.css`, `assistant.css`, `ds.js` (theme, reveal, top bar, spotlight), `i18n.js` (languages),
+  `signature.js` (the "Is" signature),
+  `avatar.js` + `assistant.js` (Alan). Same origin, so absolute paths work; publish design-system changes in the portada first.
 
-The architecture is intentionally simple:
+## Build
 
-- static HTML entry points
-- shared CSS and JavaScript assets
-- no backend
-- no build step
-- GitHub Pages compatible
+- `data/content.json` is the only source of texts (ES/EN). `tools/build.py <version>` writes `index.html` (Spanish, with
+  `data-i18n` keys), `i18n/es.json`, `i18n/en.json` and `sitemap.xml`. Never edit generated files by hand.
+- Every text is rendered into the HTML (SEO, no-JS readers). An inert `<script type="application/json" id="cv-data">` carries
+  what the JavaScript needs (Alan's texts and FAQ, the intro milestones) in both languages.
+- An import map versions every module (`?v=<version>`), the design-system modules included; the build computes the CSP hashes
+  of the boot script and of the import map.
 
-## Public Routes
+## Behaviour (js/)
 
-- `/`
-  Main Spanish CV page served by `index.html`
-- `/index_en.html`
-  Main English CV page
-- `/articles/`
-  Spanish article index placeholder
-- `/articles/index_en.html`
-  English article index placeholder
+- `app.js` wires everything. `intro.js`: once per session, skipped on deep links, "Saltar intro" / Escape.
+- `view.js`: summary mode hides `.detail` sections; `nav.js`: scroll spy and leaving summary mode for hidden targets.
+- `assistant.js`: Alan from `/assets/ds/assistant.js` with a keyword matcher over the CV FAQ; tucked while the assistant
+  section is visible and during the intro; it follows the page language.
 
-Future articles follow:
+## Rules
 
-- `articles/<slug>/index.html`
-- `articles/<slug>/index_en.html`
-
-## Main Layers
-
-- `index.html` and `index_en.html`
-  Static SEO shells with indexable content and shared asset loading.
-- `assets/content.js`
-  Bilingual structured content for the interactive CV experience.
-- `assets/app.js`
-  Rendering, language switching, theme, loader, assistant, and audio logic.
-- `assets/app.css`
-  Visual system and responsive styling for the CV UI.
-- `assets/print.css`
-  Print-oriented stylesheet.
-- `articles/`
-  Standalone static article pages and article index placeholders.
-
-## Content Model
-
-### CV Pages
-
-The CV experience is rendered from a centralized content object in `assets/content.js`, while the main HTML pages keep enough static content to remain indexable without JavaScript.
-
-### Article Pages
-
-Articles are deliberately separate from the CV renderer:
-
-- each article is a standalone static HTML page
-- each article has ES and EN versions from day one
-- article metadata is also registered in `articles/manifest.json`
-
-This avoids overloading `assets/content.js` with long-form editorial content and keeps article SEO straightforward.
-
-## Documentation Convention
-
-- Root onboarding: `README.md`
-- Agent entry point: `AGENTS.md`
-- Product and continuity source of truth: `.private/PROJECT_CONTEXT.md` (local working notes, never published)
-- Technical overview: `docs/ARCHITECTURE.md`
-- Deferred work: `docs/TODO.md`
-- Article workflow: `docs/ARTICLES.md`
-
-## Analytics
-
-The chosen analytics baseline is `Cloudflare Web Analytics`.
-
-For the current GitHub Pages deployment model:
-
-- setup is manual from the Cloudflare dashboard
-- Cloudflare provides the beacon snippet
-- the real token must be inserted into each public HTML page when activation happens
-
-If the site later moves to Cloudflare Pages or a proxied Cloudflare hostname, the setup can be simplified through automatic injection.
+- Colours only through design-system tokens; light and dark checked on every change.
+- Content changes go to `data/content.json` (both languages), then rebuild with a new version.
+- Run `tools/qa/flows.js` in the browser console (local site) before publishing.
+- Private working notes (positioning, decisions, interview preparation) live in `.private/PROJECT_CONTEXT.md`, never published.

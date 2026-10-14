@@ -1,63 +1,63 @@
-# Ismael Sarmiento · CV online
+# Ismael Sarmiento · CV Online
 
-> *Online CV of Ismael Sarmiento, Lead Data Engineer focused on data governance. Spanish and English.*
+> *Online CV of Ismael Sarmiento, Head of Data Management at Savana. Spanish and English.*
 
-CV web de **Ismael Sarmiento**, Lead Data Engineer especializado en gobierno del dato, interoperabilidad
-clínica, calidad de datos de extremo a extremo y plataformas fiables.
+CV web de **Ismael Sarmiento**, Head of Data Management en Savana y antes Lead Data Engineer: gobierno del dato,
+interoperabilidad clínica, calidad de datos de extremo a extremo y plataformas fiables.
 
-- **Web:** https://ismael-sarmiento.github.io/ (español) · [versión en inglés](https://ismael-sarmiento.github.io/index_en.html)
-- **Hosting:** GitHub Pages, sitio 100 % estático: sin backend ni paso de build.
-- **Idiomas:** español e inglés · **Temas:** claro y oscuro.
+- **Web:** https://ismael-sarmiento.github.io/cv/ (español) · [versión en inglés](https://ismael-sarmiento.github.io/cv/?lang=en)
+- **Portada:** https://ismael-sarmiento.github.io/ · **Academia:** [IsAcademy](https://ismael-sarmiento.github.io/isacademy/)
+- **Hosting:** GitHub Pages, sitio 100 % estático. Todo el texto está en el HTML; el JavaScript solo añade comportamiento.
+- **Idiomas:** español por defecto e inglés con `?lang=en`, como IsAcademy · **Temas:** claro y oscuro (idioma y tema se
+  comparten con la portada e IsAcademy).
 
 ## Qué incluye
 
-- Pantalla de carga con los hitos de impacto más relevantes.
-- Resumen ejecutivo y trayectoria profesional.
-- Asistente local que responde sin modelos externos.
-- Resumen en audio en español e inglés, con voz del navegador si el audio no está disponible.
-- Base para artículos profesionales bilingües.
-- SEO técnico: `canonical` e `hreflang` por idioma, `sitemap.xml`, Open Graph y JSON-LD (`ProfilePage` + `Person`).
+- Intro con la firma de Ismael Sarmiento (la «Is» manuscrita y el nombre decodificado, como en IsAcademy) y los hitos de impacto.
+- Resumen ejecutivo, trayectoria en Savana (escalera Senior → Lead → Head), casos destacados, trayectoria compacta,
+  credenciales (CDMP de DAMA International, DAMA Spain, formación académica) y contacto.
+- Modo resumen para una lectura rápida (`?view=summary`) y textos largos que se despliegan con «Leer más».
+- **Alan**, el asistente compartido con IsAcademy: local y en beta, responde solo con el contenido público del CV.
+- Ecosistema por temas: interoperabilidad clínica, gobierno del dato, calidad del dato (UNE 0081), plataforma y cloud, e IA.
+- SEO técnico: `canonical` e `hreflang`, `sitemap.xml`, Open Graph y JSON-LD (`ProfilePage` + la `Person` de la portada).
 
 ## Estructura
 
 ```
-index.html            Entrada en español
-index_en.html         Entrada en inglés (página real, sin redirección)
-assets/content.js     Todo el contenido en español e inglés
-assets/app.js         Renderizado, cambio de idioma, asistente y audio
-assets/app.css        Identidad visual, diseño adaptable y animaciones
-assets/print.css      Estilos de impresión
-assets/audio/         Resúmenes en audio
-articles/             Artículos bilingües: plantilla en _template/ y registro en manifest.json
-docs/                 Arquitectura, flujo de artículos y tareas pendientes
-robots.txt            Reglas para buscadores; enlaza este sitemap y el de IsAcademy
-sitemap.xml           Páginas públicas
+data/content.json     Todo el contenido en español e inglés (única fuente de textos)
+tools/build.py        Genera index.html (en español, con claves de traducción), i18n/es.json, i18n/en.json y sitemap.xml
+tools/qa/flows.js     Comprueba en el navegador que cada botón hace lo que debe
+i18n/                 Diccionarios generados para el cambio de idioma (/assets/ds/i18n.js)
+js/                   app.js (entrada) · intro · view (modo resumen) · nav · assistant (Alan)
+css/cv.css            Estilos propios, encima del sistema de diseño compartido
+css/print.css         Impresión desde el navegador
+assets/brand/og.png   Imagen al compartir
+articles/_template/   Plantilla de artículos bilingües (ver docs/ARTICLES.md)
+docs/                 Arquitectura, artículos y tareas pendientes
 ```
+
+El sistema de diseño compartido (tokens, componentes, idiomas, firma y Alan) vive en el repositorio de la portada,
+[`ismael-sarmiento.github.io`](https://github.com/ismael-sarmiento/ismael-sarmiento.github.io), en `/assets/ds/`.
 
 ## Desarrollo local
 
-No necesita instalar nada: basta con servir la carpeta.
+1. Edita `data/content.json` (textos) o `js/` y `css/`.
+2. Genera las páginas con una versión nueva, para que el navegador no mezcle ficheros en caché:
 
-```bash
-python3 -m http.server 8000
-```
+   ```bash
+   python3 tools/build.py 20261014a
+   ```
 
-y abrir http://localhost:8000.
+3. Sírvelo junto con la portada, que aporta `/assets/ds/`: una carpeta con la portada en la raíz y este repositorio en `cv/`.
 
 ## Despliegue
 
-GitHub Pages publica la rama `main` desde la raíz del repositorio en cada cambio.
+GitHub Pages publica la rama `main` en https://ismael-sarmiento.github.io/cv/ en cada cambio.
 
 ## Documentación
 
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): mapa técnico.
 - [`docs/ARTICLES.md`](docs/ARTICLES.md): cómo publicar un artículo.
 - [`docs/TODO.md`](docs/TODO.md): trabajo pendiente.
-
-## Más
-
-- Academia: [IsAcademy](https://ismael-sarmiento.github.io/isacademy/), clases online de programación, datos e IA.
-- Código abierto: [kimera-tools](https://github.com/kimera-tools).
-- LinkedIn: [in/ismael-sarmiento](https://www.linkedin.com/in/ismael-sarmiento/).
 
 © Ismael Sarmiento. Todos los derechos reservados sobre el contenido del CV.

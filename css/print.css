@@ -1,0 +1,10 @@
+/* CV Online — printing from the browser (Cmd/Ctrl + P): light colours, whole CV, no interactive parts. */
+@page { size: A4; margin: 14mm 12mm; }
+:root { --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #1c2547; --text-2: #3d4566; --line: #d9d4c8; --gold: #b58534; --gold-text: #7a5212; --shadow: none; }
+body { background: #fff; font-size: 11pt; }
+#intro, .topbar, .fab, #assistant, .hero-cta, .skip-link, .footer-links { display: none !important; }
+body.summary-mode .detail { display: block !important; }
+.reveal { opacity: 1 !important; transform: none !important; }
+.section, .hero { padding: 10mm 0 0; }
+.card, .tl-item, .layer, .pillar { break-inside: avoid; box-shadow: none !important; }
+a { color: inherit; text-decoration: none; }
