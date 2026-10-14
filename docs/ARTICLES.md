@@ -100,7 +100,7 @@ Recommended shape for each entry:
 3. Add the article entry to `articles/manifest.json`.
 4. Update `sitemap.xml`.
 5. If the LinkedIn post exists, add the URL in the manifest and in the article page. If not, leave it empty and backfill later.
-6. Add a dated traceability entry in `PROJECT_CONTEXT.md` if the article system itself changes materially.
+6. Add a dated traceability entry in the private `.private/PROJECT_CONTEXT.md` if the article system itself changes materially.
 
 ## What Not To Do
 

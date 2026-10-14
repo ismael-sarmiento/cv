@@ -63,7 +63,7 @@ This avoids overloading `assets/content.js` with long-form editorial content and
 
 - Root onboarding: `README.md`
 - Agent entry point: `AGENTS.md`
-- Product and continuity source of truth: `PROJECT_CONTEXT.md`
+- Product and continuity source of truth: `.private/PROJECT_CONTEXT.md` (local working notes, never published)
 - Technical overview: `docs/ARCHITECTURE.md`
 - Deferred work: `docs/TODO.md`
 - Article workflow: `docs/ARTICLES.md`
