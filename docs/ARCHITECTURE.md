@@ -21,7 +21,10 @@
 
 ## Behaviour (js/)
 
-- `app.js` wires everything. `intro.js`: once per session, skipped on deep links, "Saltar intro" / Escape.
+- `app.js` wires everything (`?pdf` opens every text for the PDF build). `intro.js`: once per session, skipped on deep links
+  and `?pdf`, "Saltar intro" / Escape; coming from the portada the signature appears already drawn. "Entrar al CV" plays
+  the entrance: the signature flies to the bar, the intro lifts like a curtain with a gold edge and the hero rises line by
+  line (`.stagger` in `/assets/ds/base.css`).
 - `view.js`: summary mode hides `.detail` sections; `nav.js`: scroll spy and leaving summary mode for hidden targets.
 - `assistant.js`: Alan from `/assets/ds/assistant.js` with a keyword matcher over the CV FAQ; tucked while the assistant
   section is visible and during the intro; it follows the page language.
@@ -30,5 +33,6 @@
 
 - Colours only through design-system tokens; light and dark checked on every change.
 - Content changes go to `data/content.json` (both languages), then rebuild with a new version.
-- Run `tools/qa/flows.js` in the browser console (local site) before publishing.
+- Run `tools/qa/flows.js` in the browser console (local site) before publishing, and `tools/pdf.py` after content changes
+  (the PDFs are committed: `ismael-sarmiento-cv.pdf`, `ismael-sarmiento-cv-en.pdf`).
 - Private working notes (positioning, decisions, interview preparation) live in `.private/PROJECT_CONTEXT.md`, never published.

@@ -1,10 +1,78 @@
-/* CV Online — printing from the browser (Cmd/Ctrl + P): light colours, whole CV, no interactive parts. */
-@page { size: A4; margin: 14mm 12mm; }
-:root { --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #1c2547; --text-2: #3d4566; --line: #d9d4c8; --gold: #b58534; --gold-text: #7a5212; --shadow: none; }
-body { background: #fff; font-size: 11pt; }
-#intro, .topbar, .fab, #assistant, .hero-cta, .skip-link, .footer-links { display: none !important; }
+/* CV Online — the PDF (tools/pdf.py) and printing from the browser: the web design on A4 (white paper, cream cards,
+   brand gold), every text open, nothing interactive and no repeated blocks. A4 is ~720 px wide, which would trigger
+   the phone layout, so the print grid is set explicitly here. */
+@page { size: A4; margin: 13mm 13mm 14mm; }
+:root, :root[data-theme] {
+  --bg: #fff; --bg-alt: #fff; --surface: #fbf7ef; --text: #1c2547; --text-2: #4a5170; --line: rgba(28, 37, 71, .13);
+  --gold: #b58534; --gold-2: #c8953f; --gold-text: #7a5212; --shadow: none; --shadow-sm: none; color-scheme: light;
+}
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { background: #fff !important; }
+body { font-size: 9pt; line-height: 1.45; color: var(--text); }
+p { margin: 0 0 1.6mm; }
+
+/* only the CV: no intro, bar, assistant, buttons, toggles or blocks that repeat other sections */
+#intro, .topbar, .assistant-fab, .as-panel, #assistant, .hero-cta, .hero-panel, .pillars, .skip-link, .summary-notice,
+.footer-links, .pdf-btn, .more > summary, .intro-flyer, .curtain-edge, #contact { display: none !important; }   /* contact: in the header */
 body.summary-mode .detail { display: block !important; }
-.reveal { opacity: 1 !important; transform: none !important; }
-.section, .hero { padding: 10mm 0 0; }
-.card, .tl-item, .layer, .pillar { break-inside: avoid; box-shadow: none !important; }
+.reveal, .rung, .ladder * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+details::details-content { block-size: auto !important; content-visibility: visible !important; }
+details > :not(summary) { display: block; }
 a { color: inherit; text-decoration: none; }
+
+/* header: the signature on the left, contact on the right, a thin gold rule */
+.print-head { display: flex !important; align-items: center; justify-content: space-between; gap: 8mm; padding: 0 0 3.5mm;
+  border-bottom: 1.2pt solid var(--gold); margin-bottom: 4mm; }
+.print-head .sig { width: 70mm; height: auto; }
+.print-head .is-stroke { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+.print-contact { margin: 0; font-size: 8pt; line-height: 1.6; color: var(--text-2); text-align: right; max-width: 82mm; }
+
+/* rhythm: the web hierarchy, tighter */
+.container { max-width: none !important; padding: 0 !important; }
+.section, .hero { padding: 4.5mm 0 0 !important; background: transparent !important; }
+.hero-grid { display: block !important; }
+.hero .eyebrow { margin-bottom: 1mm; }
+.hero h1 { margin-bottom: 2mm; }
+.hero h1 .h1-main { font-size: 23pt; line-height: 1.1; }
+.hero h1 .h1-sub { font-size: 12pt; margin-top: 1mm; }
+.hero .lead { font-size: 10.5pt; margin-bottom: 2mm; }
+.ticks.hero-facts { margin: 0 !important; grid-template-columns: 1fr 1fr; gap: 1mm 6mm !important; }
+.section-head { margin-bottom: 2.5mm !important; break-inside: avoid; break-after: avoid; }
+.section-head h2 { font-size: 14pt; margin: 0; }
+.section-head .eyebrow { margin-bottom: .6mm; font-size: 7.5pt; }
+.section-head .lead { font-size: 9.5pt; margin: 1mm 0 0; }
+.eyebrow { font-size: 7.5pt; }
+h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height: 1.25; }
+.creds-grid h3 { font-size: 11pt !important; }
+.tl-role { font-size: 8.6pt !important; }
+.tl-period { font-size: 8pt !important; }
+.card { padding: 3.5mm 4.5mm !important; border: .7pt solid var(--line) !important; background: var(--surface) !important; border-radius: 8px !important; }
+.card::after { display: none !important; }
+.ticks { gap: 1mm !important; }
+.ticks li { padding-left: 4mm; }
+
+/* grids, as on a wide screen */
+.summary-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 3mm !important; }
+.summary-copy { grid-column: 1 / -1; grid-row: auto !important; position: static !important; }
+.summary-copy p, .summary-copy p:first-child { font-size: 9.5pt; color: var(--text); }
+.about-grid, .story-grid { display: grid !important; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) !important; gap: 5mm !important; align-items: start; }
+.cases-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 3mm !important; }
+.creds-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 3mm !important; }
+.timeline { gap: 2.2mm !important; }
+.tl-item { padding: 2.6mm 4mm !important; }
+.tl-item h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height: 1.25; }
+.creds-grid h3 { font-size: 11pt !important; }
+.tl-role { font-size: 8.6pt !important; }
+.tl-period { font-size: 8pt !important; }
+.eco-grid { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 2.5mm !important; }
+.eco h3 { font-size: 8.6pt !important; min-height: 0 !important; margin-bottom: 1.5mm; }
+/* ecosystem pills read as a short list on paper */
+.eco .chips { display: block !important; }
+.eco .chips li { display: block; border: 0 !important; background: none !important; padding: 0 !important; font-size: 8pt; line-height: 1.5; }
+.eco .chips li a { padding: 0 !important; border: 0 !important; background: none !important; font-size: 8pt !important; }
+
+/* page breaks: titles stay with their content, blocks never split */
+h2, h3 { break-after: avoid; }
+.card, .tl-item, .layer, .stat, .rung, .contact-link, .ladder { break-inside: avoid; }
+
+.footer { padding: 3mm 0 0 !important; border-top: .7pt solid var(--line); margin-top: 5mm; background: transparent !important; font-size: 7.5pt; }

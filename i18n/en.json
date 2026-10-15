@@ -81,6 +81,8 @@
 "ui.cv.homeHref": "/?lang=en",
 "ui.cv.elsewhere": "You can also find me at",
 "ui.cv.summaryNotice": "Summary mode: you are seeing the essentials of the CV.",
+"ui.cv.pdf": "Download CV as PDF",
+"ui.cv.pdfHref": "/cv/ismael-sarmiento-cv-en.pdf",
 "loader_milestones.0": "Cloud modernization for data solutions",
 "loader_milestones.1": "High-demand batch and streaming systems",
 "loader_milestones.2": "End-to-end data platform perspective",

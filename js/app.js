@@ -12,6 +12,12 @@ const data = JSON.parse(document.getElementById('cv-data').textContent);
 const i18n = createI18n({ base: 'https://ismael-sarmiento.github.io/cv/', dict: code => `/cv/i18n/${code}.json?v=${VERSION}` });
 
 initDesignSystem();
+// ?pdf: the page as the PDF build prints it (tools/pdf.py): every text open, nothing waiting to be revealed
+if (new URLSearchParams(location.search).has('pdf')) {
+  document.documentElement.classList.add('pdf');
+  document.querySelectorAll('details').forEach(d => { d.open = true; });
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
 initView();
 initNav();
 initAssistant(data, i18n);

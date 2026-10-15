@@ -81,6 +81,8 @@
 "ui.cv.homeHref": "/",
 "ui.cv.elsewhere": "También me encuentras en",
 "ui.cv.summaryNotice": "Modo resumen: estás viendo lo esencial del CV.",
+"ui.cv.pdf": "Descargar CV en PDF",
+"ui.cv.pdfHref": "/cv/ismael-sarmiento-cv.pdf",
 "loader_milestones.0": "Modernización cloud de soluciones de datos",
 "loader_milestones.1": "Sistemas batch y streaming de alta exigencia",
 "loader_milestones.2": "Visión end-to-end de plataformas de datos",

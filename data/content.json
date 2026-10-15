@@ -109,7 +109,9 @@
         "current": "Actual",
         "homeHref": "/",
         "elsewhere": "También me encuentras en",
-        "summaryNotice": "Modo resumen: estás viendo lo esencial del CV."
+        "summaryNotice": "Modo resumen: estás viendo lo esencial del CV.",
+        "pdf": "Descargar CV en PDF",
+        "pdfHref": "/cv/ismael-sarmiento-cv.pdf"
       }
     },
     "en": {
@@ -204,7 +206,9 @@
         "current": "Current",
         "homeHref": "/?lang=en",
         "elsewhere": "You can also find me at",
-        "summaryNotice": "Summary mode: you are seeing the essentials of the CV."
+        "summaryNotice": "Summary mode: you are seeing the essentials of the CV.",
+        "pdf": "Download CV as PDF",
+        "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf"
       }
     }
   },

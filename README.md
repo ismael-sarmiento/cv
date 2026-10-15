@@ -17,6 +17,7 @@ interoperabilidad clínica, calidad de datos de extremo a extremo y plataformas 
 - Resumen ejecutivo, trayectoria en Savana (escalera Senior → Lead → Head), casos destacados, trayectoria compacta,
   credenciales (CDMP de DAMA International, DAMA Spain, formación académica) y contacto.
 - Modo resumen para una lectura rápida (`?view=summary`) y textos largos que se despliegan con «Leer más».
+- CV en PDF descargable (español e inglés) con el mismo diseño que la web, generado con `tools/pdf.py`.
 - **Alan**, el asistente compartido con IsAcademy: local y en beta, responde solo con el contenido público del CV.
 - Ecosistema por temas: interoperabilidad clínica, gobierno del dato, calidad del dato (UNE 0081), plataforma y cloud, e IA.
 - SEO técnico: `canonical` e `hreflang`, `sitemap.xml`, Open Graph y JSON-LD (`ProfilePage` + la `Person` de la portada).
@@ -26,11 +27,12 @@ interoperabilidad clínica, calidad de datos de extremo a extremo y plataformas 
 ```
 data/content.json     Todo el contenido en español e inglés (única fuente de textos)
 tools/build.py        Genera index.html (en español, con claves de traducción), i18n/es.json, i18n/en.json y sitemap.xml
+tools/pdf.py          Genera ismael-sarmiento-cv.pdf y ismael-sarmiento-cv-en.pdf con Chrome (sitio servido en local)
 tools/qa/flows.js     Comprueba en el navegador que cada botón hace lo que debe
 i18n/                 Diccionarios generados para el cambio de idioma (/assets/ds/i18n.js)
 js/                   app.js (entrada) · intro · view (modo resumen) · nav · assistant (Alan)
 css/cv.css            Estilos propios, encima del sistema de diseño compartido
-css/print.css         Impresión desde el navegador
+css/print.css         Diseño en papel: el PDF y la impresión desde el navegador
 assets/brand/og.png   Imagen al compartir
 articles/_template/   Plantilla de artículos bilingües (ver docs/ARTICLES.md)
 docs/                 Arquitectura, artículos y tareas pendientes
@@ -47,6 +49,8 @@ El sistema de diseño compartido (tokens, componentes, idiomas, firma y Alan) vi
    ```bash
    python3 tools/build.py 20261014a
    ```
+
+   Con el sitio servido en local, regenera los PDF: `python3 tools/pdf.py http://127.0.0.1:8777/`.
 
 3. Sírvelo junto con la portada, que aporta `/assets/ds/`: una carpeta con la portada en la raíz y este repositorio en `cv/`.
 

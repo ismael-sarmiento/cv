@@ -4,10 +4,24 @@
 /* ===================== 1. Intro ===================== */
 /* only with JavaScript (the boot script adds .js); otherwise the CV shows straight away */
 #intro { display: none; }
-.js #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: var(--bg); overflow: hidden;
-  transition: opacity .45s var(--ease-out); }
+.js #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: var(--bg); overflow: hidden; }
 .js #intro[hidden] { display: none; }
-#intro.leaving { opacity: 0; }
+/* while the intro is open the hero waits; when it closes, its lines rise one after another (css/cv.css + js/intro.js) */
+body.intro-open #top .reveal.in { opacity: 0; transform: translateY(16px); }
+.hero-panel.reveal { --d: .36s; }
+/* entrance: the signature flies to its place in the bar while the intro lifts like a curtain with a gold edge */
+.intro-flyer { position: fixed; z-index: 60; margin: 0; pointer-events: none; transform-origin: 0 0; }
+.intro-flyer .sig { display: block; width: 100%; height: auto; }
+.curtain-edge { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 55; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--gold-2) 20%, var(--gold) 50%, var(--gold-2) 80%, transparent); box-shadow: 0 0 16px var(--gold); }
+body.entering .topbar .brand { opacity: 0; }
+/* coming from the portada the signature is already known: it fades in drawn, then the CV story starts */
+.intro-sig.drawn .sig { animation: sig-in .7s var(--ease-out) both; }
+@keyframes sig-in { from { opacity: 0; transform: translateY(6px); } }
+.pdf-btn { margin-top: 16px; }
+.print-head { display: none; }
+/* the title gets the focus after the entrance (for screen readers), without a visible ring */
+#hero-title:focus { outline: none; }
 body.intro-open { overflow: hidden; }
 .intro-top { position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; align-items: center; }
 .intro-stage { width: min(92vw, 880px); text-align: center; }

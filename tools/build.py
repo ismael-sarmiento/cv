@@ -5,6 +5,7 @@
   i18n/es.json, en.json  { "key": "text" } dictionaries for the shared i18n module (/assets/ds/i18n.js)
   sitemap.xml
   404.html               copy of the portada's 404 page (build the portada first)
+  (the downloadable PDFs come from tools/pdf.py, run after this build with the site served locally)
 
 Every text is in the HTML, so visitors and crawlers read the whole CV without JavaScript; js/ adds behaviour.
 The page uses the shared design system of ismael-sarmiento.github.io (/assets/ds). Run it after any change:
@@ -216,6 +217,11 @@ def head():
   <script type="application/json" id="cv-data">{data_block}</script>
 </head>'''
 
+# the PDF / printed CV opens with the signature and the contact line (hidden on screen; css/print.css shows it)
+PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
+              + SIG.replace('is-edge', 'pr-edge').replace('is-ink', 'pr-ink')
+              + '<p class="print-contact">ismaelantonio.professional@gmail.com<br>linkedin.com/in/ismael-sarmiento<br>ismael-sarmiento.github.io/cv/</p></div>')
+
 
 def intro():
     n = count('loader_milestones')
@@ -318,14 +324,15 @@ def main():
     contact = ''.join(f'''<a class="contact-link" href="{e(x["href"])}"{' rel="noopener"' if x["href"].startswith("http") else ''}>
             {T(f"contact.items.{i}.label")}<strong>{e(x["value"])}</strong></a>''' for i, x in enumerate(D['contact']['items']['es']))
     return f'''<main id="main">
+    {PRINT_HEAD}
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Ismael Sarmiento · CV Online</p>
-          <h1 id="hero-title">{T('hero.headlinePrimary', 'span', 'h1-main')}{T('hero.headlineSecondary', 'span', 'h1-sub')}</h1>
-          {T('hero.subtitle', 'p', 'lead')}
-          <ul class="ticks hero-facts">{li('hero.quickFacts')}</ul>
-          <div class="hero-cta">
+        <div class="hero-copy stagger">
+          <p class="eyebrow reveal">Ismael Sarmiento · CV Online</p>
+          <h1 id="hero-title" class="reveal">{T('hero.headlinePrimary', 'span', 'h1-main')}{T('hero.headlineSecondary', 'span', 'h1-sub')}</h1>
+          {T('hero.subtitle', 'p', 'lead reveal')}
+          <ul class="ticks hero-facts reveal">{li('hero.quickFacts')}</ul>
+          <div class="hero-cta reveal">
             <a class="btn btn-primary btn-lg btn-arrow" href="#summary">{T('ui.actions.summaryCta')}</a>
             <a class="btn btn-lg" href="#contact">{T('ui.actions.contactCta')}</a>
           </div>
@@ -346,17 +353,17 @@ def main():
     <section class="section alt" id="summary" data-section="summary">
       <div class="container">
         {section_head('ui.navigation.summary', 'summary.heading', 'summary.lead')}
-        <div class="summary-grid">
+        <div class="summary-grid stagger">
           <article class="summary-copy reveal">{ps('summary.paragraphs')}</article>
           {proofs}
         </div>
-        <div class="pillars">{pillars}</div>
+        <div class="pillars stagger">{pillars}</div>
       </div>
     </section>
 
     <section class="section detail" id="about">
       <div class="container about-grid">
-        <div class="reveal">{section_head('about.heading', 'about.heading')}{ps('about.paragraphs')}</div>
+        <div>{section_head('about.heading', 'about.heading')}<div class="reveal">{ps('about.paragraphs')}</div></div>
         <aside class="card card--static stats reveal">{stats}</aside>
       </div>
     </section>
@@ -379,36 +386,37 @@ def main():
     <section class="section detail" id="cases" data-section="cases">
       <div class="container">
         {section_head('case_studies.heading', 'case_studies.heading', 'case_studies.intro')}
-        <div class="cases-grid">{cases}</div>
+        <div class="cases-grid stagger">{cases}</div>
       </div>
     </section>
 
     <section class="section alt detail" id="timeline" data-section="timeline">
       <div class="container">
         {section_head('ui.labels.timeline', 'experience.timelineHeading')}
-        <ol class="timeline">{timeline}</ol>
+        <ol class="timeline stagger">{timeline}</ol>
       </div>
     </section>
 
     <section class="section" id="credentials">
       <div class="container">
         {section_head('ui.labels.credentials', 'credentials.heading')}
-        <div class="creds-grid">{creds}</div>
+        <div class="creds-grid stagger">{creds}</div>
       </div>
     </section>
 
     <section class="section alt detail" id="ecosystem">
       <div class="container">
         {section_head('ecosystem.heading', 'ecosystem.heading', 'ecosystem.intro')}
-        <div class="eco-grid">{eco}</div>
+        <div class="eco-grid stagger">{eco}</div>
       </div>
     </section>
 
     <section class="section" id="contact" data-section="contact">
       <div class="container">
         {section_head('contact.heading', 'contact.heading', 'contact.intro')}
-        <div class="contact-grid">
-          <div class="card card--static reveal">{T('ui.cv.contactLead', 'p')}<div class="contact-links">{contact}</div></div>
+        <div class="contact-grid stagger">
+          <div class="card card--static reveal">{T('ui.cv.contactLead', 'p')}<div class="contact-links">{contact}</div>
+            <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-i18n-href="ui.cv.pdfHref" download>{T('ui.cv.pdf')}</a></div>
           <div class="card card--static reveal">{T('ui.cv.elsewhere', 'p', 'eyebrow')}{T('ui.cv.linksNote', 'p')}<div class="contact-links">{universe}</div></div>
         </div>
       </div>
