@@ -12,6 +12,8 @@ const data = JSON.parse(document.getElementById('cv-data').textContent);
 const i18n = createI18n({ base: 'https://ismael-sarmiento.github.io/cv/', dict: code => `/cv/i18n/${code}.json?v=${VERSION}` });
 
 initDesignSystem();
+// the hero is the first screen: it rises on load (staggered), never waiting for a scroll that may not come
+document.querySelectorAll('#top .reveal').forEach(el => el.classList.add('in'));
 // ?pdf: the page as the PDF build prints it (tools/pdf.py): every text open, nothing waiting to be revealed
 if (new URLSearchParams(location.search).has('pdf')) {
   document.documentElement.classList.add('pdf');
