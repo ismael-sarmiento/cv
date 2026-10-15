@@ -50,6 +50,7 @@ body.intro-open { overflow: hidden; }
 /* ===================== 3. Sections ===================== */
 /* the long summary on the left, the three contributions stacked on the right */
 .summary-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 18px; }
+@media (min-width: 1001px) { .summary-copy { position: sticky; top: 96px; align-self: start; } }
 .summary-copy { grid-row: span 3; }
 .card > p { color: var(--text-2); }
 .summary-copy p { color: var(--text-2); font-size: 17px; }
@@ -95,7 +96,7 @@ body.intro-open { overflow: hidden; }
 .tl-role { margin: 2px 0 0; color: var(--gold-text); font-size: 14.5px; }
 .tl-period { font-family: var(--font-mono); font-size: 13px; color: var(--text-2); white-space: nowrap; }
 .tl-item > p { color: var(--text-2); margin: 0; }
-.creds-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.creds-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .contact-links { display: grid; gap: 10px; margin-top: 14px; }
 .contact-link { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
@@ -133,7 +134,8 @@ body.intro-open { overflow: hidden; }
 @media (max-width: 1100px) { .eco-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .eco-grid { grid-template-columns: 1fr; } }
-.eco h3 { font-size: 17px; margin-bottom: 12px; }
+.eco h3 { font-size: 17px; line-height: 1.25; margin-bottom: 12px; }
+@media (min-width: 1101px) { .eco h3 { min-height: 2.5em; } }
 .eco .chips li { background: transparent; }
 
 /* ===================== 5. Summary mode ===================== */

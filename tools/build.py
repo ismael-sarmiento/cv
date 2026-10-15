@@ -4,6 +4,7 @@
   index.html            the page, written in Spanish with data-i18n keys (one page; English is /cv/?lang=en)
   i18n/es.json, en.json  { "key": "text" } dictionaries for the shared i18n module (/assets/ds/i18n.js)
   sitemap.xml
+  404.html               copy of the portada's 404 page (build the portada first)
 
 Every text is in the HTML, so visitors and crawlers read the whole CV without JavaScript; js/ adds behaviour.
 The page uses the shared design system of ismael-sarmiento.github.io (/assets/ds). Run it after any change:
@@ -478,4 +479,8 @@ if __name__ == '__main__':
     for lang in ('es', 'en'):
         (ROOT / f'i18n/{lang}.json').write_text(json.dumps(DICT[lang], ensure_ascii=False, indent=0))
     (ROOT / 'sitemap.xml').write_text(SITEMAP)
+    # unknown /cv/... addresses get the portada's 404 (same origin, absolute paths); build the portada first
+    hub_404 = ROOT.parent / 'ismael-sarmiento.github.io' / '404.html'
+    if hub_404.exists():
+        (ROOT / '404.html').write_text(hub_404.read_text())
     print(f'built /cv/ (es, i18n/en.json with {len(DICT["en"])} keys) and sitemap.xml (version {VERSION})')

@@ -18,10 +18,18 @@
   document.querySelector('[data-action=open-alan]').click(); await sleep(500);
   const p = document.getElementById('assistantPanel'); ok('"Talk to Alan" opens the panel with four suggestions', !p.hidden && p.querySelectorAll('.chip').length === 4);
   p.querySelector('.chip').click(); await sleep(2000); ok('a suggestion gets an answer', p.querySelectorAll('.msg-bot').length >= 2);
+  // each question gets its own answer (Alan types for ~2 s before answering)
+  const input = p.querySelector('.as-form input'), form = p.querySelector('.as-form');
+  const ask = async q => { input.value = q; form.requestSubmit(); await sleep(2600); return [...p.querySelectorAll('.msg-bot')].pop().innerText; };
+  for (const [q, expected] of [['¿Qué es IsAcademy?', 'IsAcademy es la academia'], ['¿Lidera equipos?', 'lidera el área'],
+    ['¿Qué hace en Savana?', 'En Savana pasó'], ['¿Cómo puedo contactar con él?', 'Por correo'], ['xyzzy', 'No tengo una respuesta']]) {
+    ok(`Alan answers «${q}»`, (await ask(q)).includes(expected));
+  }
   p.querySelector('.as-close').click(); await sleep(300); ok('panel closes', p.hidden);
   const lb = document.querySelector('.topbar [data-action=lang]'); lb.click(); await sleep(400);
   ok('English via ?lang=en', document.documentElement.lang === 'en' && location.search.includes('lang=en') && lb.textContent.trim() === 'ES');
   lb.click(); await sleep(400); ok('back to Spanish', document.documentElement.lang === 'es' && !location.search.includes('lang'));
+  ok('compact timeline starts with Savana', document.querySelector('.tl-item h3')?.textContent === 'Savana');
   ok('ladder: three rungs, current on top', document.querySelectorAll('.rung').length === 3 && document.querySelector('.rung-now'));
   ok('five ecosystem groups', document.querySelectorAll('.eco').length === 5);
   ok('external links rel=noopener', [...document.querySelectorAll('a[href^="http"]')].every(a => /noopener/.test(a.rel)));

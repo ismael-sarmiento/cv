@@ -11,8 +11,8 @@
       "en": "Ismael Sarmiento · CV Online · Head of Data Management at Savana"
     },
     "description": {
-      "es": "CV Online de Ismael Sarmiento, Head of Data Management en Savana y antes Lead Data Engineer. Gobierno del dato, interoperabilidad clínica, calidad del dato, HL7 FHIR, OMOP CDM, DataHub y GitHub.",
-      "en": "CV Online of Ismael Sarmiento, Head of Data Management at Savana and formerly Lead Data Engineer. Data governance, clinical interoperability, data quality, HL7 FHIR, OMOP CDM, DataHub, AWS and GitHub."
+      "es": "CV Online de Ismael Sarmiento, Head of Data Management en Savana y antes Lead Data Engineer. Gobierno del dato, interoperabilidad clínica y calidad del dato con HL7 FHIR, OMOP CDM y DataHub.",
+      "en": "CV Online of Ismael Sarmiento, Head of Data Management at Savana and formerly Lead Data Engineer. Data governance, clinical interoperability and data quality with HL7 FHIR, OMOP CDM and DataHub."
     },
     "homeUrl": "https://ismael-sarmiento.github.io/"
   },
@@ -54,7 +54,7 @@
         "printStamp": "Exportado"
       },
       "assistant": {
-        "note": "Asistente local del CV. Responde a partir del contenido público de esta página y no utiliza datos privados ni conexión a modelos externos.",
+        "note": "Responde a partir del contenido público de esta página y no utiliza datos privados ni conexión a modelos externos.",
         "inputPlaceholder": "Pregunta por experiencia, capacidades o proyectos...",
         "send": "Enviar",
         "launcherTitle": "Asistente",
@@ -79,7 +79,7 @@
           },
           {
             "label": "Forma de trabajar",
-            "text": "Ejecución práctica, criterio arquitectónico y liderazgo técnico."
+            "text": "Ejecución práctica, criterio arquitectónico y liderazgo de equipos."
           }
         ],
         "contactLead": "La mejor forma de iniciar conversación es con un correo breve o un mensaje en LinkedIn.",
@@ -149,7 +149,7 @@
         "printStamp": "Exported"
       },
       "assistant": {
-        "note": "Local CV assistant. It answers from the public content on this page and does not use private data or any external model connection.",
+        "note": "It answers from the public content on this page and does not use private data or any external model connection.",
         "inputPlaceholder": "Ask about experience, capabilities, or projects...",
         "send": "Send",
         "launcherTitle": "Assistant",
@@ -174,7 +174,7 @@
           },
           {
             "label": "Working style",
-            "text": "Hands-on delivery, architectural judgment, and technical leadership."
+            "text": "Hands-on delivery, architectural judgment, and team leadership."
           }
         ],
         "contactLead": "The best way to start a conversation is with a short email or a LinkedIn message.",
@@ -403,8 +403,8 @@
         "en": "Savana"
       },
       "title": {
-        "es": "Senior Data Engineer → Lead Data Engineer → Head of Data Management",
-        "en": "Senior Data Engineer → Lead Data Engineer → Head of Data Management"
+        "es": "De la ingeniería de datos a liderar Data Management",
+        "en": "From data engineering to leading Data Management"
       },
       "chapter": {
         "es": "Historia principal",
@@ -412,13 +412,13 @@
       },
       "paragraphs": {
         "es": [
-          "En Savana he pasado de un rol de ejecución a una posición de liderazgo técnico con visión transversal sobre calidad, interoperabilidad y gobierno del dato, sin perder cercanía con la construcción de soluciones y el diseño de producto.",
+          "En Savana he pasado de un rol de ejecución a liderar el área de Data Management, con visión transversal sobre calidad, interoperabilidad y gobierno del dato, sin perder cercanía con la construcción de soluciones y el diseño de producto.",
           "He impulsado capacidades de interoperabilidad alrededor de HL7 FHIR, el estándar moderno para intercambio electrónico de información clínica, y OMOP CDM, el modelo común promovido por OHDSI para estandarización y analítica avanzada. Eso me permitió conectar integración operativa, analítica y necesidades reales de negocio dentro del ecosistema del dato clínico.",
           "También diseñé y evolucioné una plataforma de calidad del dato desde cero, alineada con la norma UNE 0081 de calidad del dato y apoyada en herramientas open source, hasta convertirla en una capacidad reutilizable y lista para integración vía API. A ello se suman la centralización de catálogo y metadatos en DataHub y la evolución del Data Model Explorer de Power BI a Apache Superset.",
           "Ese trabajo se completa con procesos de Data Offboarding orientados a cumplimiento, seguridad y control operativo, permitiendo seguir el recorrido del dato desde su entrada hasta su bloqueo o eliminación."
         ],
         "en": [
-          "At Savana, I moved from a hands-on engineering role into a technical leadership position with a cross-functional view of data quality, interoperability, and governance, while staying close to solution design and product thinking.",
+          "At Savana, I moved from a hands-on engineering role to leading the Data Management area, with a cross-functional view of data quality, interoperability, and governance, while staying close to solution design and product thinking.",
           "I drove interoperability capabilities around HL7 FHIR, the modern HL7 specification for healthcare data exchange, and OMOP CDM, the common data model promoted by OHDSI for standardization and advanced analytics. This allowed me to connect operational integration, analytics enablement, and real business needs across the clinical data ecosystem.",
           "I also designed and evolved a data quality platform from scratch, aligned with the UNE 0081 data quality standard and built on open source tooling, until it became a reusable capability ready for API-based integration. This was complemented by metadata and catalog centralization on DataHub, as well as lifecycle monitoring and visualization solutions, including the evolution of the Data Model Explorer from Power BI to Apache Superset.",
           "This work was completed by data offboarding processes focused on compliance, security, and operational control, making it possible to track data from ingestion to blocking or deletion."
@@ -458,52 +458,64 @@
     "timeline": {
       "es": [
         {
+          "company": "Savana",
+          "period": "2022–actualidad",
+          "role": "Head of Data Management",
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) y Head of Data Management (2025). Interoperabilidad clínica con HL7 FHIR y OMOP CDM, calidad del dato alineada con la UNE 0081, catálogo y metadatos en DataHub, y gestión del ciclo de vida del dato."
+        },
+        {
           "company": "StratioBD",
-          "period": "2021 — 2022",
-          "role": "Ingeniero de Datos",
+          "period": "2021–2022",
+          "role": "Data Engineer",
           "text": "Consolidé una visión end-to-end del dato trabajando sobre una plataforma que conectaba ingesta, procesamiento, modelado, gobierno, observabilidad y explotación. Diseñé procesos de integración y analítica sobre Apache Spark y participé en casos de uso donde el dato debía ser fiable, explicable y operable a escala."
         },
         {
           "company": "Santander Global Tech",
-          "period": "2020 — 2021",
-          "role": "Ingeniero de Software",
+          "period": "2020–2021",
+          "role": "Software Engineer",
           "text": "Contribuí al desarrollo de una plataforma bancaria de alto rendimiento en entornos batch y streaming, trabajando con tecnologías como Apache Spark, Apache Flink, Apache Kafka y Hazelcast en contextos donde la fiabilidad operativa no era opcional."
         },
         {
           "company": "BBVA Next Technologies",
-          "period": "2018 — 2020",
-          "role": "Desarrollador de Software",
+          "period": "2018–2020",
+          "role": "Software Developer",
           "text": "Participé en la modernización de soluciones de datos para fondos, pensiones y analítica corporativa, conectando automatización, cloud y utilidad de negocio en migraciones desde entornos on-premise hacia AWS."
         },
         {
           "company": "Autana Consultores de Tecnología",
-          "period": "2017 — 2018",
-          "role": "Desarrollador de Software Junior",
+          "period": "2017–2018",
+          "role": "Junior Software Developer",
           "text": "Primera etapa profesional en analítica social y geográfica, donde asenté una base temprana en tratamiento de datos, contexto de negocio y entrega de soluciones."
         }
       ],
       "en": [
         {
+          "company": "Savana",
+          "period": "2022–present",
+          "role": "Head of Data Management",
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) and Head of Data Management (2025). Clinical interoperability with HL7 FHIR and OMOP CDM, data quality aligned with UNE 0081, catalogue and metadata in DataHub, and data lifecycle management."
+        },
+        {
           "company": "StratioBD",
-          "period": "2021 — 2022",
+          "period": "2021–2022",
           "role": "Data Engineer",
           "text": "I strengthened an end-to-end understanding of data by working on a platform that connected ingestion, processing, modeling, governance, observability, and analytics. I designed integration and analytics processes on Apache Spark and worked on use cases where data needed to be reliable, explainable, and operable at scale."
         },
         {
           "company": "Santander Global Tech",
-          "period": "2020 — 2021",
+          "period": "2020–2021",
           "role": "Software Engineer",
           "text": "I contributed to a high-performance banking platform across batch and streaming environments, working with technologies such as Apache Spark, Apache Flink, Apache Kafka, and Hazelcast in contexts where operational reliability was critical."
         },
         {
           "company": "BBVA Next Technologies",
-          "period": "2018 — 2020",
+          "period": "2018–2020",
           "role": "Software Developer",
           "text": "I participated in the modernization of data solutions for pensions, investment funds, and corporate analytics, connecting automation, cloud, and business utility in migrations from on-premise environments to AWS."
         },
         {
           "company": "Autana Consultores de Tecnología",
-          "period": "2017 — 2018",
+          "period": "2017–2018",
           "role": "Junior Software Developer",
           "text": "My first professional stage in social and geographic analytics, where I built an early foundation in data processing, business context, and solution delivery."
         }
@@ -523,8 +535,8 @@
       "es": [
         {
           "id": "data-quality",
-          "title": "Plataforma de Calidad del Dato",
-          "kicker": "Calidad como capacidad de producto",
+          "title": "Plataforma de calidad del dato",
+          "kicker": "Calidad como producto",
           "summary": "Diseñé una plataforma de calidad del dato construida desde cero, basada en open source, alineada con la norma UNE 0081 de calidad del dato y evolucionada hasta convertirse en una capacidad reutilizable y preparada para integración vía API.",
           "outcomes": [
             "Validación, trazabilidad y observabilidad del dato de extremo a extremo",
@@ -535,7 +547,7 @@
         {
           "id": "interoperability",
           "title": "Interoperabilidad clínica",
-          "kicker": "Intercambio clínico y analítica avanzada",
+          "kicker": "Intercambio y analítica clínica",
           "summary": "Impulsé transformaciones de datos clínicos hacia FHIR y OMOP para conectar intercambio operativo, normalización semántica y analítica avanzada sobre una base más consistente y reutilizable.",
           "outcomes": [
             "FHIR para intercambio electrónico de información clínica",
@@ -546,8 +558,8 @@
         {
           "id": "lifecycle",
           "title": "Gestión del ciclo de vida del dato",
-          "kicker": "Visibilidad y control del dato",
-          "summary": "Contribuí a dar visibilidad y control al recorrido completo del dato, desde la entrada y la monitorización hasta el offboarding, con métricas operativas, trazabilidad y cumplimiento.",
+          "kicker": "Visibilidad y control",
+          "summary": "Contribuí a dar visibilidad y control al recorrido completo del dato, desde la entrada y la monitorización hasta el Data Offboarding, con métricas operativas, trazabilidad y cumplimiento.",
           "outcomes": [
             "Data Model Explorer como capa de visibilidad del lifecycle",
             "Evolución de Power BI hacia Apache Superset",
@@ -559,7 +571,7 @@
         {
           "id": "data-quality",
           "title": "Data Quality Platform",
-          "kicker": "Quality as a product capability",
+          "kicker": "Quality as a product",
           "summary": "I designed a Data Quality platform from scratch, built on open source tooling, aligned with the UNE 0081 data quality standard, and evolved into a reusable capability ready for API-based integration.",
           "outcomes": [
             "End-to-end validation, traceability, and observability",
@@ -570,7 +582,7 @@
         {
           "id": "interoperability",
           "title": "Clinical Interoperability",
-          "kicker": "Clinical exchange and advanced analytics",
+          "kicker": "Clinical exchange and analytics",
           "summary": "I drove clinical data transformations toward FHIR and OMOP to connect operational exchange, semantic normalization, and advanced analytics on a more consistent and reusable foundation.",
           "outcomes": [
             "FHIR for electronic healthcare information exchange",
@@ -581,8 +593,8 @@
         {
           "id": "lifecycle",
           "title": "Data Lifecycle Management",
-          "kicker": "Visibility and control across the data journey",
-          "summary": "I helped provide visibility and control across the full data journey, from ingestion and monitoring to offboarding, with operational metrics, traceability, and compliance in place.",
+          "kicker": "Visibility and control",
+          "summary": "I helped provide visibility and control across the full data journey, from ingestion and monitoring to Data Offboarding, with operational metrics, traceability, and compliance in place.",
           "outcomes": [
             "Data Model Explorer as a visibility layer for the lifecycle",
             "Evolution from Power BI to Apache Superset",
@@ -594,81 +606,77 @@
   },
   "credentials": {
     "heading": {
-      "es": "Credenciales y asociaciones",
-      "en": "Credentials and affiliations"
+      "es": "Credenciales y formación",
+      "en": "Credentials and education"
     },
     "groups": {
       "es": [
         {
-          "title": "Asociaciones y foco profesional",
-          "items": [
-            "Miembro activo de DAMA Spain",
-            "Especialización en gobierno del dato, interoperabilidad y calidad del dato",
-            "Foco en producto, plataforma y escalabilidad técnica"
-          ]
-        },
-        {
-          "title": "Certificaciones y formación",
+          "title": "Certificaciones",
           "items": [
             "CDMP Certification – Associate · DAMA International (2026)",
-            "FHIR Foundational Implementer (2025)",
-            "Experto en Gobierno y Gestión Estratégica de Datos · Mondragon Unibertsitatea (2024)",
-            "Fundamentos de Terminología SNOMED CT · SNOMED International (2026)",
-            "Building Data Lakes on AWS (Amazon Web Services) y curso preparatorio AWS Solutions Architect Associate (SAA-C03)"
+            "FHIR Foundational Implementer · VICO Open Modeling (2025)",
+            "Fundamentos de Terminología SNOMED CT · SNOMED International (2026)"
           ]
         },
         {
-          "title": "Mentoring y docencia",
+          "title": "Formación especializada",
           "items": [
-            "Fundador de IsAcademy (2023), academia online de programación, datos e IA",
-            "Formación interna en equipos técnicos a lo largo de mi carrera",
-            "Acompañamiento a personas que quieren dar el salto al mundo del dato",
-            "Documentación y transferencia de conocimiento como capacidad de equipo"
+            "Experto en Gobierno y Gestión Estratégica de Datos · Mondragon Unibertsitatea (2024)",
+            "Building Data Lakes on AWS · Amazon Web Services (2022)",
+            "Curso preparatorio AWS Certified Solutions Architect – Associate (SAA-C03) · Udemy (2023)",
+            "Big Data Management, Technologies and Analytics · Red.es (2017–2018)"
           ]
         },
         {
           "title": "Formación académica",
           "items": [
             "Ingeniero en Automática · Universidad Tecnológica de La Habana «José Antonio Echeverría», CUJAE (2012–2017)",
-            "Ingeniero Técnico Industrial · Universidad de Las Palmas de Gran Canaria (2023–2025)",
-            "Big Data Management, Technologies and Analytics · Red.es (2017–2018)"
+            "Ingeniero Técnico Industrial · Universidad de Las Palmas de Gran Canaria (2023–2025)"
+          ]
+        },
+        {
+          "title": "Comunidad y docencia",
+          "items": [
+            "Miembro activo de DAMA Spain",
+            "Fundador de IsAcademy (2023), academia online de programación, datos e IA",
+            "Formación interna en equipos técnicos a lo largo de mi carrera",
+            "Mentoring a personas que quieren dar el salto al mundo del dato"
           ]
         }
       ],
       "en": [
         {
-          "title": "Affiliations and professional focus",
-          "items": [
-            "Active member of DAMA Spain",
-            "Focused on data governance, interoperability, and data quality",
-            "A product mindset with a focus on platform and technical scalability"
-          ]
-        },
-        {
-          "title": "Certifications and training",
+          "title": "Certifications",
           "items": [
             "CDMP Certification – Associate · DAMA International (2026)",
-            "FHIR Foundational Implementer (2025)",
-            "Expert in Data Governance and Strategic Data Management · Mondragon Unibertsitatea (2024)",
-            "SNOMED CT Terminology Fundamentals · SNOMED International (2026)",
-            "Building Data Lakes on AWS (Amazon Web Services) and AWS Solutions Architect Associate (SAA-C03) preparation course"
+            "FHIR Foundational Implementer · VICO Open Modeling (2025)",
+            "SNOMED CT Terminology Fundamentals · SNOMED International (2026)"
           ]
         },
         {
-          "title": "Mentoring and teaching",
+          "title": "Specialised training",
           "items": [
-            "Founder of IsAcademy (2023), an online academy for programming, data and AI",
-            "Internal training for technical teams across multiple companies",
-            "Supporting people who want to move into the data field",
-            "Documentation and knowledge transfer as team capabilities"
+            "Expert in Data Governance and Strategic Data Management · Mondragon Unibertsitatea (2024)",
+            "Building Data Lakes on AWS · Amazon Web Services (2022)",
+            "AWS Certified Solutions Architect – Associate (SAA-C03) preparation course · Udemy (2023)",
+            "Big Data Management, Technologies and Analytics · Red.es (2017–2018)"
           ]
         },
         {
           "title": "Education",
           "items": [
             "Automation Engineer · Technological University of Havana «José Antonio Echeverría», CUJAE (2012–2017)",
-            "Industrial Technical Engineer · University of Las Palmas de Gran Canaria (2023–2025)",
-            "Big Data Management, Technologies and Analytics · Red.es (2017–2018)"
+            "Industrial Technical Engineer · University of Las Palmas de Gran Canaria (2023–2025)"
+          ]
+        },
+        {
+          "title": "Community and teaching",
+          "items": [
+            "Active member of DAMA Spain",
+            "Founder of IsAcademy (2023), an online academy for programming, data and AI",
+            "Internal training for technical teams throughout my career",
+            "Mentoring people who want to move into the data field"
           ]
         }
       ]
@@ -680,8 +688,8 @@
       "en": "Contact"
     },
     "intro": {
-      "es": "Disponible para conversar sobre plataformas de datos, interoperabilidad, calidad del dato y liderazgo técnico con foco en producto.",
-      "en": "Open to conversations about data platforms, interoperability, data quality, and technical leadership with a product mindset."
+      "es": "Disponible para conversar sobre plataformas de datos, interoperabilidad, calidad del dato y liderazgo de equipos con foco en producto.",
+      "en": "Open to conversations about data platforms, interoperability, data quality, and team leadership with a product mindset."
     },
     "items": {
       "es": [
@@ -722,8 +730,8 @@
   },
   "faq": {
     "heading": {
-      "es": "Asistente local beta",
-      "en": "Local assistant beta"
+      "es": "Alan, el asistente del CV",
+      "en": "Alan, the CV assistant"
     },
     "prompts": {
       "es": [
@@ -736,7 +744,10 @@
         "¿Cómo funcionas?",
         "¿Eres seguro?",
         "¿Puedes dar datos privados?",
-        "¿Qué certificaciones tiene?"
+        "¿Qué certificaciones tiene?",
+        "¿Qué es IsAcademy?",
+        "¿Lidera equipos?",
+        "¿Cómo puedo contactar con él?"
       ],
       "en": [
         "What is his main focus?",
@@ -748,14 +759,17 @@
         "How do you work?",
         "Are you secure?",
         "Can you share private data?",
-        "What certifications does he hold?"
+        "What certifications does he hold?",
+        "What is IsAcademy?",
+        "Does he lead teams?",
+        "How can I contact him?"
       ]
     },
     "items": {
       "es": [
         {
           "q": "¿Cuál es su foco principal?",
-          "a": "Su foco está en productos y plataformas de datos gobernados, interoperables y orientados a la calidad del dato, combinando ejecución técnica, criterio arquitectónico y liderazgo.",
+          "a": "Su foco está en productos y plataformas de datos gobernados, interoperables y confiables que ayudan a tomar decisiones con impacto real, combinando ejecución técnica, criterio arquitectónico y liderazgo de equipos.",
           "keywords": [
             "foco",
             "principal",
@@ -795,22 +809,32 @@
         },
         {
           "q": "¿Cuál es su trayectoria?",
-          "a": "Su trayectoria pasa por BBVA, Santander, Stratio y Savana, con una evolución clara desde desarrollo de software y plataformas de datos hasta liderazgo técnico en gobierno del dato, interoperabilidad y calidad del dato.",
+          "a": "Su trayectoria pasa por Autana Consultores de Tecnología, BBVA Next Technologies, Santander Global Tech, StratioBD y Savana: una evolución desde el desarrollo de software y las plataformas de datos hasta liderar Data Management, con foco en gobierno, interoperabilidad y calidad del dato.",
           "keywords": [
-            "trayectoria",
-            "career",
+            "autana",
             "bbva",
+            "career",
+            "companies",
+            "empresas",
+            "experience",
+            "experiencia",
             "santander",
-            "stratio"
+            "stratio",
+            "stratiobd",
+            "trayectoria"
           ]
         },
         {
           "q": "¿Tiene experiencia docente?",
-          "a": "Sí. Ha impartido formación interna en varias empresas y acompaña a personas que quieren dar el salto al mundo del dato. La documentación, el mentoring y la transferencia de conocimiento forman parte estable de su forma de trabajar.",
+          "a": "Sí. Fundó IsAcademy en 2023, una academia online de programación, datos e IA; ha impartido formación interna en varias empresas y acompaña a personas que quieren dar el salto al mundo del dato.",
           "keywords": [
+            "clases",
             "docencia",
-            "mentoring",
+            "docente",
+            "ensena",
             "formacion",
+            "mentoring",
+            "profesor",
             "teaching"
           ]
         },
@@ -867,12 +891,51 @@
             "mondragon",
             "titulo"
           ]
+        },
+        {
+          "q": "¿Qué es IsAcademy?",
+          "a": "IsAcademy es la academia online de programación, datos e IA que Ismael fundó en 2023: clases personalizadas de Python, SQL, Big Data, Data Engineering e IA para todas las edades. Su lema: la IA te da respuestas; aquí te enseñamos a pensar.",
+          "keywords": [
+            "isacademy",
+            "academia",
+            "alumnos",
+            "cursos",
+            "fundador"
+          ]
+        },
+        {
+          "q": "¿Lidera equipos?",
+          "a": "Sí. Como Head of Data Management en Savana lidera el área de Data Management y equipos de datos de alto rendimiento, sin perder cercanía con la arquitectura, la construcción de soluciones y el diseño de producto.",
+          "keywords": [
+            "lidera",
+            "liderazgo",
+            "lider",
+            "equipo",
+            "equipos",
+            "head",
+            "manager",
+            "gestion",
+            "responsable"
+          ]
+        },
+        {
+          "q": "¿Cómo puedo contactar con él?",
+          "a": "Por correo (ismaelantonio.professional@gmail.com) o por LinkedIn. Los dos están en la sección Contacto de esta página.",
+          "keywords": [
+            "contacto",
+            "contactar",
+            "correo",
+            "email",
+            "escribir",
+            "linkedin",
+            "hablar"
+          ]
         }
       ],
       "en": [
         {
           "q": "What is his main focus?",
-          "a": "His main focus is on governed, interoperable data products and platforms built around data quality, combining technical execution, architectural judgment, and leadership.",
+          "a": "His focus is on governed, interoperable and reliable data products and platforms that drive decisions with real impact, combining technical execution, architectural judgment and team leadership.",
           "keywords": [
             "focus",
             "main",
@@ -912,23 +975,33 @@
         },
         {
           "q": "What is his career path?",
-          "a": "His path includes BBVA, Santander, Stratio, and Savana, showing a clear evolution from software and data platforms into technical leadership around governance, interoperability, and data quality.",
+          "a": "His path goes through Autana Consultores de Tecnología, BBVA Next Technologies, Santander Global Tech, StratioBD and Savana: an evolution from software development and data platforms to leading Data Management, focused on data governance, interoperability and quality.",
           "keywords": [
-            "career",
-            "path",
+            "autana",
             "bbva",
+            "career",
+            "companies",
+            "empresas",
+            "experience",
+            "experiencia",
+            "path",
             "santander",
-            "stratio"
+            "stratio",
+            "stratiobd"
           ]
         },
         {
           "q": "Does he have teaching experience?",
-          "a": "Yes. He has delivered internal training in several companies and supports people moving into the data field. Documentation, mentoring, and knowledge transfer are stable parts of how he works.",
+          "a": "Yes. He founded IsAcademy in 2023, an online academy for programming, data and AI; he has delivered internal training in several companies and supports people moving into the data field.",
           "keywords": [
-            "teaching",
+            "classes",
+            "knowledge",
+            "lessons",
             "mentoring",
-            "training",
-            "knowledge"
+            "teacher",
+            "teaches",
+            "teaching",
+            "training"
           ]
         },
         {
@@ -983,6 +1056,45 @@
             "snomed",
             "mondragon",
             "degree"
+          ]
+        },
+        {
+          "q": "What is IsAcademy?",
+          "a": "IsAcademy is the online academy for programming, data and AI that Ismael founded in 2023: tailored lessons in Python, SQL, Big Data, Data Engineering and AI for all ages. Its motto: AI gives you answers; here we teach you how to think.",
+          "keywords": [
+            "isacademy",
+            "academy",
+            "students",
+            "courses",
+            "founder"
+          ]
+        },
+        {
+          "q": "Does he lead teams?",
+          "a": "Yes. As Head of Data Management at Savana he leads the Data Management area and high-performing data teams, while staying close to architecture, solution building and product design.",
+          "keywords": [
+            "lead",
+            "leads",
+            "leadership",
+            "leader",
+            "team",
+            "teams",
+            "head",
+            "manager",
+            "management"
+          ]
+        },
+        {
+          "q": "How can I contact him?",
+          "a": "By email (ismaelantonio.professional@gmail.com) or on LinkedIn. Both are in the Contact section of this page.",
+          "keywords": [
+            "contact",
+            "email",
+            "mail",
+            "write",
+            "linkedin",
+            "reach",
+            "talk"
           ]
         }
       ]
@@ -1054,8 +1166,15 @@
           },
           {
             "label": {
-              "es": "Validación y observabilidad",
-              "en": "Validation and observability"
+              "es": "Validación",
+              "en": "Validation"
+            },
+            "href": null
+          },
+          {
+            "label": {
+              "es": "Observabilidad",
+              "en": "Observability"
             },
             "href": null
           },
