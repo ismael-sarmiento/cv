@@ -69,7 +69,7 @@ assert set(DICT['es']) == set(DICT['en']), 'Spanish and English must have the sa
 sha = lambda s: base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()
 # applied before the first paint: shared theme choice + a flag that lets CSS show the intro only with JavaScript
 BOOT = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('isa-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}"
-DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
+DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/favicon.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
 IMPORT_MAP = json.dumps({'imports': {m: f'{m}?v={VERSION}' for m in MODULES}}, separators=(',', ':'))
@@ -204,7 +204,10 @@ def head():
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{e(m['title']['es'])}">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/brand/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" data-theme-icon="light">
+  <link rel="icon" href="/assets/brand/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" data-theme-icon="dark">
+  <link rel="icon" href="/assets/brand/favicon-light-32.png" sizes="32x32" type="image/png" media="(prefers-color-scheme: light)" data-theme-icon="light">
+  <link rel="icon" href="/assets/brand/favicon-dark-32.png" sizes="32x32" type="image/png" media="(prefers-color-scheme: dark)" data-theme-icon="dark">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <script>{BOOT}</script>
   <link rel="preload" href="/assets/ds/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>

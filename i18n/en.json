@@ -38,7 +38,7 @@
 "ui.labels.layers": "Layers",
 "ui.labels.printStamp": "Exported",
 "ui.assistant.note": "It answers from the public content on this page and does not use private data or any external model connection.",
-"ui.assistant.inputPlaceholder": "Ask about experience, capabilities, or projects...",
+"ui.assistant.inputPlaceholder": "Type your question…",
 "ui.assistant.send": "Send",
 "ui.assistant.launcherTitle": "Assistant",
 "ui.assistant.launcherQuestion": "What do you want to do?",

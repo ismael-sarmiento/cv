@@ -55,7 +55,7 @@
       },
       "assistant": {
         "note": "Responde a partir del contenido público de esta página y no utiliza datos privados ni conexión a modelos externos.",
-        "inputPlaceholder": "Pregunta por experiencia, capacidades o proyectos...",
+        "inputPlaceholder": "Escribe tu pregunta…",
         "send": "Enviar",
         "launcherTitle": "Asistente",
         "launcherQuestion": "¿Qué quieres hacer?",
@@ -154,7 +154,7 @@
       },
       "assistant": {
         "note": "It answers from the public content on this page and does not use private data or any external model connection.",
-        "inputPlaceholder": "Ask about experience, capabilities, or projects...",
+        "inputPlaceholder": "Type your question…",
         "send": "Send",
         "launcherTitle": "Assistant",
         "launcherQuestion": "What do you want to do?",

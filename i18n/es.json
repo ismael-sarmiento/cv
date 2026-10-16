@@ -38,7 +38,7 @@
 "ui.labels.layers": "Capas",
 "ui.labels.printStamp": "Exportado",
 "ui.assistant.note": "Responde a partir del contenido público de esta página y no utiliza datos privados ni conexión a modelos externos.",
-"ui.assistant.inputPlaceholder": "Pregunta por experiencia, capacidades o proyectos...",
+"ui.assistant.inputPlaceholder": "Escribe tu pregunta…",
 "ui.assistant.send": "Enviar",
 "ui.assistant.launcherTitle": "Asistente",
 "ui.assistant.launcherQuestion": "¿Qué quieres hacer?",
