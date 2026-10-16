@@ -30,7 +30,7 @@ tools/build.py        Genera index.html (en español, con claves de traducción)
 tools/pdf.py          Genera ismael-sarmiento-cv.pdf y ismael-sarmiento-cv-en.pdf con Chrome (sitio servido en local)
 tools/qa/flows.js     Comprueba en el navegador que cada botón hace lo que debe
 i18n/                 Diccionarios generados para el cambio de idioma (/assets/ds/i18n.js)
-js/                   app.js (entrada) · intro · view (modo resumen) · nav · assistant (Alan)
+js/                   app.js (entrada; la intro es la común de /assets/ds/intro.js) · view (modo resumen) · nav · assistant (Alan)
 css/cv.css            Estilos propios, encima del sistema de diseño compartido
 css/print.css         Diseño en papel: el PDF y la impresión desde el navegador
 assets/brand/og.png   Imagen al compartir

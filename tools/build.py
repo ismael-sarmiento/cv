@@ -69,7 +69,8 @@ assert set(DICT['es']) == set(DICT['en']), 'Spanish and English must have the sa
 sha = lambda s: base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()
 # applied before the first paint: shared theme choice + a flag that lets CSS show the intro only with JavaScript
 BOOT = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('isa-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}"
-DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/avatar.js', '/assets/ds/assistant.js']
+DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
+              '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
 IMPORT_MAP = json.dumps({'imports': {m: f'{m}?v={VERSION}' for m in MODULES}}, separators=(',', ':'))
 CSP = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com "
@@ -100,6 +101,7 @@ def count(prefix):
     return n
 
 
+DOWNLOAD = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19.5h14"/></svg>'
 MOON = '<svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.7 14.4A8.5 8.5 0 0 1 9.6 3.3a.7.7 0 0 0-.8-.8A10.2 10.2 0 1 0 21.5 15a.7.7 0 0 0-.8-.6Z"/></svg>'
 SUN = '<svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>'
 WORD, WX = 'mael Sarmiento', 296
@@ -208,6 +210,7 @@ def head():
   <link rel="preload" href="/assets/ds/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{v('/assets/ds/tokens.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/base.css')}">
+  <link rel="stylesheet" href="{v('/assets/ds/intro.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/assistant.css')}">
   <link rel="stylesheet" href="{v('/cv/css/cv.css')}">
   <link rel="stylesheet" href="{v('/cv/css/print.css')}" media="print">
@@ -220,14 +223,14 @@ def head():
 # the PDF / printed CV opens with the signature and the contact line (hidden on screen; css/print.css shows it)
 PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
               + SIG.replace('is-edge', 'pr-edge').replace('is-ink', 'pr-ink')
-              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/">ismael-sarmiento.github.io/cv/</a></p></div>')
+              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
 
 
 def intro():
     n = count('loader_milestones')
     segs = ''.join('<span></span>' for _ in range(n))
     steps = ''.join(T(f'loader_milestones.{i}', 'li') for i in range(n))
-    return f'''<div id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    return f'''<div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
     <div class="intro-top">{toggles()}<button class="btn" type="button" data-action="skip">{T('ui.cv.skip')}</button></div>
     <div class="intro-stage">
       <p class="sr-only" id="intro-title">Ismael Sarmiento · CV Online</p>
@@ -247,7 +250,7 @@ def topbar():
     return f'''<header class="topbar">
     <div class="container topbar-row">
       <a class="brand" href="/" data-i18n-href="ui.cv.homeHref" aria-label="Ismael Sarmiento"><span class="brand-is" aria-hidden="true">Is</span><span class="brand-name" aria-hidden="true">mael Sarmiento</span></a>
-      <a class="pill brand-tag" href="#top">CV Online</a>
+      <a class="btn pdf-mini" href="/cv/ismael-sarmiento-cv.pdf" data-i18n-href="ui.cv.pdfHref" download {A('aria-label', 'ui.cv.pdf')}>{DOWNLOAD}{T('ui.navigation.pdf')}</a>
       <nav class="nav" {A('aria-label', 'ui.cv.primaryNav')}>
         <a href="#summary" data-nav="summary">{T('ui.navigation.summary')}</a>
         <a href="#story" data-nav="story">{T('ui.navigation.story')}</a>

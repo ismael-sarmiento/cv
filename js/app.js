@@ -2,7 +2,7 @@
 // All text is already in the HTML (tools/build.py); English comes from i18n/en.json with ?lang=en, as in IsAcademy.
 import { initDesignSystem } from '/assets/ds/ds.js';
 import { createI18n } from '/assets/ds/i18n.js';
-import { initIntro } from './intro.js';
+import { initIntro } from '/assets/ds/intro.js';
 import { initView } from './view.js';
 import { initNav } from './nav.js';
 import { initAssistant } from './assistant.js';
@@ -24,5 +24,5 @@ initView();
 initNav();
 initAssistant(data, i18n);
 await i18n.start();
-initIntro(data, i18n);
+initIntro({ i18n, steps: () => data[i18n.lang()].steps });
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });

@@ -13,7 +13,7 @@ p { margin: 0 0 1.6mm; }
 
 /* only the CV: no intro, bar, assistant, buttons, toggles or blocks that repeat other sections */
 #intro, .topbar, .assistant-fab, .as-panel, #assistant, .hero-cta, .hero-panel, .pillars, .skip-link, .summary-notice,
-.footer-links, .pdf-btn, .more > summary, .intro-flyer, .curtain-edge, #contact { display: none !important; }   /* contact: in the header */
+.footer-links, .pdf-btn, .more > summary, .intro-flyer, #contact { display: none !important; }   /* contact: in the header */
 body.summary-mode .detail { display: block !important; }
 .reveal, .rung, .ladder * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
 details::details-content { block-size: auto !important; content-visibility: visible !important; }

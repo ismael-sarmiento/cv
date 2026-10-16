@@ -33,8 +33,9 @@
   ok('ladder: three rungs, current on top', document.querySelectorAll('.rung').length === 3 && document.querySelector('.rung-now'));
   ok('five ecosystem groups', document.querySelectorAll('.eco').length === 5);
   ok('external links rel=noopener', [...document.querySelectorAll('a[href^="http"]')].every(a => /noopener/.test(a.rel)));
-  ok('bar controls share one height', new Set([...document.querySelectorAll('.tools > .btn')].filter(b => b.offsetParent).map(b => Math.round(b.getBoundingClientRect().height))).size === 1);
+  ok('bar controls share one height', new Set([...document.querySelectorAll('.topbar-row > .btn, .tools > .btn')].filter(b => b.offsetParent).map(b => Math.round(b.getBoundingClientRect().height))).size === 1);
   ok('single h1', document.querySelectorAll('h1').length === 1);
+  ok('the PDF button of the bar points to the PDF of the language', document.querySelector('.pdf-mini').getAttribute('href') === '/cv/ismael-sarmiento-cv.pdf');
   ok('no horizontal overflow', document.documentElement.scrollWidth <= innerWidth);
   console.log(R.join('\n'));
   return R.filter(r => r.startsWith('FAIL')).length ? 'FAILURES' : 'ALL PASS';

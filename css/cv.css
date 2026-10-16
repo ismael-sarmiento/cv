@@ -2,41 +2,14 @@
    1. Intro   2. Hero   3. Sections   4. Read more and Alan   5. Summary mode   6. Responsive */
 
 /* ===================== 1. Intro ===================== */
-/* only with JavaScript (the boot script adds .js); otherwise the CV shows straight away */
-#intro { display: none; }
-.js #intro { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: var(--bg); overflow: hidden; }
-.js #intro[hidden] { display: none; }
-/* while the intro is open the hero waits; when it closes, its lines rise one after another (css/cv.css + js/intro.js) */
-body.intro-open #top .reveal.in { opacity: 0; transform: translateY(16px); }
+/* the intro is the one shared by every site (/assets/ds/intro.css + intro.js); here only what is the CV's own */
 .hero-panel.reveal { --d: .36s; }
-/* entrance: the signature flies to its place in the bar while the intro lifts like a curtain with a gold edge */
-.intro-flyer { position: fixed; z-index: 60; margin: 0; pointer-events: none; transform-origin: 0 0; }
-.intro-flyer .sig { display: block; width: 100%; height: auto; }
-.curtain-edge { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 55; pointer-events: none;
-  background: linear-gradient(90deg, transparent, var(--gold-2) 20%, var(--gold) 50%, var(--gold-2) 80%, transparent); box-shadow: 0 0 16px var(--gold); }
-body.entering .topbar .brand { opacity: 0; }
-/* coming from the portada the signature is already known: it fades in drawn, then the CV story starts */
-.intro-sig.drawn .sig { animation: sig-in .7s var(--ease-out) both; }
-@keyframes sig-in { from { opacity: 0; transform: translateY(6px); } }
 .pdf-btn { margin-top: 16px; }
 .print-head { display: none; }
-/* the title gets the focus after the entrance (for screen readers), without a visible ring */
-#hero-title:focus { outline: none; }
-body.intro-open { overflow: hidden; }
-.intro-top { position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; align-items: center; }
-.intro-stage { width: min(92vw, 880px); text-align: center; }
-.intro-sig .sig { width: min(820px, 100%); margin: 0 auto; }
-.intro-after, .intro-actions { opacity: 0; transform: translateY(8px); transition: opacity .7s ease, transform .7s var(--ease-out); }
-#intro.after .intro-after, #intro.ready .intro-actions { opacity: 1; transform: none; }
-.intro-tag { display: table; margin: 6px auto 14px; }
-.intro-hook { font-size: clamp(16px, 2.1vw, 20px); color: var(--text-2); max-width: 46ch; margin: 0 auto 22px; }
-.intro-milestones { width: min(520px, 100%); margin: 0 auto 26px; }
-.intro-segs { display: grid; grid-auto-flow: column; gap: 6px; margin-bottom: 12px; }
-.intro-segs span { height: 3px; border-radius: 3px; background: var(--line); transition: background .5s ease; }
-.intro-segs span.on { background: linear-gradient(90deg, var(--gold), var(--gold-2)); }
-.intro-step { min-height: 1.6em; margin: 0; color: var(--text); font-weight: 500; }
-.intro-step.swap { animation: step-in .45s var(--ease-out); }
-@keyframes step-in { from { opacity: 0; transform: translateY(6px); } }
+/* the PDF, one click away from the bar */
+.pdf-mini { gap: 6px; padding-inline: 14px; }
+.pdf-mini svg { flex: none; }
+@media (max-width: 420px) { .pdf-mini { gap: 4px; padding-inline: 10px; } }
 
 /* ===================== 2. Hero ===================== */
 .hero { padding: 72px 0 80px; }
@@ -177,7 +150,6 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
   .tl-head { flex-direction: column; gap: 4px; }
   .alan { grid-template-columns: 1fr; text-align: left; padding: 24px; }
   .alan-avatar { width: 96px; height: 96px; }
-  .intro-top { left: 16px; justify-content: flex-end; flex-wrap: wrap; }
   .contact-link { flex-direction: column; gap: 2px; }
   .contact-link strong { text-align: left; }
 }

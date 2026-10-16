@@ -21,10 +21,11 @@
 
 ## Behaviour (js/)
 
-- `app.js` wires everything (`?pdf` opens every text for the PDF build). `intro.js`: once per session, skipped on deep links
-  and `?pdf`, "Saltar intro" / Escape; coming from the portada the signature appears already drawn. "Entrar al CV" plays
-  the entrance: the signature flies to the bar, the intro lifts like a curtain with a gold edge and the hero rises line by
-  line (`.stagger` in `/assets/ds/base.css`).
+- `app.js` wires everything (`?pdf` opens every text for the PDF build) and starts the intro shared by every site
+  (`/assets/ds/intro.js` + `intro.css`) with the CV milestones: every visit, skipped on deep links and `?pdf`, `#top`
+  counts as the start; "Saltar intro" / Escape; coming from another site of the universe the signature appears already
+  drawn. "Entrar al CV" plays the entrance: the "Is" flies to the seal of the bar leaving gold ink, the name breaks into
+  pixels and the page appears underneath while the hero rises line by line (`.stagger` in `/assets/ds/base.css`).
 - `view.js`: summary mode hides `.detail` sections; `nav.js`: scroll spy and leaving summary mode for hidden targets.
 - `assistant.js`: Alan from `/assets/ds/assistant.js` with a keyword matcher over the CV FAQ; tucked while the assistant
   section is visible and during the intro; it follows the page language.
