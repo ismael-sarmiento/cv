@@ -220,7 +220,7 @@ def head():
 # the PDF / printed CV opens with the signature and the contact line (hidden on screen; css/print.css shows it)
 PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
               + SIG.replace('is-edge', 'pr-edge').replace('is-ink', 'pr-ink')
-              + '<p class="print-contact">ismaelantonio.professional@gmail.com<br>linkedin.com/in/ismael-sarmiento<br>ismael-sarmiento.github.io/cv/</p></div>')
+              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/">ismael-sarmiento.github.io/cv/</a></p></div>')
 
 
 def intro():

@@ -1,19 +1,15 @@
 // Intro, as in IsAcademy: the signature ("Is" sketched + "mael Sarmiento" decoded), then "CV Online", the hook and
 // the impact milestones on one line. "Entrar al CV" plays the entrance: the signature flies to its place in the bar
-// while the intro lifts like a curtain with a gold edge, and the hero rises line by line. Once per browser session,
-// never on deep links (#section); "Saltar intro" or Escape jump straight to the end.
+// while the intro lifts like a curtain with a gold edge, and the hero rises line by line. Every visit, as IsAcademy;
+// deep links (#section) and the PDF build go straight to the page; "Saltar intro" or Escape jump to the end.
 import { reducedMotion } from '/assets/ds/ds.js';
 import { playSignature, skipSignature, fitSignature } from '/assets/ds/signature.js';
 
-const KEY = 'cv-intro-seen';
 const STEP_MS = 1600;                       // enough to read a milestone of 6–8 words
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const settled = anim => anim.finished.catch(() => {});
-
-function seen() { try { return sessionStorage.getItem(KEY) === '1'; } catch { return false; } }
-function remember() { try { sessionStorage.setItem(KEY, '1'); } catch { /* storage unavailable */ } }
 
 // a visitor coming from the portada has just watched the signature being drawn there
 function fromPortada() {
@@ -33,8 +29,11 @@ function inkBox(svg) {
 export function initIntro(data, i18n) {
   const intro = document.getElementById('intro');
   if (!intro) return;
-  // the PDF build (?pdf) and deep links (#section) skip the intro
-  if (seen() || location.hash || new URLSearchParams(location.search).has('pdf')) { intro.hidden = true; return; }
+  // #top is the start of the page, not a deep link: a refresh there plays the intro again (as #hero in IsAcademy)
+  if (location.hash === '#top') history.replaceState(history.state, '', location.pathname + location.search);
+  // deep links (#contact from an email, #cases from a message) and the PDF build (?pdf) go straight to the page
+  const deepLink = location.hash && document.getElementById(location.hash.slice(1));
+  if (deepLink || new URLSearchParams(location.search).has('pdf')) { intro.hidden = true; return; }
 
   const svg = intro.querySelector('.sig');
   const steps = () => data[i18n.lang()].steps;
@@ -61,7 +60,6 @@ export function initIntro(data, i18n) {
   };
   // the end state, whatever happened before: page visible, hero risen, intro gone
   const settle = () => {
-    remember();
     document.body.classList.remove('intro-open', 'entering');
     intro.hidden = true;
     document.querySelectorAll('.intro-flyer, .curtain-edge').forEach(el => el.remove());
