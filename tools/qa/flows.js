@@ -35,7 +35,18 @@
   ok('external links rel=noopener', [...document.querySelectorAll('a[href^="http"]')].every(a => /noopener/.test(a.rel)));
   ok('bar controls share one height', new Set([...document.querySelectorAll('.topbar-row > .btn, .tools > .btn')].filter(b => b.offsetParent).map(b => Math.round(b.getBoundingClientRect().height))).size === 1);
   ok('single h1', document.querySelectorAll('h1').length === 1);
-  ok('the PDF button of the bar points to the PDF of the language', document.querySelector('.pdf-mini').getAttribute('href') === '/cv/ismael-sarmiento-cv.pdf');
+  // the PDF links follow the language and the theme of the page (js/pdf.js)
+  const pdfs = () => [...new Set([...document.querySelectorAll('[data-pdf]')].map(x => x.getAttribute('href')))];
+  const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+  ok('three PDF links (bar, intro, contact) share one file', document.querySelectorAll('[data-pdf]').length === 3 && pdfs().length === 1);
+  ok('PDF of the language and theme shown', pdfs()[0] === `/cv/ismael-sarmiento-cv${dark ? '-dark' : ''}.pdf`);
+  document.querySelector('.topbar [data-action=theme]').click(); await sleep(50);
+  ok('changing the theme changes the PDF', pdfs()[0] === `/cv/ismael-sarmiento-cv${dark ? '' : '-dark'}.pdf`);
+  document.querySelector('.topbar [data-action=theme]').click();
+  document.querySelector('.topbar [data-action=lang]').click(); await sleep(400);
+  ok('changing the language changes the PDF', pdfs()[0] === `/cv/ismael-sarmiento-cv-en${dark ? '-dark' : ''}.pdf`);
+  document.querySelector('.topbar [data-action=lang]').click(); await sleep(400);
+  ok('the intro offers «Entrar al CV» and «Descargar PDF»', document.querySelectorAll('#intro .intro-actions .btn').length === 2);
   ok('no horizontal overflow', document.documentElement.scrollWidth <= innerWidth);
   console.log(R.join('\n'));
   return R.filter(r => r.startsWith('FAIL')).length ? 'FAILURES' : 'ALL PASS';

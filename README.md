@@ -17,7 +17,7 @@ interoperabilidad clínica, calidad de datos de extremo a extremo y plataformas 
 - Resumen ejecutivo, trayectoria en Savana (escalera Senior → Lead → Head), casos destacados, trayectoria compacta,
   credenciales (CDMP de DAMA International, DAMA Spain, formación académica) y contacto.
 - Modo resumen para una lectura rápida (`?view=summary`) y textos largos que se despliegan con «Leer más».
-- CV en PDF descargable (español e inglés) con el mismo diseño que la web, generado con `tools/pdf.py`.
+- CV en PDF descargable en el idioma y el tema de la página (español/inglés × claro/oscuro), con el mismo diseño que la web, generado con `tools/pdf.py`; se descarga desde la intro, la barra y Contacto.
 - **Alan**, el asistente compartido con IsAcademy: local y en beta, responde solo con el contenido público del CV.
 - Ecosistema por temas: interoperabilidad clínica, gobierno del dato, calidad del dato (UNE 0081), plataforma y cloud, e IA.
 - SEO técnico: `canonical` e `hreflang`, `sitemap.xml`, Open Graph y JSON-LD (`ProfilePage` + la `Person` de la portada).
@@ -27,7 +27,7 @@ interoperabilidad clínica, calidad de datos de extremo a extremo y plataformas 
 ```
 data/content.json     Todo el contenido en español e inglés (única fuente de textos)
 tools/build.py        Genera index.html (en español, con claves de traducción), i18n/es.json, i18n/en.json y sitemap.xml
-tools/pdf.py          Genera ismael-sarmiento-cv.pdf y ismael-sarmiento-cv-en.pdf con Chrome (sitio servido en local)
+tools/pdf.py          Genera los cuatro PDF (ismael-sarmiento-cv[-en][-dark].pdf) con Chrome (sitio servido en local)
 tools/qa/flows.js     Comprueba en el navegador que cada botón hace lo que debe
 i18n/                 Diccionarios generados para el cambio de idioma (/assets/ds/i18n.js)
 js/                   app.js (entrada; la intro es la común de /assets/ds/intro.js) · view (modo resumen) · nav · assistant (Alan)

@@ -5,7 +5,7 @@
 /* the intro is the one shared by every site (/assets/ds/intro.css + intro.js); here only what is the CV's own */
 .hero-panel.reveal { --d: .36s; }
 .pdf-btn { margin-top: 16px; }
-.print-head { display: none; }
+.print-head, .print-foot { display: none; }
 /* the PDF, one click away from the bar */
 .pdf-mini { gap: 6px; padding-inline: 14px; }
 .pdf-mini svg { flex: none; }

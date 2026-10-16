@@ -241,7 +241,10 @@ def intro():
         <div class="intro-milestones" aria-hidden="true"><div class="intro-segs">{segs}</div><p class="intro-step"></p></div>
         <ol class="sr-only" {A('aria-label', 'ui.cv.introLabel')}>{steps}</ol>
       </div>
-      <div class="intro-actions"><button class="btn btn-primary btn-lg btn-arrow" type="button" data-action="enter">{T('ui.cv.enter')}</button></div>
+      <div class="intro-actions">
+        <button class="btn btn-primary btn-lg btn-arrow" type="button" data-action="enter">{T('ui.cv.enter')}</button>
+        <a class="btn btn-lg" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download>{DOWNLOAD}{T('ui.cv.introPdf')}</a>
+      </div>
     </div>
   </div>'''
 
@@ -250,7 +253,7 @@ def topbar():
     return f'''<header class="topbar">
     <div class="container topbar-row">
       <a class="brand" href="/" data-i18n-href="ui.cv.homeHref" aria-label="Ismael Sarmiento"><span class="brand-is" aria-hidden="true">Is</span><span class="brand-name" aria-hidden="true">mael Sarmiento</span></a>
-      <a class="btn pdf-mini" href="/cv/ismael-sarmiento-cv.pdf" data-i18n-href="ui.cv.pdfHref" download {A('aria-label', 'ui.cv.pdf')}>{DOWNLOAD}{T('ui.navigation.pdf')}</a>
+      <a class="btn pdf-mini" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download {A('aria-label', 'ui.cv.pdf')}>{DOWNLOAD}{T('ui.navigation.pdf')}</a>
       <nav class="nav" {A('aria-label', 'ui.cv.primaryNav')}>
         <a href="#summary" data-nav="summary">{T('ui.navigation.summary')}</a>
         <a href="#story" data-nav="story">{T('ui.navigation.story')}</a>
@@ -419,7 +422,7 @@ def main():
         {section_head('contact.heading', 'contact.heading', 'contact.intro')}
         <div class="contact-grid stagger">
           <div class="card card--static reveal">{T('ui.cv.contactLead', 'p')}<div class="contact-links">{contact}</div>
-            <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-i18n-href="ui.cv.pdfHref" download>{T('ui.cv.pdf')}</a></div>
+            <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download>{T('ui.cv.pdf')}</a></div>
           <div class="card card--static reveal">{T('ui.cv.elsewhere', 'p', 'eyebrow')}{T('ui.cv.linksNote', 'p')}<div class="contact-links">{universe}</div></div>
         </div>
       </div>
@@ -451,6 +454,7 @@ def footer():
         <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/">IsAcademy</a><a href="https://github.com/kimera-tools" rel="noopener">Kimera Tools</a>
         <a href="{e(D['meta']['linkedin'])}" rel="noopener me">LinkedIn</a><a href="{e(D['meta']['github'])}" rel="noopener me">GitHub</a>
       </nav>
+      <p class="print-foot">{T('ui.cv.printOnline')}: <a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a> · IsAcademy: <a href="https://ismael-sarmiento.github.io/isacademy/" rel="noopener">ismael-sarmiento.github.io/isacademy/</a></p>
     </div>
   </footer>'''
 

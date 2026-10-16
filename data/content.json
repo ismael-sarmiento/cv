@@ -111,7 +111,9 @@
         "elsewhere": "También me encuentras en",
         "summaryNotice": "Modo resumen: estás viendo lo esencial del CV.",
         "pdf": "Descargar CV en PDF",
-        "pdfHref": "/cv/ismael-sarmiento-cv.pdf"
+        "pdfHref": "/cv/ismael-sarmiento-cv.pdf",
+        "introPdf": "Descargar PDF",
+        "printOnline": "Versión interactiva"
       }
     },
     "en": {
@@ -208,7 +210,9 @@
         "elsewhere": "You can also find me at",
         "summaryNotice": "Summary mode: you are seeing the essentials of the CV.",
         "pdf": "Download CV as PDF",
-        "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf"
+        "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf",
+        "introPdf": "Download PDF",
+        "printOnline": "Interactive version"
       }
     }
   },
@@ -319,14 +323,14 @@
       "es": [
         "Crecimiento interno en Savana: Senior Data Engineer → Lead Data Engineer → Head of Data Management",
         "Certificación CDMP (Associate) de DAMA International y miembro activo de DAMA Spain",
-        "Especialización en gobierno del dato, interoperabilidad clínica y calidad del dato",
+        "Interoperabilidad clínica con HL7 FHIR y OMOP CDM y calidad del dato alineada con la UNE 0081",
         "Perfil técnico con foco en producto y escalabilidad",
         "Liderazgo de equipos de alto rendimiento"
       ],
       "en": [
         "Internal growth at Savana: Senior Data Engineer → Lead Data Engineer → Head of Data Management",
         "CDMP (Associate) certified by DAMA International and active member of DAMA Spain",
-        "Focused on data governance, clinical interoperability, and data quality",
+        "Clinical interoperability with HL7 FHIR and OMOP CDM, and data quality aligned with UNE 0081",
         "Technical profile focused on product and scalability",
         "Leading high-performing teams"
       ]

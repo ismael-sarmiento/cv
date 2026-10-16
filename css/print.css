@@ -1,13 +1,21 @@
 /* CV Online — the PDF (tools/pdf.py) and printing from the browser: the web design on A4 (white paper, cream cards,
    brand gold), every text open, nothing interactive and no repeated blocks. A4 is ~720 px wide, which would trigger
    the phone layout, so the print grid is set explicitly here. */
-@page { size: A4; margin: 13mm 13mm 14mm; }
+/* no page margins: the paper colour reaches the edge; the body pads every page instead (clone repeats the padding
+   on each page), so the dark PDF has no white frame */
+@page { size: A4; margin: 0; }
+/* paper in the theme of the page: white paper and cream cards, or the night of the dark theme (tools/pdf.py ?pdf=dark) */
 :root, :root[data-theme] {
   --bg: #fff; --bg-alt: #fff; --surface: #fbf7ef; --text: #1c2547; --text-2: #4a5170; --line: rgba(28, 37, 71, .13);
   --gold: #b58534; --gold-2: #c8953f; --gold-text: #7a5212; --shadow: none; --shadow-sm: none; color-scheme: light;
 }
+:root[data-theme="dark"] {
+  --bg: #0b1026; --bg-alt: #0b1026; --surface: #141b40; --text: #f6f1e7; --text-2: #b9bdd3; --line: rgba(255, 255, 255, .14);
+  --gold: #c8953f; --gold-2: #e2b25c; --gold-text: #e2b25c; color-scheme: dark;
+}
 * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-html, body { background: #fff !important; }
+html, body { background: var(--bg) !important; }
+body { padding: 11mm 13mm 12mm; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 body { font-size: 9pt; line-height: 1.45; color: var(--text); }
 p { margin: 0 0 1.6mm; }
 
@@ -29,7 +37,7 @@ a { color: inherit; text-decoration: none; }
 
 /* rhythm: the web hierarchy, tighter */
 .container { max-width: none !important; padding: 0 !important; }
-.section, .hero { padding: 4.5mm 0 0 !important; background: transparent !important; }
+.section, .hero { padding: 3.6mm 0 0 !important; background: transparent !important; }
 .hero-grid { display: block !important; }
 .hero .eyebrow { margin-bottom: 1mm; }
 .hero h1 { margin-bottom: 2mm; }
@@ -70,9 +78,13 @@ h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height:
 .eco .chips { display: block !important; }
 .eco .chips li { display: block; border: 0 !important; background: none !important; padding: 0 !important; font-size: 8pt; line-height: 1.5; }
 .eco .chips li a { padding: 0 !important; border: 0 !important; background: none !important; font-size: 8pt !important; }
+.eco .chips li, .eco .chips li a { white-space: normal !important; }   /* the narrow paper columns may wrap */
 
 /* page breaks: titles stay with their content, blocks never split */
 h2, h3 { break-after: avoid; }
 .card, .tl-item, .layer, .stat, .rung, .contact-link, .ladder { break-inside: avoid; }
 
+/* the way back to the interactive CV and to IsAcademy */
+.print-foot { display: block !important; margin: 1.5mm 0 0; font-size: 7.5pt; color: var(--text-2); }
+.print-foot a { color: var(--gold-text); }
 .footer { padding: 3mm 0 0 !important; border-top: .7pt solid var(--line); margin-top: 5mm; background: transparent !important; font-size: 7.5pt; }
