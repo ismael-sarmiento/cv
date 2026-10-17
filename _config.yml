@@ -1,0 +1,8 @@
+# GitHub Pages serves only CV Online: the files for agents, the README, the docs, the build tools and the content
+# source (data/, already inlined in index.html) stay in the repository but are not published.
+exclude:
+  - AGENTS.md
+  - README.md
+  - docs
+  - tools
+  - data

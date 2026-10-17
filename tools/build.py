@@ -74,7 +74,7 @@ BOOT = ("var d=document.documentElement;d.classList.add('js');try{var t=localSto
         "if(t==='light'||t==='dark')d.dataset.theme=t;var q=new URLSearchParams(location.search).get('lang');"
         "if(q==='en'||(q!=='es'&&localStorage.getItem('isa-lang')==='en'))d.classList.add('i18n-wait');"
         "var h=+sessionStorage.getItem('sig-handoff');if(h&&Date.now()-h<4000)d.classList.add('sig-handoff')}catch(e){}")
-DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/favicon.js', '/assets/ds/contact.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
+DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/frame-guard.js', '/assets/ds/favicon.js', '/assets/ds/contact.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
 IMPORT_MAP = json.dumps({'imports': {m: f'{m}?v={VERSION}' for m in MODULES}}, separators=(',', ':'))

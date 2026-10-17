@@ -12,7 +12,7 @@ Sibling sites on the same origin (shared design system and standards):
 ## Purpose
 
 Entry point for agents working on CV Online (`https://ismael-sarmiento.github.io/cv/`). Personal project of Ismael
-Sarmiento; DATM governance does not apply beyond the L0 protocols (Plan al Milímetro before each task, close-out recap after).
+Sarmiento; only the global L0 protocols apply (Plan al Milímetro before each task, close-out recap after).
 
 ## Source of truth
 
