@@ -4,7 +4,6 @@
 /* ===================== 1. Intro ===================== */
 /* the intro is the one shared by every site (/assets/ds/intro.css + intro.js); here only what is the CV's own */
 .hero-panel.reveal { --d: .36s; }
-.pdf-btn { margin-top: 16px; }
 .print-head, .print-foot { display: none; }
 /* the PDF, one click away from the bar: a small gold chip; on hover it fills softly and the arrow drops */
 .pdf-chip { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 9px; margin-left: 2px; align-self: center;
@@ -98,7 +97,6 @@
 .contact-link span { font-weight: 600; }
 .contact-link strong { font-weight: 400; color: var(--text-2); font-size: 14px; }
 .contact-link:hover { border-color: var(--gold); background: rgba(200, 149, 63, .06); }
-.contact-more .pdf-btn { margin-top: 0; }
 
 /* ===================== 4. Read more and Alan ===================== */
 /* long texts open on demand: a quiet gold link with a chevron that turns */

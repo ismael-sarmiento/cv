@@ -11,7 +11,12 @@ export function initNav() {
   const spy = new IntersectionObserver(entries => entries.forEach(e => {
     if (!e.isIntersecting) return;
     links.forEach(a => a.classList.remove('active'));
-    byId.get(owner.get(e.target))?.classList.add('active');
+    const a = byId.get(owner.get(e.target));
+    if (!a) return;
+    a.classList.add('active');
+    // on phones the menu scrolls sideways: move only the menu, never the page (as IsAcademy)
+    const nav = a.parentElement;
+    if (nav.scrollWidth > nav.clientWidth) nav.scrollBy({ left: a.getBoundingClientRect().left - nav.getBoundingClientRect().left - 16, behavior: 'smooth' });
   }), { rootMargin: '-45% 0px -50% 0px' });
   owner.forEach((_, s) => spy.observe(s));
 

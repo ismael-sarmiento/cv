@@ -38,7 +38,7 @@
   // the PDF links follow the language and the theme of the page (js/pdf.js)
   const pdfs = () => [...new Set([...document.querySelectorAll('[data-pdf]')].map(x => x.getAttribute('href')))];
   const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-  ok('three PDF links (bar, intro, contact) share one file', document.querySelectorAll('[data-pdf]').length === 3 && pdfs().length === 1);
+  ok('two PDF links (bar, intro) share one file', document.querySelectorAll('[data-pdf]').length === 2 && pdfs().length === 1);
   ok('PDF of the language and theme shown', pdfs()[0] === `/cv/ismael-sarmiento-cv${dark ? '-dark' : ''}.pdf`);
   document.querySelector('.topbar [data-action=theme]').click(); await sleep(50);
   ok('changing the theme changes the PDF', pdfs()[0] === `/cv/ismael-sarmiento-cv${dark ? '' : '-dark'}.pdf`);

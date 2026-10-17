@@ -68,7 +68,12 @@ assert set(DICT['es']) == set(DICT['en']), 'Spanish and English must have the sa
 
 sha = lambda s: base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()
 # applied before the first paint: shared theme choice + a flag that lets CSS show the intro only with JavaScript
-BOOT = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('isa-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}"
+# before the first paint: .js, the stored theme, .i18n-wait while a stored English choice loads (no Spanish flash) and
+# .sig-handoff when the visitor arrives from another intro with the signature already written (intro.js)
+BOOT = ("var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('isa-theme');"
+        "if(t==='light'||t==='dark')d.dataset.theme=t;var q=new URLSearchParams(location.search).get('lang');"
+        "if(q==='en'||(q!=='es'&&localStorage.getItem('isa-lang')==='en'))d.classList.add('i18n-wait');"
+        "var h=+sessionStorage.getItem('sig-handoff');if(h&&Date.now()-h<4000)d.classList.add('sig-handoff')}catch(e){}")
 DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/favicon.js', '/assets/ds/contact.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
@@ -442,7 +447,7 @@ def main():
             <label><span class="lbl">{T('ui.cv.form.message')} {req}</span><textarea name="message" rows="4" required maxlength="2000" {A('placeholder', 'ui.cv.form.messagePh')}></textarea></label>
             <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="check"><input type="checkbox" name="privacy" required>{T('ui.cv.form.accept')}</label>
-            {T('ui.cv.form.privacy', 'p', 'privacy')}
+            <p class="privacy" data-i18n-html="ui.cv.form.privacy">{ES['ui.cv.form.privacy']}</p>
             <p class="f-status" role="status" aria-live="polite"></p>
             <button class="btn btn-primary btn-lg" type="submit">{T('ui.cv.form.send')}</button>
           </form>
@@ -450,7 +455,6 @@ def main():
         </div>
         <div class="contact-more reveal">
           <div>{T('ui.cv.elsewhere', 'p', 'eyebrow')}<div class="contact-links">{universe}</div></div>
-          <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download>{T('ui.cv.pdf')}</a>
         </div>
       </div>
     </section>
@@ -474,11 +478,17 @@ def main():
 
 
 def footer():
+    items = {x['label']: (i, x) for i, x in enumerate(D['contact']['items']['es'])}
+    ext = lambda href: ' rel="noopener"' if href.startswith('http') else ''
+    way = lambda label, text: (f'<a href="{e(items[label][1]["href"])}" data-i18n-href="contact.items.{items[label][0]}.href"'
+                               f'{ext(items[label][1]["href"])}>{text}</a>')
     return f'''<footer class="footer">
     <div class="container footer-row">
-      <span>© <span data-year>2026</span> Ismael Sarmiento. {T('ui.cv.rights')}</span>
+      <span>© <span data-year>2026</span> Ismael Sarmiento</span>
+      <!-- the footer of every site of the universe (portada tools/build.py): the other sites, then the ways to reach Ismael -->
       <nav class="footer-links" aria-label="Ismael Sarmiento">
-        <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/">IsAcademy</a><a href="https://github.com/kimera-tools" rel="noopener">Kimera Tools</a>
+        <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/">IsAcademy</a>
+        {way('WhatsApp', 'WhatsApp')}{way('Email', T('ui.cv.form.mail'))}
         <a href="{e(D['meta']['linkedin'])}" rel="noopener me">LinkedIn</a><a href="{e(D['meta']['github'])}" rel="noopener me">GitHub</a>
       </nav>
       <p class="print-foot">{T('ui.cv.printOnline')}: <a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a> · IsAcademy: <a href="https://ismael-sarmiento.github.io/isacademy/" rel="noopener">ismael-sarmiento.github.io/isacademy/</a></p>
