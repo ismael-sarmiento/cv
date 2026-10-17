@@ -69,13 +69,13 @@ assert set(DICT['es']) == set(DICT['en']), 'Spanish and English must have the sa
 sha = lambda s: base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()
 # applied before the first paint: shared theme choice + a flag that lets CSS show the intro only with JavaScript
 BOOT = "document.documentElement.classList.add('js');try{var t=localStorage.getItem('isa-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}"
-DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/favicon.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
+DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/favicon.js', '/assets/ds/contact.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
 IMPORT_MAP = json.dumps({'imports': {m: f'{m}?v={VERSION}' for m in MODULES}}, separators=(',', ':'))
 CSP = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com "
        f"'sha256-{sha(BOOT)}' 'sha256-{sha(IMPORT_MAP)}'; style-src 'self'; img-src 'self' data:; font-src 'self'; "
-       "connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'none'")
+       "connect-src 'self' https://cloudflareinsights.com https://formsubmit.co; object-src 'none'; base-uri 'none'; form-action 'none'")
 
 e = lambda s: html.escape(str(s), quote=True)
 v = lambda path: f'{path}?v={VERSION}'
@@ -216,6 +216,7 @@ def head():
   <link rel="stylesheet" href="{v('/assets/ds/tokens.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/base.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/intro.css')}">
+  <link rel="stylesheet" href="{v('/assets/ds/contact.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/assistant.css')}">
   <link rel="stylesheet" href="{v('/cv/css/cv.css')}">
   <link rel="stylesheet" href="{v('/cv/css/print.css')}" media="print">
@@ -332,8 +333,14 @@ def main():
           {T(f"experience.timeline.{i}.period", "span", "tl-period")}</div>{T(f"experience.timeline.{i}.text", "p")}</li>''' for i in range(count('experience.timeline')))
     creds = ''.join(f'<article class="card card--static reveal">{T(f"credentials.groups.{i}.title", "h3")}<ul class="ticks">{li(f"credentials.groups.{i}.items")}</ul></article>'
                     for i in range(count('credentials.groups')))
-    contact = ''.join(f'''<a class="contact-link" href="{e(x["href"])}" data-i18n-href="contact.items.{i}.href"{' rel="noopener"' if x["href"].startswith("http") else ''}>
-            {T(f"contact.items.{i}.label")}<strong>{e(x["value"])}</strong></a>''' for i, x in enumerate(D['contact']['items']['es']))
+    items = {x['label']: (i, x) for i, x in enumerate(D['contact']['items']['es'])}
+    icon = lambda name: f'<svg aria-hidden="true"><use href="/assets/ds/icons.svg#i-{name}"/></svg>'
+    def way(label, name, text):
+        i, x = items[label]
+        ext = ' target="_blank" rel="noopener"' if x['href'].startswith('http') else ''
+        return f'<a class="btn" href="{e(x["href"])}" data-i18n-href="contact.items.{i}.href"{ext}>{icon(name)}{text}</a>'
+    ways = way('WhatsApp', 'whatsapp', 'WhatsApp') + way('Email', 'mail', T('ui.cv.form.mail')) + way('LinkedIn', 'linkedin', 'LinkedIn')
+    req = '<span class="req" aria-hidden="true">*</span>'
     return f'''<main id="main">
     {PRINT_HEAD}
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -422,13 +429,28 @@ def main():
       </div>
     </section>
 
-    <section class="section" id="contact" data-section="contact">
+    <section class="section" id="contact" data-section="contact" aria-labelledby="contact-title">
       <div class="container">
-        {section_head('contact.heading', 'contact.heading', 'contact.intro')}
-        <div class="contact-grid stagger">
-          <div class="card card--static reveal">{T('ui.cv.contactLead', 'p')}<div class="contact-links">{contact}</div>
-            <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download>{T('ui.cv.pdf')}</a></div>
-          <div class="card card--static reveal">{T('ui.cv.elsewhere', 'p', 'eyebrow')}{T('ui.cv.linksNote', 'p')}<div class="contact-links">{universe}</div></div>
+        <div class="contact-card reveal">
+          {T('contact.heading', 'p', 'eyebrow')}{T('ui.cv.form.title', 'h2', extra=' id="contact-title"')}{T('contact.intro', 'p', 'lead')}
+          <form class="lead-form" id="cvForm" novalidate>
+            <div class="f-row">
+              <label><span class="lbl">{T('ui.cv.form.name')} {req}</span><input name="name" autocomplete="name" required maxlength="80"></label>
+              <label><span class="lbl">{T('ui.cv.form.email')} {req}</span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+            </div>
+            <label>{T('ui.cv.form.company')}<input name="company" autocomplete="organization" maxlength="120"></label>
+            <label><span class="lbl">{T('ui.cv.form.message')} {req}</span><textarea name="message" rows="4" required maxlength="2000" {A('placeholder', 'ui.cv.form.messagePh')}></textarea></label>
+            <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label class="check"><input type="checkbox" name="privacy" required>{T('ui.cv.form.accept')}</label>
+            {T('ui.cv.form.privacy', 'p', 'privacy')}
+            <p class="f-status" role="status" aria-live="polite"></p>
+            <button class="btn btn-primary btn-lg" type="submit">{T('ui.cv.form.send')}</button>
+          </form>
+          <div class="contact-ways">{T('ui.cv.form.waysLead', 'p')}{ways}</div>
+        </div>
+        <div class="contact-more reveal">
+          <div>{T('ui.cv.elsewhere', 'p', 'eyebrow')}<div class="contact-links">{universe}</div></div>
+          <a class="btn btn-arrow pdf-btn" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download>{T('ui.cv.pdf')}</a>
         </div>
       </div>
     </section>

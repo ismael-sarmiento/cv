@@ -82,7 +82,6 @@
             "text": "Ejecución práctica, criterio arquitectónico y liderazgo de equipos."
           }
         ],
-        "contactLead": "La mejor forma de iniciar una conversación es con un correo breve, un WhatsApp o un mensaje en LinkedIn.",
         "linksNote": "Mi web, mi academia y mi código abierto.",
         "rights": "Todos los derechos reservados.",
         "careerLabel": "Resumen visual de trayectoria",
@@ -113,7 +112,26 @@
         "pdf": "Descargar CV en PDF",
         "pdfHref": "/cv/ismael-sarmiento-cv.pdf",
         "introPdf": "Descargar PDF",
-        "printOnline": "Versión interactiva"
+        "printOnline": "Versión interactiva",
+        "form": {
+          "name": "Nombre",
+          "email": "Email",
+          "company": "Empresa (opcional)",
+          "message": "Mensaje",
+          "messagePh": "Cuéntame en qué puedo ayudarte…",
+          "accept": "He leído la información de privacidad y acepto que Ismael Sarmiento use mis datos para responder a mi mensaje.",
+          "privacy": "Información de privacidad: responsable, Ismael Sarmiento. Finalidad: responder a tu mensaje. Tus datos no se ceden a terceros; el envío lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a ismaelantonio.professional@gmail.com.",
+          "send": "Enviar mensaje",
+          "sending": "Enviando…",
+          "ok": "¡Gracias! He recibido tu mensaje y te responderé pronto.",
+          "error": "No se ha podido enviar. Escríbeme por correo o por WhatsApp.",
+          "required": "Este campo es obligatorio.",
+          "badEmail": "Revisa el email.",
+          "needPrivacy": "Necesito tu aceptación para poder responderte.",
+          "waysLead": "O escríbeme directamente",
+          "mail": "Correo",
+          "title": "¿Hablamos?"
+        }
       }
     },
     "en": {
@@ -181,7 +199,6 @@
             "text": "Hands-on delivery, architectural judgment, and team leadership."
           }
         ],
-        "contactLead": "The best way to start a conversation is with a short email, a WhatsApp message or a LinkedIn message.",
         "linksNote": "My home page, my academy and my open source.",
         "rights": "All rights reserved.",
         "careerLabel": "Career visual summary",
@@ -212,7 +229,26 @@
         "pdf": "Download CV as PDF",
         "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf",
         "introPdf": "Download PDF",
-        "printOnline": "Interactive version"
+        "printOnline": "Interactive version",
+        "form": {
+          "name": "Name",
+          "email": "Email",
+          "company": "Company (optional)",
+          "message": "Message",
+          "messagePh": "Tell me how I can help…",
+          "accept": "I have read the privacy information and agree that Ismael Sarmiento may use my data to reply to my message.",
+          "privacy": "Privacy information: controller, Ismael Sarmiento. Purpose: to reply to your message. Your data is not shared with third parties; delivery is handled by the FormSubmit service. You can access, rectify or delete your data by writing to ismaelantonio.professional@gmail.com.",
+          "send": "Send message",
+          "sending": "Sending…",
+          "ok": "Thank you! I have received your message and will reply soon.",
+          "error": "It could not be sent. Please write to me by email or on WhatsApp.",
+          "required": "This field is required.",
+          "badEmail": "Please check the email.",
+          "needPrivacy": "I need your consent to be able to reply.",
+          "waysLead": "Or write to me directly",
+          "mail": "Email",
+          "title": "Let's talk"
+        }
       }
     }
   },

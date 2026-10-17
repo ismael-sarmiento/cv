@@ -89,13 +89,16 @@
 .tl-period { font-family: var(--font-mono); font-size: 13px; color: var(--text-2); white-space: nowrap; }
 .tl-item > p { color: var(--text-2); margin: 0; }
 .creds-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.contact-links { display: grid; gap: 10px; margin-top: 14px; }
-.contact-link { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+/* contact: the card shared with IsAcademy (/assets/ds/contact.css), then the other places of the universe and the PDF */
+.contact-more { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 28px; margin-top: 26px; }
+.contact-more .eyebrow { margin-bottom: 8px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-link { display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
   color: var(--text); text-decoration: none; transition: border-color .2s ease, background .2s ease; }
-.contact-link span { color: var(--text-2); }
-.contact-link strong { font-weight: 500; overflow-wrap: anywhere; text-align: right; }
+.contact-link span { font-weight: 600; }
+.contact-link strong { font-weight: 400; color: var(--text-2); font-size: 14px; }
 .contact-link:hover { border-color: var(--gold); background: rgba(200, 149, 63, .06); }
+.contact-more .pdf-btn { margin-top: 0; }
 
 /* ===================== 4. Read more and Alan ===================== */
 /* long texts open on demand: a quiet gold link with a chevron that turns */
@@ -150,13 +153,12 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
 }
 @media (max-width: 640px) {
   .hero { padding: 40px 0 56px; }
-  .cases-grid, .contact-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
   .tools .view-btn { display: none; }
   .tl-head { flex-direction: column; gap: 4px; }
   .alan { grid-template-columns: 1fr; text-align: left; padding: 24px; }
   .alan-avatar { width: 96px; height: 96px; }
   .contact-link { flex-direction: column; gap: 2px; }
-  .contact-link strong { text-align: left; }
 }
 
 /* articles (articles/_template) */
