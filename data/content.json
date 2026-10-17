@@ -65,7 +65,7 @@
       },
       "cv": {
         "tag": "CV Online",
-        "home": "Portada",
+        "home": "Inicio",
         "enter": "Entrar al CV",
         "primaryNav": "Principal",
         "stats": [
@@ -82,8 +82,8 @@
             "text": "Ejecución práctica, criterio arquitectónico y liderazgo de equipos."
           }
         ],
-        "contactLead": "La mejor forma de iniciar conversación es con un correo breve o un mensaje en LinkedIn.",
-        "linksNote": "Mi portada, mi academia y mi código abierto.",
+        "contactLead": "La mejor forma de iniciar una conversación es con un correo breve, un WhatsApp o un mensaje en LinkedIn.",
+        "linksNote": "Mi web, mi academia y mi código abierto.",
         "rights": "Todos los derechos reservados.",
         "careerLabel": "Resumen visual de trayectoria",
         "introLabel": "Hitos de impacto",
@@ -181,7 +181,7 @@
             "text": "Hands-on delivery, architectural judgment, and team leadership."
           }
         ],
-        "contactLead": "The best way to start a conversation is with a short email or a LinkedIn message.",
+        "contactLead": "The best way to start a conversation is with a short email, a WhatsApp message or a LinkedIn message.",
         "linksNote": "My home page, my academy and my open source.",
         "rights": "All rights reserved.",
         "careerLabel": "Career visual summary",
@@ -707,6 +707,16 @@
           "href": "mailto:ismaelantonio.professional@gmail.com"
         },
         {
+          "label": "WhatsApp",
+          "value": "+34 613 371 874",
+          "href": "https://wa.me/34613371874?text=Hola%20Ismael%2C%20he%20visto%20tu%20web%20y%20me%20gustar%C3%ADa%20hablar%20contigo."
+        },
+        {
+          "label": "Teléfono",
+          "value": "+34 613 371 874",
+          "href": "tel:+34613371874"
+        },
+        {
           "label": "LinkedIn",
           "value": "linkedin.com/in/ismael-sarmiento",
           "href": "https://www.linkedin.com/in/ismael-sarmiento/"
@@ -722,6 +732,16 @@
           "label": "Email",
           "value": "ismaelantonio.professional@gmail.com",
           "href": "mailto:ismaelantonio.professional@gmail.com"
+        },
+        {
+          "label": "WhatsApp",
+          "value": "+34 613 371 874",
+          "href": "https://wa.me/34613371874?text=Hi%20Ismael%2C%20I%20saw%20your%20website%20and%20would%20like%20to%20talk%20with%20you."
+        },
+        {
+          "label": "Phone",
+          "value": "+34 613 371 874",
+          "href": "tel:+34613371874"
         },
         {
           "label": "LinkedIn",
@@ -928,7 +948,7 @@
         },
         {
           "q": "¿Cómo puedo contactar con él?",
-          "a": "Por correo (ismaelantonio.professional@gmail.com) o por LinkedIn. Los dos están en la sección Contacto de esta página.",
+          "a": "Por correo (ismaelantonio.professional@gmail.com), por WhatsApp o teléfono (+34 613 371 874) o por LinkedIn. Todo está en la sección Contacto de esta página.",
           "keywords": [
             "contacto",
             "contactar",
@@ -936,7 +956,21 @@
             "email",
             "escribir",
             "linkedin",
-            "hablar"
+            "hablar",
+            "whatsapp",
+            "telefono",
+            "llamar",
+            "movil"
+          ],
+          "actions": [
+            {
+              "label": "WhatsApp",
+              "href": "https://wa.me/34613371874?text=Hola%20Ismael%2C%20he%20visto%20tu%20web%20y%20me%20gustar%C3%ADa%20hablar%20contigo."
+            },
+            {
+              "label": "Ver contacto",
+              "href": "#contact"
+            }
           ]
         }
       ],
@@ -1094,7 +1128,7 @@
         },
         {
           "q": "How can I contact him?",
-          "a": "By email (ismaelantonio.professional@gmail.com) or on LinkedIn. Both are in the Contact section of this page.",
+          "a": "By email (ismaelantonio.professional@gmail.com), on WhatsApp or by phone (+34 613 371 874), or on LinkedIn. Everything is in the Contact section of this page.",
           "keywords": [
             "contact",
             "email",
@@ -1102,7 +1136,21 @@
             "write",
             "linkedin",
             "reach",
-            "talk"
+            "talk",
+            "whatsapp",
+            "phone",
+            "call",
+            "mobile"
+          ],
+          "actions": [
+            {
+              "label": "WhatsApp",
+              "href": "https://wa.me/34613371874?text=Hi%20Ismael%2C%20I%20saw%20your%20website%20and%20would%20like%20to%20talk%20with%20you."
+            },
+            {
+              "label": "See contact",
+              "href": "#contact"
+            }
           ]
         }
       ]

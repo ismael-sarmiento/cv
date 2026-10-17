@@ -146,6 +146,7 @@ def structured_data():
             ],
             'knowsAbout': ['Data Governance', 'Clinical Interoperability', 'Data Quality', 'Data Lifecycle Management', 'HL7 FHIR',
                            'OMOP CDM', 'DataHub', 'AWS', 'Apache Spark', 'Apache Airflow', 'Apache Superset'],
+            'telephone': '+34 613 371 874',
             'sameAs': [m['linkedin'], m['github'], 'https://github.com/kimera-tools'],
         },
     }
@@ -226,7 +227,7 @@ def head():
 # the PDF / printed CV opens with the signature and the contact line (hidden on screen; css/print.css shows it)
 PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
               + SIG.replace('is-edge', 'pr-edge').replace('is-ink', 'pr-ink')
-              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
+              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="tel:+34613371874">+34 613 371 874</a> · <a href="https://wa.me/34613371874" rel="noopener">WhatsApp</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
 
 
 def intro():
@@ -256,7 +257,7 @@ def topbar():
     return f'''<header class="topbar">
     <div class="container topbar-row">
       <a class="brand" href="/" data-i18n-href="ui.cv.homeHref" aria-label="Ismael Sarmiento"><span class="brand-is" aria-hidden="true">Is</span><span class="brand-name" aria-hidden="true">mael Sarmiento</span></a>
-      <a class="btn pdf-mini" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download {A('aria-label', 'ui.cv.pdf')}>{DOWNLOAD}{T('ui.navigation.pdf')}</a>
+      <a class="pdf-chip" href="/cv/ismael-sarmiento-cv.pdf" data-pdf download {A('aria-label', 'ui.cv.pdf')}>{DOWNLOAD}{T('ui.navigation.pdf')}</a>
       <nav class="nav" {A('aria-label', 'ui.cv.primaryNav')}>
         <a href="#summary" data-nav="summary">{T('ui.navigation.summary')}</a>
         <a href="#story" data-nav="story">{T('ui.navigation.story')}</a>
@@ -330,7 +331,7 @@ def main():
           {T(f"experience.timeline.{i}.period", "span", "tl-period")}</div>{T(f"experience.timeline.{i}.text", "p")}</li>''' for i in range(count('experience.timeline')))
     creds = ''.join(f'<article class="card card--static reveal">{T(f"credentials.groups.{i}.title", "h3")}<ul class="ticks">{li(f"credentials.groups.{i}.items")}</ul></article>'
                     for i in range(count('credentials.groups')))
-    contact = ''.join(f'''<a class="contact-link" href="{e(x["href"])}"{' rel="noopener"' if x["href"].startswith("http") else ''}>
+    contact = ''.join(f'''<a class="contact-link" href="{e(x["href"])}" data-i18n-href="contact.items.{i}.href"{' rel="noopener"' if x["href"].startswith("http") else ''}>
             {T(f"contact.items.{i}.label")}<strong>{e(x["value"])}</strong></a>''' for i, x in enumerate(D['contact']['items']['es']))
     return f'''<main id="main">
     {PRINT_HEAD}

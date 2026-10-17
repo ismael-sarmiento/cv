@@ -6,10 +6,15 @@
 .hero-panel.reveal { --d: .36s; }
 .pdf-btn { margin-top: 16px; }
 .print-head, .print-foot { display: none; }
-/* the PDF, one click away from the bar */
-.pdf-mini { gap: 6px; padding-inline: 14px; }
-.pdf-mini svg { flex: none; }
-@media (max-width: 420px) { .pdf-mini { gap: 4px; padding-inline: 10px; } }
+/* the PDF, one click away from the bar: a small gold chip; on hover it fills softly and the arrow drops */
+.pdf-chip { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 9px; margin-left: 2px; align-self: center;
+  border-radius: 999px; border: 1px solid var(--gold); color: var(--gold-text); font: 600 12px/1 var(--font-sans); letter-spacing: .08em;
+  text-decoration: none; transition: background .25s ease, box-shadow .25s ease, transform .2s var(--ease-out); }
+.pdf-chip svg { flex: none; width: 14px; height: 14px; transition: transform .3s var(--ease-out); }
+.pdf-chip:hover { background: rgba(200, 149, 63, .14); box-shadow: 0 6px 16px rgba(200, 149, 63, .18); }
+.pdf-chip:hover svg { transform: translateY(2px); }
+.pdf-chip:active { transform: scale(.97); }
+.pdf-chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* ===================== 2. Hero ===================== */
 .hero { padding: 72px 0 80px; }
