@@ -211,6 +211,7 @@ def head():
   <link rel="icon" href="/assets/brand/favicon-dark-32.png" sizes="32x32" type="image/png" media="(prefers-color-scheme: dark)" data-theme-icon="dark">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
   <script>{BOOT}</script>
+  <link rel="preload" href="/assets/ds/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/ds/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{v('/assets/ds/tokens.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/base.css')}">
