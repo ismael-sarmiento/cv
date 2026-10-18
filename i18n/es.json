@@ -90,7 +90,7 @@
 "ui.cv.form.message": "Mensaje",
 "ui.cv.form.messagePh": "Cuéntame en qué puedo ayudarte…",
 "ui.cv.form.accept": "He leído la información de privacidad y acepto que Ismael Sarmiento use mis datos para responder a mi mensaje.",
-"ui.cv.form.privacy": "Información de privacidad: responsable, Ismael Sarmiento. Finalidad: responder a tu mensaje. Tus datos no se ceden a terceros; el envío lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
+"ui.cv.form.privacy": "Información de privacidad: responsable, Ismael Sarmiento. Finalidad: responder a tu mensaje. Tus datos no se ceden a terceros; para enviarlo se usan Cloudflare Turnstile, que comprueba que no eres un bot (<a href=\"https://www.cloudflare.com/turnstile-privacy-policy/\" target=\"_blank\" rel=\"noopener\">aviso de privacidad de Turnstile</a>), y el servicio de correo Resend. Puedes acceder, rectificar o suprimir tus datos escribiendo a <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
 "ui.cv.form.send": "Enviar mensaje",
 "ui.cv.form.sending": "Enviando…",
 "ui.cv.form.ok": "¡Gracias! He recibido tu mensaje y te responderé pronto.",

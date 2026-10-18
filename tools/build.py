@@ -78,9 +78,10 @@ DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/frame-guard.js', '/assets/ds/favic
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
 IMPORT_MAP = json.dumps({'imports': {m: f'{m}?v={VERSION}' for m in MODULES}}, separators=(',', ':'))
-CSP = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com "
+CSP = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com "
        f"'sha256-{sha(BOOT)}' 'sha256-{sha(IMPORT_MAP)}'; style-src 'self'; img-src 'self' data:; font-src 'self'; "
-       "connect-src 'self' https://cloudflareinsights.com https://formsubmit.co; object-src 'none'; base-uri 'none'; form-action 'none'")
+       "connect-src 'self' https://cloudflareinsights.com https://isa-forms.ismaelantonio-professional.workers.dev; "
+       "frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'none'")
 
 e = lambda s: html.escape(str(s), quote=True)
 v = lambda path: f'{path}?v={VERSION}'
