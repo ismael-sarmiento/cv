@@ -151,7 +151,7 @@ def structured_data():
                 {'@type': 'EducationalOccupationalCredential', 'name': 'FHIR Foundational Implementer', 'credentialCategory': 'certification'},
             ],
             'knowsAbout': ['Data Governance', 'Clinical Interoperability', 'Data Quality', 'Data Lifecycle Management', 'HL7 FHIR',
-                           'OMOP CDM', 'DataHub', 'AWS', 'Apache Spark', 'Apache Airflow', 'Apache Superset'],
+                           'OMOP CDM', 'Metadata Management', 'AWS', 'Apache Spark', 'Apache Airflow'],
             'telephone': '+34 613 371 874',
             'sameAs': [m['linkedin'], m['github'], 'https://github.com/kimera-tools'],
         },
@@ -191,7 +191,7 @@ def head():
   <title>{e(m['title']['es'])}</title>
   <meta name="description" content="{e(m['description']['es'])}">
   <meta name="author" content="Ismael Sarmiento">
-  <meta name="keywords" content="Ismael Sarmiento, Head of Data Management, Lead Data Engineer, Savana, CDMP, DAMA, GitHub, gobierno del dato, data governance, HL7 FHIR, OMOP CDM, DataHub">
+  <meta name="keywords" content="Ismael Sarmiento, Head of Data Management, Lead Data Engineer, Savana, CDMP, DAMA, GitHub, gobierno del dato, data governance, HL7 FHIR, OMOP CDM, calidad del dato, UNE 0081">
   <meta name="theme-color" content="#0b1026">
   <link rel="canonical" href="{BASE}">
   <link rel="alternate" hreflang="es" href="{BASE}">
@@ -235,7 +235,7 @@ def head():
 # the PDF / printed CV opens with the signature and the contact line (hidden on screen; css/print.css shows it)
 PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
               + SIG.replace('is-edge', 'pr-edge').replace('is-ink', 'pr-ink')
-              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="tel:+34613371874">+34 613 371 874</a> · <a href="https://wa.me/34613371874" rel="noopener">WhatsApp</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
+              + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="tel:+34613371874">+34 613 371 874</a> · <a href="https://wa.me/34613371874" rel="noopener">WhatsApp</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" data-i18n-href="ui.cv.printCvHref" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
 
 
 def intro():
@@ -353,7 +353,7 @@ def main():
       <div class="container hero-grid">
         <div class="hero-copy stagger">
           <p class="eyebrow reveal">Ismael Sarmiento · CV Online</p>
-          <h1 id="hero-title" class="reveal">{T('hero.headlinePrimary', 'span', 'h1-main')}{T('hero.headlineSecondary', 'span', 'h1-sub')}</h1>
+          <h1 id="hero-title" class="reveal">{T('hero.headlinePrimary', 'span', 'h1-main')} {T('hero.headlineSecondary', 'span', 'h1-sub')}</h1>
           {T('hero.subtitle', 'p', 'lead reveal')}
           <ul class="ticks hero-facts reveal">{li('hero.quickFacts')}</ul>
           <div class="hero-cta reveal">
@@ -460,21 +460,6 @@ def main():
       </div>
     </section>
 
-    <section class="section alt" id="assistant" aria-labelledby="assistant-title">
-      <div class="container">
-        <div class="card card--static alan reveal">
-          <span class="as-avatar alan-avatar" aria-hidden="true"></span>
-          <div class="alan-body">
-            <p class="eyebrow">{T('ui.labels.assistant')} <span class="as-badge">Beta</span></p>
-            {T('faq.heading', 'h2', extra=' id="assistant-title"')}
-            {T('ui.assistant.note', 'p')}
-            <div class="alan-actions">
-              <button class="btn btn-primary btn-arrow" type="button" data-action="open-alan">{T('ui.cv.talk')}</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>'''
 
 
@@ -492,7 +477,7 @@ def footer():
         {way('WhatsApp', 'WhatsApp')}{way('Email', T('ui.cv.form.mail'))}
         <a href="{e(D['meta']['linkedin'])}" rel="noopener me">LinkedIn</a><a href="{e(D['meta']['github'])}" rel="noopener me">GitHub</a>
       </nav>
-      <p class="print-foot">{T('ui.cv.printOnline')}: <a href="https://ismael-sarmiento.github.io/cv/" rel="noopener">ismael-sarmiento.github.io/cv/</a> · IsAcademy: <a href="https://ismael-sarmiento.github.io/isacademy/" rel="noopener">ismael-sarmiento.github.io/isacademy/</a></p>
+      <p class="print-foot">{T('ui.cv.printOnline')}: <a href="https://ismael-sarmiento.github.io/cv/" data-i18n-href="ui.cv.printCvHref" rel="noopener">ismael-sarmiento.github.io/cv/</a> · IsAcademy: <a href="https://ismael-sarmiento.github.io/isacademy/" data-i18n-href="ui.cv.printIsaHref" rel="noopener">ismael-sarmiento.github.io/isacademy/</a></p>
     </div>
   </footer>'''
 

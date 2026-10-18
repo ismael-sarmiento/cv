@@ -15,8 +15,9 @@
   const before = document.documentElement.dataset.theme; document.querySelector('.topbar [data-action=theme]').click(); await sleep(50);
   ok('theme toggles and is remembered', before !== document.documentElement.dataset.theme && localStorage.getItem('isa-theme') === document.documentElement.dataset.theme);
   document.querySelector('.topbar [data-action=theme]').click();
-  document.querySelector('[data-action=open-alan]').click(); await sleep(500);
-  const p = document.getElementById('assistantPanel'); ok('"Talk to Alan" opens the panel with four suggestions', !p.hidden && p.querySelectorAll('.chip').length === 4);
+  ok('Alan lives only in the floating button (no section of its own, as on Inicio and IsAcademy)', !document.getElementById('assistant') && !!document.querySelector('.assistant-fab'));
+  document.querySelector('.assistant-fab').click(); await sleep(500);
+  const p = document.getElementById('assistantPanel'); ok('the floating button opens the panel with four suggestions', !p.hidden && p.querySelectorAll('.chip').length === 4);
   p.querySelector('.chip').click(); await sleep(2000); ok('a suggestion gets an answer', p.querySelectorAll('.msg-bot').length >= 2);
   // each question gets its own answer (Alan types for ~2 s before answering)
   const input = p.querySelector('.as-form input'), form = p.querySelector('.as-form');
@@ -47,6 +48,7 @@
   ok('changing the language changes the PDF', pdfs()[0] === `/cv/ismael-sarmiento-cv-en${dark ? '-dark' : ''}.pdf`);
   document.querySelector('.topbar [data-action=lang]').click(); await sleep(400);
   ok('the intro offers «Entrar al CV» and «Descargar PDF»', document.querySelectorAll('#intro .intro-actions .btn').length === 2);
+  ok('no DataHub or Power BI → Superset (LinkedIn rule)', !/DataHub|Power BI|Superset/.test(document.body.innerText));
   ok('no horizontal overflow', document.documentElement.scrollWidth <= innerWidth);
   console.log(R.join('\n'));
   return R.filter(r => r.startsWith('FAIL')).length ? 'FAILURES' : 'ALL PASS';

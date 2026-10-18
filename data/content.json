@@ -11,8 +11,8 @@
       "en": "Ismael Sarmiento · CV Online · Head of Data Management at Savana"
     },
     "description": {
-      "es": "CV Online de Ismael Sarmiento, Head of Data Management en Savana y antes Lead Data Engineer. Gobierno del dato, interoperabilidad clínica y calidad del dato con HL7 FHIR, OMOP CDM y DataHub.",
-      "en": "CV Online of Ismael Sarmiento, Head of Data Management at Savana and formerly Lead Data Engineer. Data governance, clinical interoperability and data quality with HL7 FHIR, OMOP CDM and DataHub."
+      "es": "CV Online de Ismael Sarmiento, Head of Data Management en Savana y antes Lead Data Engineer. Gobierno del dato, interoperabilidad clínica y calidad del dato con HL7 FHIR, OMOP CDM y la UNE 0081.",
+      "en": "CV Online of Ismael Sarmiento, Head of Data Management at Savana and formerly Lead Data Engineer. Data governance, clinical interoperability and data quality with HL7 FHIR, OMOP CDM and UNE 0081."
     },
     "homeUrl": "https://ismael-sarmiento.github.io/"
   },
@@ -60,7 +60,7 @@
         "launcherTitle": "Asistente",
         "launcherQuestion": "¿Qué quieres hacer?",
         "openChat": "Abrir chat",
-        "empty": "Puedo resumir la experiencia en Savana, explicar FHIR y OMOP, hablar de calidad del dato, DataHub, trayectoria, seguridad del asistente o forma de trabajo.",
+        "empty": "Puedo resumir la experiencia en Savana, explicar FHIR y OMOP, hablar de calidad y gobierno del dato, trayectoria, seguridad del asistente o forma de trabajo.",
         "noMatch": "No tengo una respuesta exacta para eso en esta versión beta. Puedo responder sobre experiencia, capacidades, seguridad del asistente, docencia, contacto o límites de privacidad."
       },
       "cv": {
@@ -91,7 +91,6 @@
         "less": "Leer menos",
         "storyMore": "Leer la historia completa",
         "outcomes": "Resultados",
-        "talk": "Hablar con Alan",
         "alan": {
           "name": "Alan",
           "badge": "Beta",
@@ -113,6 +112,8 @@
         "pdfHref": "/cv/ismael-sarmiento-cv.pdf",
         "introPdf": "Descargar PDF",
         "printOnline": "Versión interactiva",
+        "printCvHref": "https://ismael-sarmiento.github.io/cv/",
+        "printIsaHref": "https://ismael-sarmiento.github.io/isacademy/",
         "form": {
           "name": "Nombre",
           "email": "Email",
@@ -177,7 +178,7 @@
         "launcherTitle": "Assistant",
         "launcherQuestion": "What do you want to do?",
         "openChat": "Open chat",
-        "empty": "I can summarize Savana experience, FHIR and OMOP interoperability, data quality, DataHub, career path, assistant safety, or working style.",
+        "empty": "I can summarise Savana experience, FHIR and OMOP interoperability, data quality and governance, career path, assistant safety, or working style.",
         "noMatch": "I do not have an exact answer for that in this beta version. I can answer about experience, capabilities, assistant safety, teaching, contact, or privacy limits."
       },
       "cv": {
@@ -196,7 +197,7 @@
           },
           {
             "label": "Working style",
-            "text": "Hands-on delivery, architectural judgment, and team leadership."
+            "text": "Hands-on delivery, architectural judgement, and team leadership."
           }
         ],
         "linksNote": "My home page, my academy and my open source.",
@@ -208,7 +209,6 @@
         "less": "Read less",
         "storyMore": "Read the full story",
         "outcomes": "Outcomes",
-        "talk": "Talk to Alan",
         "alan": {
           "name": "Alan",
           "badge": "Beta",
@@ -230,6 +230,8 @@
         "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf",
         "introPdf": "Download PDF",
         "printOnline": "Interactive version",
+        "printCvHref": "https://ismael-sarmiento.github.io/cv/?lang=en",
+        "printIsaHref": "https://ismael-sarmiento.github.io/isacademy/?lang=en",
         "form": {
           "name": "Name",
           "email": "Email",
@@ -261,7 +263,7 @@
       "Calidad del dato, metadatos y ciclo de vida como producto"
     ],
     "en": [
-      "Cloud modernization for data solutions",
+      "Cloud modernisation for data solutions",
       "High-demand batch and streaming systems",
       "End-to-end data platform perspective",
       "Clinical interoperability with HL7 FHIR and OMOP",
@@ -292,14 +294,14 @@
       ],
       "en": [
         "My career started with strong foundations in software and data engineering and evolved into a broader profile where platform thinking, data governance, clinical interoperability, and end-to-end quality work together as one capability. I have worked across banking, product, and digital health, building solutions that needed to be reliable, operable, and useful for real decisions.",
-        "That path helped me combine hands-on execution, architectural judgment, and product thinking to turn complex data problems into reusable capabilities. Today I do not bring only pipelines or integrations, but trust structures around data: standards, quality, metadata, traceability, and lifecycle control."
+        "That path helped me combine hands-on execution, architectural judgement, and product thinking to turn complex data problems into reusable capabilities. Today I do not bring only pipelines or integrations, but trust structures around data: standards, quality, metadata, traceability, and lifecycle control."
       ]
     },
     "layers": {
       "es": [
         {
           "title": "Capa de gobernanza",
-          "text": "Catálogo, metadatos y ownership centralizados con DataHub para hacer el dato entendible y gobernable."
+          "text": "Catálogo, metadatos y ownership centralizados con herramientas open source de gobierno del dato para hacer el dato entendible y gobernable."
         },
         {
           "title": "Capa de interoperabilidad",
@@ -313,7 +315,7 @@
       "en": [
         {
           "title": "Governance layer",
-          "text": "Cataloging, metadata, and ownership centralized with DataHub to make data understandable and governable."
+          "text": "Cataloguing, metadata, and ownership centralised with open-source data governance tools to make data understandable and governable."
         },
         {
           "title": "Interoperability layer",
@@ -343,7 +345,7 @@
       "en": [
         {
           "title": "Governance applied to product",
-          "body": "I design reusable capabilities for cataloging, metadata, quality, and operational control, not isolated pipelines."
+          "body": "I design reusable capabilities for cataloguing, metadata, quality, and operational control, not isolated pipelines."
         },
         {
           "title": "Clinical interoperability with purpose",
@@ -387,8 +389,8 @@
         "Combino ejecución práctica, criterio arquitectónico y liderazgo técnico para traducir entornos regulados y requisitos complejos en sistemas más sólidos, reutilizables y preparados para generar valor."
       ],
       "en": [
-        "My focus is on turning complex integration, quality, and analytics needs into real product capabilities: cataloging, metadata, validation, observability, visualization, and lifecycle control.",
-        "I combine hands-on execution, architectural judgment, and technical leadership to translate regulated environments and complex requirements into more solid, reusable systems that are ready to generate value."
+        "My focus is on turning complex integration, quality, and analytics needs into real product capabilities: cataloguing, metadata, validation, observability, visualisation, and lifecycle control.",
+        "I combine hands-on execution, architectural judgement, and technical leadership to translate regulated environments and complex requirements into more solid, reusable systems that are ready to generate value."
       ]
     },
     "pillars": {
@@ -413,7 +415,7 @@
         },
         {
           "label": "Platform",
-          "text": "I connect data, processes, metadata, and visualization with an end-to-end mindset."
+          "text": "I connect data, processes, metadata, and visualisation with an end-to-end mindset."
         },
         {
           "label": "Impact",
@@ -435,7 +437,7 @@
       ],
       "en": [
         "I work at the intersection of data engineering, data governance, and product. My focus is on turning complex requirements into stronger, auditable, interoperable platforms that create real value for technical and business teams.",
-        "I specialize in data governance, interoperability, and end-to-end quality, building solutions that connect metadata, cataloging, validation, observability, and operational control at scale. I hold the CDMP (Associate) certification from DAMA International, I am an active member of DAMA Spain and keep my expertise current through continuous learning, certifications, and hands-on work.",
+        "I specialise in data governance, interoperability, and end-to-end quality, building solutions that connect metadata, cataloguing, validation, observability, and operational control at scale. I hold the CDMP (Associate) certification from DAMA International, I am an active member of DAMA Spain and keep my expertise current through continuous learning, certifications, and hands-on work.",
         "I also see documentation, mentoring, and knowledge transfer as essential parts of technical scalability and strong teams."
       ]
     }
@@ -458,13 +460,13 @@
         "es": [
           "En Savana he pasado de un rol de ejecución a liderar el área de Data Management, con visión transversal sobre calidad, interoperabilidad y gobierno del dato, sin perder cercanía con la construcción de soluciones y el diseño de producto.",
           "He impulsado capacidades de interoperabilidad alrededor de HL7 FHIR, el estándar moderno para intercambio electrónico de información clínica, y OMOP CDM, el modelo común promovido por OHDSI para estandarización y analítica avanzada. Eso me permitió conectar integración operativa, analítica y necesidades reales de negocio dentro del ecosistema del dato clínico.",
-          "También diseñé y evolucioné una plataforma de calidad del dato desde cero, alineada con la norma UNE 0081 de calidad del dato y apoyada en herramientas open source, hasta convertirla en una capacidad reutilizable y lista para integración vía API. A ello se suman la centralización de catálogo y metadatos en DataHub y la evolución del Data Model Explorer de Power BI a Apache Superset.",
+          "También diseñé y evolucioné una plataforma de calidad del dato desde cero, alineada con la norma UNE 0081 de calidad del dato y apoyada en herramientas open source, hasta convertirla en una capacidad reutilizable y lista para integración vía API. A ello se suman la centralización de catálogo y metadatos con herramientas open source de gobierno del dato y la iniciativa de migración de la tecnología de visualización, que lidero.",
           "Ese trabajo se completa con procesos de Data Offboarding orientados a cumplimiento, seguridad y control operativo, permitiendo seguir el recorrido del dato desde su entrada hasta su bloqueo o eliminación."
         ],
         "en": [
           "At Savana, I moved from a hands-on engineering role to leading the Data Management area, with a cross-functional view of data quality, interoperability, and governance, while staying close to solution design and product thinking.",
-          "I drove interoperability capabilities around HL7 FHIR, the modern HL7 specification for healthcare data exchange, and OMOP CDM, the common data model promoted by OHDSI for standardization and advanced analytics. This allowed me to connect operational integration, analytics enablement, and real business needs across the clinical data ecosystem.",
-          "I also designed and evolved a data quality platform from scratch, aligned with the UNE 0081 data quality standard and built on open source tooling, until it became a reusable capability ready for API-based integration. This was complemented by metadata and catalog centralization on DataHub, as well as lifecycle monitoring and visualization solutions, including the evolution of the Data Model Explorer from Power BI to Apache Superset.",
+          "I drove interoperability capabilities around HL7 FHIR, the modern HL7 specification for healthcare data exchange, and OMOP CDM, the common data model promoted by OHDSI for standardisation and advanced analytics. This allowed me to connect operational integration, analytics enablement, and real business needs across the clinical data ecosystem.",
+          "I also designed and evolved a data quality platform from scratch, aligned with the UNE 0081 data quality standard and built on open source tooling, until it became a reusable capability ready for API-based integration. This was complemented by catalogue and metadata centralisation with open-source data governance tools, as well as lifecycle monitoring and visualisation solutions, including the visualisation technology migration initiative that I lead.",
           "This work was completed by data offboarding processes focused on compliance, security, and operational control, making it possible to track data from ingestion to blocking or deletion."
         ]
       },
@@ -484,13 +486,13 @@
         "es": [
           "Interoperabilidad clínica con HL7 FHIR y OMOP CDM",
           "Calidad del dato como capacidad de producto",
-          "Catálogo, metadatos y linaje sobre DataHub",
+          "Catálogo, metadatos y linaje con herramientas open source",
           "Gestión del ciclo de vida y Data Offboarding"
         ],
         "en": [
           "Clinical interoperability with HL7 FHIR and OMOP CDM",
           "Data quality as a product capability",
-          "Catalog, metadata, and lineage on DataHub",
+          "Catalogue, metadata, and lineage with open-source tools",
           "Lifecycle management and data offboarding"
         ]
       }
@@ -505,7 +507,7 @@
           "company": "Savana",
           "period": "2022–actualidad",
           "role": "Head of Data Management",
-          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) y Head of Data Management (2025). Interoperabilidad clínica con HL7 FHIR y OMOP CDM, calidad del dato alineada con la UNE 0081, catálogo y metadatos en DataHub, y gestión del ciclo de vida del dato."
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) y Head of Data Management (2025). Interoperabilidad clínica con HL7 FHIR y OMOP CDM, calidad del dato alineada con la UNE 0081, catálogo y metadatos con herramientas open source, y gestión del ciclo de vida del dato."
         },
         {
           "company": "StratioBD",
@@ -537,13 +539,13 @@
           "company": "Savana",
           "period": "2022–present",
           "role": "Head of Data Management",
-          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) and Head of Data Management (2025). Clinical interoperability with HL7 FHIR and OMOP CDM, data quality aligned with UNE 0081, catalogue and metadata in DataHub, and data lifecycle management."
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) and Head of Data Management (2025). Clinical interoperability with HL7 FHIR and OMOP CDM, data quality aligned with UNE 0081, catalogue and metadata with open-source tools, and data lifecycle management."
         },
         {
           "company": "StratioBD",
           "period": "2021–2022",
           "role": "Data Engineer",
-          "text": "I strengthened an end-to-end understanding of data by working on a platform that connected ingestion, processing, modeling, governance, observability, and analytics. I designed integration and analytics processes on Apache Spark and worked on use cases where data needed to be reliable, explainable, and operable at scale."
+          "text": "I strengthened an end-to-end understanding of data by working on a platform that connected ingestion, processing, modelling, governance, observability, and analytics. I designed integration and analytics processes on Apache Spark and worked on use cases where data needed to be reliable, explainable, and operable at scale."
         },
         {
           "company": "Santander Global Tech",
@@ -555,7 +557,7 @@
           "company": "BBVA Next Technologies",
           "period": "2018–2020",
           "role": "Software Developer",
-          "text": "I participated in the modernization of data solutions for pensions, investment funds, and corporate analytics, connecting automation, cloud, and business utility in migrations from on-premise environments to AWS."
+          "text": "I participated in the modernisation of data solutions for pensions, investment funds, and corporate analytics, connecting automation, cloud, and business utility in migrations from on-premise environments to AWS."
         },
         {
           "company": "Autana Consultores de Tecnología",
@@ -606,7 +608,7 @@
           "summary": "Contribuí a dar visibilidad y control al recorrido completo del dato, desde la entrada y la monitorización hasta el Data Offboarding, con métricas operativas, trazabilidad y cumplimiento.",
           "outcomes": [
             "Data Model Explorer como capa de visibilidad del lifecycle",
-            "Evolución de Power BI hacia Apache Superset",
+            "Migración de la tecnología de visualización",
             "Procesos de Data Offboarding con foco en seguridad y cumplimiento"
           ]
         }
@@ -627,10 +629,10 @@
           "id": "interoperability",
           "title": "Clinical Interoperability",
           "kicker": "Clinical exchange and analytics",
-          "summary": "I drove clinical data transformations toward FHIR and OMOP to connect operational exchange, semantic normalization, and advanced analytics on a more consistent and reusable foundation.",
+          "summary": "I drove clinical data transformations toward FHIR and OMOP to connect operational exchange, semantic normalisation, and advanced analytics on a more consistent and reusable foundation.",
           "outcomes": [
             "FHIR for electronic healthcare information exchange",
-            "OMOP CDM for standardization and advanced analytics",
+            "OMOP CDM for standardisation and advanced analytics",
             "A bridge between operational integration and downstream value"
           ]
         },
@@ -641,7 +643,7 @@
           "summary": "I helped provide visibility and control across the full data journey, from ingestion and monitoring to Data Offboarding, with operational metrics, traceability, and compliance in place.",
           "outcomes": [
             "Data Model Explorer as a visibility layer for the lifecycle",
-            "Evolution from Power BI to Apache Superset",
+            "Visualisation technology migration",
             "Data Offboarding processes focused on security and compliance"
           ]
         }
@@ -694,7 +696,7 @@
           "title": "Certifications",
           "items": [
             "CDMP Certification – Associate · DAMA International (2026)",
-            "FHIR Foundational Implementer · VICO Open Modeling (2025)",
+            "FHIR Foundational Implementer · VICO Open Modelling (2025)",
             "SNOMED CT Terminology Fundamentals · SNOMED International (2026)"
           ]
         },
@@ -843,7 +845,7 @@
         },
         {
           "q": "¿Qué hace en Savana?",
-          "a": "En Savana pasó de Senior Data Engineer a Lead Data Engineer y después a Head of Data Management, impulsando interoperabilidad clínica con FHIR y OMOP, plataformas de calidad del dato, catálogo y metadatos con DataHub, y control del ciclo de vida del dato.",
+          "a": "En Savana pasó de Senior Data Engineer a Lead Data Engineer y después a Head of Data Management, impulsando interoperabilidad clínica con FHIR y OMOP, plataformas de calidad del dato, catálogo y metadatos con herramientas open source de gobierno del dato, y control del ciclo de vida del dato.",
           "keywords": [
             "savana",
             "head",
@@ -1013,17 +1015,17 @@
       "en": [
         {
           "q": "What is his main focus?",
-          "a": "His focus is designing and building governed, reliable data and AI platforms that help organisations make better decisions and grow with real impact, combining technical execution, architectural judgment and team leadership.",
+          "a": "His focus is designing and building governed, reliable data and AI platforms that help organisations make better decisions and grow with real impact, combining technical execution, architectural judgement and team leadership.",
           "keywords": [
             "focus",
             "main",
-            "specialization",
+            "specialisation",
             "profile"
           ]
         },
         {
           "q": "What does he do at Savana?",
-          "a": "At Savana, he progressed from Senior Data Engineer to Lead Data Engineer and then to Head of Data Management, driving clinical interoperability with FHIR and OMOP, data quality platforms, metadata and cataloging through DataHub, and lifecycle control.",
+          "a": "At Savana, he progressed from Senior Data Engineer to Lead Data Engineer and then to Head of Data Management, driving clinical interoperability with FHIR and OMOP, data quality platforms, metadata and cataloguing with open-source data governance tools, and lifecycle control.",
           "keywords": [
             "savana",
             "head",
@@ -1033,7 +1035,7 @@
         },
         {
           "q": "How does he work on interoperability?",
-          "a": "He treats interoperability as a product capability. He uses HL7 FHIR for electronic healthcare information exchange and OMOP CDM for normalization and advanced analytics, connecting operational integration with downstream value.",
+          "a": "He treats interoperability as a product capability. He uses HL7 FHIR for electronic healthcare information exchange and OMOP CDM for normalisation and advanced analytics, connecting operational integration with downstream value.",
           "keywords": [
             "interoperability",
             "fhir",
@@ -1084,7 +1086,7 @@
         },
         {
           "q": "What can you do?",
-          "a": "I can summarize the career path, explain key projects, clarify how Ismael approaches topics such as interoperability or data quality, and describe the public limits of this interactive CV.",
+          "a": "I can summarise the career path, explain key projects, clarify how Ismael approaches topics such as interoperability or data quality, and describe the public limits of this interactive CV.",
           "keywords": [
             "can you do",
             "capabilities",
@@ -1239,10 +1241,6 @@
           {
             "label": "DAMA Spain",
             "href": "https://www.damaspain.org/"
-          },
-          {
-            "label": "DataHub",
-            "href": "https://datahubproject.io/"
           }
         ]
       },
@@ -1293,10 +1291,6 @@
           {
             "label": "Apache Airflow",
             "href": "https://airflow.apache.org/"
-          },
-          {
-            "label": "Apache Superset",
-            "href": "https://superset.apache.org/"
           }
         ]
       },
