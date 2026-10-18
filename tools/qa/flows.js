@@ -33,6 +33,14 @@
   ok('compact timeline starts with Savana', document.querySelector('.tl-item h3')?.textContent === 'Savana');
   ok('IsAcademy right after Savana, with its «En paralelo» badge', document.querySelectorAll('.tl-item h3')[1]?.textContent === 'IsAcademy' && !!document.querySelectorAll('.tl-item')[1].querySelector('.tl-badge'));
   ok('Savana draws its three promotions as steps', document.querySelectorAll('.tl-item')[0].querySelectorAll('.tl-steps li').length === 3);
+  const track = document.querySelector('.tl-steps');
+  ok('Savana marks Head as the current step with a translated label', track.querySelector('[aria-current="step"] .tl-step-role')?.textContent === 'Head of Data Management'
+    && track.querySelector('[aria-current="step"] .tl-step-tag')?.textContent === 'Actual');
+  ok('every promotion stays readable during its animation', [...track.querySelectorAll('.tl-step-role')].every(el =>
+    getComputedStyle(el).opacity === '1' && parseFloat(getComputedStyle(el).fontSize) >= 14));
+  ok('mobile promotions use the available width instead of three narrow columns', innerWidth > 640 ||
+    [...track.children].every(el => el.getBoundingClientRect().width >= track.getBoundingClientRect().width - 1));
+  ok('career accents always finish', track.getAnimations({ subtree: true }).every(a => a.effect.getTiming().iterations !== Infinity));
   ok('every timeline stop sits on the rail', (() => { const r = document.querySelector('.tl-rail').getBoundingClientRect(), c = r.left + r.width / 2;
     return [...document.querySelectorAll('.tl-stop')].every(s => { const b = s.getBoundingClientRect(); return Math.abs(b.left + b.width / 2 - c) < 1; }); })());
   ok('contact without the extra «También me encuentras» links', !document.querySelector('.contact-more') && !/También me encuentras/.test(document.body.innerText));

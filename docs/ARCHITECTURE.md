@@ -28,6 +28,17 @@
   pixels and the page appears underneath while the hero rises line by line (`.stagger` in `/assets/ds/base.css`).
 - `pdf.js`: the PDF links (`[data-pdf]`: bar, intro, contact) point to the file of the language and theme shown.
 - `view.js`: summary mode hides `.detail` sections; `nav.js`: scroll spy and leaving summary mode for hidden targets.
+- `timeline.js`: the reading rail uses `scaleY` and the layout positions of the real stops (including borders), cached
+  until the main content or viewport changes. Its promotions have an independent visibility observer: they wait until
+  most of their own track is visible, then draw two connectors and settle Senior → Lead → Head once. The completed
+  state has no running animation; resizing or returning from summary mode does not replay it. The track is vertical
+  below 641 px. Role names remain readable while it plays; the current role has a label and gold node, without a
+  background panel. Reduced motion and `?pdf` show the completed state. Printing temporarily fills the outer rail;
+  `afterprint` restores the reading position.
+- The shared intro keeps Savana's company and career nodes mounted between its three roles. When the last milestone
+  finishes, the small career track collapses, leaving the year, company and final sentence. It uses no check marks or
+  background behind Head. On exit the intro circuits fade before the hero circuits appear, avoiding two simultaneous
+  drawings through the transparent backdrop. Signature, milestone timing, order and replay policy are preserved.
 - `assistant.js`: Alan from `/assets/ds/assistant.js` with a keyword matcher over the CV FAQ; tucked while the assistant
   section is visible and during the intro; it follows the page language.
 

@@ -349,14 +349,21 @@ def main():
     cases = ''.join(f'''<article class="card case reveal" id="{e(D["case_studies"]["items"]["es"][i]["id"])}">{T(f"case_studies.items.{i}.kicker", "p", "eyebrow")}{T(f"case_studies.items.{i}.title", "h3")}
           {T(f"case_studies.items.{i}.summary", "p")}{more(f'<ul class="ticks">{li(f"case_studies.items.{i}.outcomes")}</ul>', 'ui.cv.outcomes')}</article>'''
                     for i in range(count('case_studies.items')))
-    # the timeline: a gold rail fills while scrolling and each stop lights up (js/timeline.js); a job with promotions
-    # draws them as steps; a parallel project carries a badge
+    # Promotions keep their text readable while two independent connectors draw the career in order.
+    # The last role is the current one; a parallel project carries its own badge.
     def tl_steps(i):
         n = count(f'experience.timeline.{i}.steps')
         if not n: return ''
-        return ('<ol class="tl-steps" aria-label="' + e(ES[f'experience.timeline.{i}.company']) + '">' + ''.join(
-            f'<li><span class="tl-step-dot" aria-hidden="true"></span>{T(f"experience.timeline.{i}.steps.{k}.role", "span", "tl-step-role")}'
-            f'{T(f"experience.timeline.{i}.steps.{k}.year", "span", "tl-step-year")}</li>' for k in range(n)) + '</ol>')
+        stages = []
+        for k in range(n):
+            current = k == n - 1
+            link = '<span class="tl-step-link" aria-hidden="true"><i></i></span>' if not current else ''
+            tag = T('ui.cv.current', 'span', 'tl-step-tag') if current else ''
+            stages.append(f'<li class="tl-step" data-step="{k}"' + (' aria-current="step"' if current else '') + '>'
+                          + link + '<span class="tl-step-dot" aria-hidden="true"></span><span class="tl-step-copy">'
+                          + '<span class="tl-step-meta">' + T(f'experience.timeline.{i}.steps.{k}.year', 'span', 'tl-step-year')
+                          + tag + '</span>' + T(f'experience.timeline.{i}.steps.{k}.role', 'span', 'tl-step-role') + '</span></li>')
+        return '<ol class="tl-steps" aria-label="' + e(ES[f'experience.timeline.{i}.company']) + '">' + ''.join(stages) + '</ol>'
     badge = lambda i: T(f'experience.timeline.{i}.badge', 'span', 'pill tl-badge') if f'experience.timeline.{i}.badge' in ES else ''
     timeline = ''.join(f'''<li class="tl-item reveal"><span class="tl-stop" aria-hidden="true"></span><div class="tl-head"><div>{T(f"experience.timeline.{i}.company", "h3")}{T(f"experience.timeline.{i}.role", "p", "tl-role")}</div>
           <div class="tl-side">{badge(i)}{T(f"experience.timeline.{i}.period", "span", "tl-period")}</div></div>{T(f"experience.timeline.{i}.text", "p")}{tl_steps(i)}</li>''' for i in range(count('experience.timeline')))
