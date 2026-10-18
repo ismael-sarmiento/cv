@@ -68,6 +68,8 @@ h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height:
 .creds-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 2.4mm !important; }
 .timeline { gap: 1.6mm !important; }
 .tl-wrap { padding-left: 0 !important; } .tl-rail, .tl-stop { display: none !important; }
+/* the print head already identifies the CV: no portrait or circuit lines on paper */
+.hero-id, .ds-circuit { display: none !important; }
 /* the promotions are already in the Savana text: on paper the steps would only repeat them */
 .tl-steps { display: none !important; }
 .tl-item { padding: 2mm 3.6mm !important; } .tl-head { margin-bottom: 1mm !important; } .tl-badge { font-size: 7pt !important; padding: .3mm 2mm !important; }

@@ -16,7 +16,13 @@
 .pdf-chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* ===================== 2. Hero ===================== */
-.hero { padding: 72px 0 80px; }
+.hero { position: relative; overflow: hidden; padding: 72px 0 80px; }
+.hero > .container { position: relative; z-index: 1; }
+/* the portrait (/assets/ds/portrait.css) heads the right column, with the name and the two roles */
+.hero-id { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.hero-portrait { --portrait-size: 112px; padding: 5px; }
+.hero-id-name { margin: 0; font-size: 19px; font-weight: 600; color: var(--text); }
+.hero-id-role { margin: 2px 0 0; font-size: 14px; color: var(--text-2); line-height: 1.45; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: start; }
 .hero h1 { margin-bottom: 18px; }
 .h1-main { display: block; font-size: clamp(42px, 6.4vw, 72px); letter-spacing: -.035em; line-height: 1.02; }
@@ -165,6 +171,7 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
 }
 @media (max-width: 640px) {
   .hero { padding: 40px 0 56px; }
+  .hero-portrait { --portrait-size: 84px; padding: 4px; }
   .cases-grid { grid-template-columns: 1fr; }
   .tools .view-btn { display: none; }
   .tl-head { flex-direction: column; gap: 4px; }

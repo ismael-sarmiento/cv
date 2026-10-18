@@ -224,6 +224,8 @@ def head():
   <link rel="stylesheet" href="{v('/assets/ds/intro.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/contact.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/assistant.css')}">
+  <link rel="stylesheet" href="{v('/assets/ds/portrait.css')}">
+  <link rel="stylesheet" href="{v('/assets/ds/circuit.css')}">
   <link rel="stylesheet" href="{v('/cv/css/cv.css')}">
   <link rel="stylesheet" href="{v('/cv/css/print.css')}" media="print">
   <script type="importmap">{IMPORT_MAP}</script>
@@ -238,11 +240,28 @@ PRINT_HEAD = ('<div class="print-head" aria-hidden="true">'
               + '<p class="print-contact"><a href="mailto:ismaelantonio.professional@gmail.com">ismaelantonio.professional@gmail.com</a><br><a href="tel:+34613371874">+34 613 371 874</a> · <a href="https://wa.me/34613371874" rel="noopener">WhatsApp</a><br><a href="https://www.linkedin.com/in/ismael-sarmiento/" rel="noopener me">linkedin.com/in/ismael-sarmiento</a><br><a href="https://ismael-sarmiento.github.io/cv/" data-i18n-href="ui.cv.printCvHref" rel="noopener">ismael-sarmiento.github.io/cv/</a></p></div>')
 
 
+# the circuit lines of the brand (/assets/ds/circuit.css), the same two drawings as Inicio (portada tools/build.py):
+# in the intro the traces of IsAcademy's intro, in the hero a column on the right
+CIRCUIT_INTRO = '''<svg class="ds-circuit ds-circuit--intro" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path pathLength="1" d="M1600 150 H1380 L1340 190 H1180"/><circle cx="1180" cy="190" r="5"/>
+      <path pathLength="1" d="M1600 210 H1440 L1400 250 H1290"/><circle cx="1290" cy="250" r="5"/>
+      <path pathLength="1" d="M0 720 H200 L240 680 H380"/><circle cx="380" cy="680" r="5"/>
+      <path pathLength="1" d="M0 780 H260 L300 740 H460"/><circle cx="460" cy="740" r="5"/>
+    </svg>'''
+CIRCUIT_HERO = '''<svg class="ds-circuit ds-circuit--hero" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <path pathLength="1" d="M600 120H430l-40 40H300"/><circle cx="300" cy="160" r="4"/>
+        <path pathLength="1" d="M600 210H470l-30 30H350"/><circle cx="350" cy="240" r="4"/>
+        <path pathLength="1" d="M600 330H500l-50-50H380"/><circle cx="380" cy="280" r="4"/>
+        <path pathLength="1" d="M600 430H440l-30 30H330"/><circle cx="330" cy="460" r="4"/>
+      </svg>'''
+
+
 def intro():
     n = count('loader_milestones')
     segs = ''.join('<span></span>' for _ in range(n))
     steps = ''.join(T(f'loader_milestones.{i}', 'li') for i in range(n))
     return f'''<div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    {CIRCUIT_INTRO}
     <div class="intro-top">{toggles()}<button class="btn" type="button" data-action="skip">{T('ui.cv.skip')}</button></div>
     <div class="intro-stage">
       <p class="sr-only" id="intro-title">Ismael Sarmiento · CV Online</p>
@@ -354,6 +373,7 @@ def main():
     return f'''<main id="main">
     {PRINT_HEAD}
     <section class="hero" id="top" aria-labelledby="hero-title">
+      {CIRCUIT_HERO}
       <div class="container hero-grid">
         <div class="hero-copy stagger">
           <p class="eyebrow reveal">Ismael Sarmiento · CV Online</p>
@@ -366,6 +386,8 @@ def main():
           </div>
         </div>
         <aside class="hero-panel reveal" {A('aria-label', 'ui.cv.careerLabel')}>
+          <div class="hero-id"><span class="portrait hero-portrait"><img src="/assets/brand/ismael.jpg" width="264" height="264" alt="Ismael Sarmiento" fetchpriority="high"></span>
+            <div><p class="hero-id-name">Ismael Sarmiento</p>{T('hero.portraitCaption', 'p', 'hero-id-role')}</div></div>
           <div class="card card--static">
             {T('ui.labels.overview', 'p', 'eyebrow')}
             {T('hero.trajectoryHeading', 'h2', 'panel-title')}
