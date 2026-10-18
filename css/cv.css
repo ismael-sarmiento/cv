@@ -80,23 +80,44 @@
 .focus-label { margin-top: 6px; }
 .cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .case .ticks { margin-top: 12px; }
+/* timeline: a gold rail on the left fills with the reading position and each stop lights up when its card arrives
+   (js/timeline.js); a job with promotions draws them as steps, a parallel project carries a badge */
+.tl-wrap { position: relative; padding-left: 34px; }
+.tl-rail { position: absolute; left: 10px; top: 14px; bottom: 14px; width: 3px; border-radius: 3px; background: var(--line); }
+.tl-rail i { display: block; height: 0; border-radius: inherit; background: linear-gradient(var(--gold), var(--gold-2)); box-shadow: 0 0 10px rgba(200, 149, 63, .45); transition: height .2s linear; }
 .timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; position: relative; }
-.tl-item { position: relative; padding: 22px 24px 22px 28px; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: var(--radius); background: var(--surface); }
+.tl-item { position: relative; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+  transition: border-color .5s ease, transform .3s var(--ease-out), box-shadow .3s ease; }
+.tl-item.lit { border-color: color-mix(in srgb, var(--gold) 28%, var(--line)); }
+.tl-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.tl-stop { position: absolute; left: -30px; top: 27px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg-alt); border: 2px solid var(--line); transition: background .4s ease, border-color .4s ease, box-shadow .4s ease; }
+.tl-item.lit .tl-stop { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px rgba(200, 149, 63, .18); animation: tl-pop .5s var(--ease-out); }
+@keyframes tl-pop { 40% { transform: scale(1.35); } }
+.tl-side { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.tl-badge { font-size: 11.5px; padding: 3px 10px; }
+.tl-steps { list-style: none; position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 18px 0 0; padding: 0; }
+.tl-steps::before, .tl-steps::after { content: ""; position: absolute; top: 5px; left: 6px; height: 2px; width: calc(2 * ((100% - 20px) / 3 + 10px)); background: var(--line); border-radius: 2px; }
+.tl-steps::after { background: linear-gradient(90deg, var(--gold), var(--gold-2)); transform: scaleX(0); transform-origin: left; transition: transform 1.3s .15s var(--ease-out); }
+.tl-item.seen .tl-steps::after { transform: none; }
+.tl-steps li { position: relative; display: grid; gap: 2px; padding-top: 20px; opacity: .35; transition: opacity .5s ease; }
+.tl-step-dot { position: absolute; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line); transition: background .4s ease, border-color .4s ease, transform .4s var(--ease-out); }
+.tl-step-role { font-size: 13.5px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.tl-step-year { font-family: var(--font-mono); font-size: 12px; color: var(--gold-text); }
+.tl-item.seen .tl-steps li { opacity: 1; }
+.tl-item.seen .tl-step-dot { background: var(--gold); border-color: var(--gold); transform: scale(1.1); }
+.tl-item.seen .tl-steps li:nth-child(1), .tl-item.seen .tl-steps li:nth-child(1) .tl-step-dot { transition-delay: .2s; }
+.tl-item.seen .tl-steps li:nth-child(2), .tl-item.seen .tl-steps li:nth-child(2) .tl-step-dot { transition-delay: .75s; }
+.tl-item.seen .tl-steps li:nth-child(3), .tl-item.seen .tl-steps li:nth-child(3) .tl-step-dot { transition-delay: 1.3s; }
+.tl-steps li:last-child .tl-step-dot { box-shadow: 0 0 0 0 rgba(200, 149, 63, .4); }
+.tl-item.seen .tl-steps li:last-child .tl-step-dot { animation: tl-now 2.2s 1.8s ease-out infinite; }
+@keyframes tl-now { 0% { box-shadow: 0 0 0 0 rgba(200, 149, 63, .45); } 70%, 100% { box-shadow: 0 0 0 9px rgba(200, 149, 63, 0); } }
 .tl-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 8px; }
 .tl-head h3 { font-size: 20px; }
 .tl-role { margin: 2px 0 0; color: var(--gold-text); font-size: 14.5px; }
 .tl-period { font-family: var(--font-mono); font-size: 13px; color: var(--text-2); white-space: nowrap; }
 .tl-item > p { color: var(--text-2); margin: 0; }
 .creds-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-/* contact: the card shared with IsAcademy (/assets/ds/contact.css), then the other places of the universe and the PDF */
-.contact-more { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 28px; margin-top: 26px; }
-.contact-more .eyebrow { margin-bottom: 8px; }
-.contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
-.contact-link { display: inline-flex; align-items: baseline; gap: 10px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
-  color: var(--text); text-decoration: none; transition: border-color .2s ease, background .2s ease; }
-.contact-link span { font-weight: 600; }
-.contact-link strong { font-weight: 400; color: var(--text-2); font-size: 14px; }
-.contact-link:hover { border-color: var(--gold); background: rgba(200, 149, 63, .06); }
+/* contact: the card shared with IsAcademy (/assets/ds/contact.css) */
 
 /* ===================== 4. Read more and Alan ===================== */
 /* long texts open on demand: a quiet gold link with a chevron that turns */
@@ -147,7 +168,11 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
   .cases-grid { grid-template-columns: 1fr; }
   .tools .view-btn { display: none; }
   .tl-head { flex-direction: column; gap: 4px; }
-  .contact-link { flex-direction: column; gap: 2px; }
+  .tl-wrap { padding-left: 26px; }
+  .tl-rail { left: 6px; }
+  .tl-stop { left: -26px; }
+  .tl-side { justify-content: flex-start; }
+  .tl-step-role { font-size: 12.5px; }
 }
 
 /* articles (articles/_template) */

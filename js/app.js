@@ -8,6 +8,7 @@ import { initNav } from './nav.js';
 import { initAssistant } from './assistant.js';
 import { initPdfLinks } from './pdf.js';
 import { initContact } from './contact.js';
+import { initTimeline } from './timeline.js';
 
 const VERSION = new URL(import.meta.url).searchParams.get('v') || 'dev';
 const data = JSON.parse(document.getElementById('cv-data').textContent);
@@ -30,6 +31,7 @@ initNav();
 initAssistant(data, i18n);
 initPdfLinks(i18n);
 initContact(i18n);
+initTimeline();
 await i18n.start();
-initIntro({ i18n, steps: () => data[i18n.lang()].steps });
+initIntro({ i18n, steps: () => data[i18n.lang()].steps, stepMs: 1650 });
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });

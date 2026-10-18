@@ -311,11 +311,6 @@ def main():
     eco = ''.join(f'<article class="card card--static eco reveal">{T(f"ecosystem.groups.{g}.title", "h3")}<ul class="chips">'
                   + ''.join(chip(g, j) for j in range(len(D['ecosystem']['groups'][g]['items']))) + '</ul></article>'
                   for g in range(len(D['ecosystem']['groups'])))
-    universe = ''.join(f'<a class="contact-link" href="{href}"{extra}>{name}<strong>{shown}</strong></a>'
-                       for name, href, extra, shown in (
-                           (T('ui.cv.home'), '/', ' data-i18n-href="ui.cv.homeHref"', 'ismael-sarmiento.github.io'),
-                           ('<span>IsAcademy</span>', '/isacademy/', '', 'ismael-sarmiento.github.io/isacademy'),
-                           ('<span>Kimera Tools</span>', 'https://github.com/kimera-tools', ' rel="noopener"', 'github.com/kimera-tools')))
     layers = ''.join(f'<li class="layer"><span class="node" aria-hidden="true"></span><div>{T(f"hero.layers.{i}.title", "h3")}{T(f"hero.layers.{i}.text", "p")}</div></li>'
                      for i in range(count('hero.layers')))
     proofs = ''.join(f'<article class="card reveal">{T("ui.labels.keyValue", "p", "eyebrow")}{T(f"hero.proofPoints.{i}.title", "h3")}{T(f"hero.proofPoints.{i}.body", "p")}</article>'
@@ -335,8 +330,17 @@ def main():
     cases = ''.join(f'''<article class="card case reveal" id="{e(D["case_studies"]["items"]["es"][i]["id"])}">{T(f"case_studies.items.{i}.kicker", "p", "eyebrow")}{T(f"case_studies.items.{i}.title", "h3")}
           {T(f"case_studies.items.{i}.summary", "p")}{more(f'<ul class="ticks">{li(f"case_studies.items.{i}.outcomes")}</ul>', 'ui.cv.outcomes')}</article>'''
                     for i in range(count('case_studies.items')))
-    timeline = ''.join(f'''<li class="tl-item reveal"><div class="tl-head"><div>{T(f"experience.timeline.{i}.company", "h3")}{T(f"experience.timeline.{i}.role", "p", "tl-role")}</div>
-          {T(f"experience.timeline.{i}.period", "span", "tl-period")}</div>{T(f"experience.timeline.{i}.text", "p")}</li>''' for i in range(count('experience.timeline')))
+    # the timeline: a gold rail fills while scrolling and each stop lights up (js/timeline.js); a job with promotions
+    # draws them as steps; a parallel project carries a badge
+    def tl_steps(i):
+        n = count(f'experience.timeline.{i}.steps')
+        if not n: return ''
+        return ('<ol class="tl-steps" aria-label="' + e(ES[f'experience.timeline.{i}.company']) + '">' + ''.join(
+            f'<li><span class="tl-step-dot" aria-hidden="true"></span>{T(f"experience.timeline.{i}.steps.{k}.role", "span", "tl-step-role")}'
+            f'{T(f"experience.timeline.{i}.steps.{k}.year", "span", "tl-step-year")}</li>' for k in range(n)) + '</ol>')
+    badge = lambda i: T(f'experience.timeline.{i}.badge', 'span', 'pill tl-badge') if f'experience.timeline.{i}.badge' in ES else ''
+    timeline = ''.join(f'''<li class="tl-item reveal"><span class="tl-stop" aria-hidden="true"></span><div class="tl-head"><div>{T(f"experience.timeline.{i}.company", "h3")}{T(f"experience.timeline.{i}.role", "p", "tl-role")}</div>
+          <div class="tl-side">{badge(i)}{T(f"experience.timeline.{i}.period", "span", "tl-period")}</div></div>{T(f"experience.timeline.{i}.text", "p")}{tl_steps(i)}</li>''' for i in range(count('experience.timeline')))
     creds = ''.join(f'<article class="card card--static reveal">{T(f"credentials.groups.{i}.title", "h3")}<ul class="ticks">{li(f"credentials.groups.{i}.items")}</ul></article>'
                     for i in range(count('credentials.groups')))
     items = {x['label']: (i, x) for i, x in enumerate(D['contact']['items']['es'])}
@@ -417,7 +421,7 @@ def main():
     <section class="section alt detail" id="timeline" data-section="timeline">
       <div class="container">
         {section_head('ui.labels.timeline', 'experience.timelineHeading')}
-        <ol class="timeline stagger">{timeline}</ol>
+        <div class="tl-wrap"><span class="tl-rail" aria-hidden="true"><i></i></span><ol class="timeline stagger">{timeline}</ol></div>
       </div>
     </section>
 
@@ -453,9 +457,6 @@ def main():
             <button class="btn btn-primary btn-lg" type="submit">{T('ui.cv.form.send')}</button>
           </form>
           <div class="contact-ways">{T('ui.cv.form.waysLead', 'p')}{ways}</div>
-        </div>
-        <div class="contact-more reveal">
-          <div>{T('ui.cv.elsewhere', 'p', 'eyebrow')}<div class="contact-links">{universe}</div></div>
         </div>
       </div>
     </section>

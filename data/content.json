@@ -106,7 +106,6 @@
         "langShort": "EN",
         "current": "Actual",
         "homeHref": "/",
-        "elsewhere": "También me encuentras en",
         "summaryNotice": "Modo resumen: estás viendo lo esencial del CV.",
         "pdf": "Descargar CV en PDF",
         "pdfHref": "/cv/ismael-sarmiento-cv.pdf",
@@ -224,7 +223,6 @@
         "langShort": "ES",
         "current": "Current",
         "homeHref": "/?lang=en",
-        "elsewhere": "You can also find me at",
         "summaryNotice": "Summary mode: you are seeing the essentials of the CV.",
         "pdf": "Download CV as PDF",
         "pdfHref": "/cv/ismael-sarmiento-cv-en.pdf",
@@ -256,18 +254,24 @@
   },
   "loader_milestones": {
     "es": [
-      "Modernización cloud de soluciones de datos",
-      "Sistemas batch y streaming de alta exigencia",
-      "Visión end-to-end de plataformas de datos",
-      "Interoperabilidad clínica con HL7 FHIR y OMOP",
-      "Calidad del dato, metadatos y ciclo de vida como producto"
+      "2017 · Autana — Primeros pasos en datos y analítica",
+      "2018 · BBVA Next — Datos en la nube para fondos y pensiones",
+      "2020 · Santander — Batch y streaming de alta exigencia",
+      "2021 · Stratio — Plataformas de datos de extremo a extremo",
+      "2023 · IsAcademy — Enseñar datos e IA a quien empieza",
+      "2022 · Savana · Senior Data Engineer — Datos clínicos hacia HL7 FHIR y OMOP",
+      "2023 · Savana · Lead Data Engineer — Una plataforma de calidad del dato desde cero, alineada con la UNE 0081",
+      "2025 · Savana · Head of Data Management — Lidero gobierno, calidad e interoperabilidad del dato como producto"
     ],
     "en": [
-      "Cloud modernisation for data solutions",
-      "High-demand batch and streaming systems",
-      "End-to-end data platform perspective",
-      "Clinical interoperability with HL7 FHIR and OMOP",
-      "Data quality, metadata, and lifecycle as product capabilities"
+      "2017 · Autana — First steps in data and analytics",
+      "2018 · BBVA Next — Cloud data for funds and pensions",
+      "2020 · Santander — High-demand batch and streaming",
+      "2021 · Stratio — End-to-end data platforms",
+      "2023 · IsAcademy — Teaching data and AI to people starting out",
+      "2022 · Savana · Senior Data Engineer — Clinical data into HL7 FHIR and OMOP",
+      "2023 · Savana · Lead Data Engineer — A data quality platform built from scratch, aligned with UNE 0081",
+      "2025 · Savana · Head of Data Management — Leading data governance, quality and interoperability as a product"
     ]
   },
   "hero": {
@@ -507,7 +511,28 @@
           "company": "Savana",
           "period": "2022–actualidad",
           "role": "Head of Data Management",
-          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) y Head of Data Management (2025). Interoperabilidad clínica con HL7 FHIR y OMOP CDM, calidad del dato alineada con la UNE 0081, catálogo y metadatos con herramientas open source, y gestión del ciclo de vida del dato."
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) y Head of Data Management (2025). Interoperabilidad clínica con HL7 FHIR y OMOP CDM, calidad del dato alineada con la UNE 0081, catálogo y metadatos con herramientas open source, y gestión del ciclo de vida del dato.",
+          "steps": [
+            {
+              "role": "Senior Data Engineer",
+              "year": "2022"
+            },
+            {
+              "role": "Lead Data Engineer",
+              "year": "2023"
+            },
+            {
+              "role": "Head of Data Management",
+              "year": "2025"
+            }
+          ]
+        },
+        {
+          "company": "IsAcademy",
+          "period": "2023–actualidad",
+          "role": "Fundador y tutor",
+          "badge": "En paralelo",
+          "text": "Academia online de programación, datos e IA: clases personalizadas y orientación para entrar en el mundo del dato."
         },
         {
           "company": "StratioBD",
@@ -539,7 +564,28 @@
           "company": "Savana",
           "period": "2022–present",
           "role": "Head of Data Management",
-          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) and Head of Data Management (2025). Clinical interoperability with HL7 FHIR and OMOP CDM, data quality aligned with UNE 0081, catalogue and metadata with open-source tools, and data lifecycle management."
+          "text": "Senior Data Engineer (2022), Lead Data Engineer (2023) and Head of Data Management (2025). Clinical interoperability with HL7 FHIR and OMOP CDM, data quality aligned with UNE 0081, catalogue and metadata with open-source tools, and data lifecycle management.",
+          "steps": [
+            {
+              "role": "Senior Data Engineer",
+              "year": "2022"
+            },
+            {
+              "role": "Lead Data Engineer",
+              "year": "2023"
+            },
+            {
+              "role": "Head of Data Management",
+              "year": "2025"
+            }
+          ]
+        },
+        {
+          "company": "IsAcademy",
+          "period": "2023–present",
+          "role": "Founder and tutor",
+          "badge": "Alongside",
+          "text": "Online academy for programming, data and AI: tailored lessons and guidance for people moving into the data world."
         },
         {
           "company": "StratioBD",

@@ -31,6 +31,13 @@
   ok('English via ?lang=en', document.documentElement.lang === 'en' && location.search.includes('lang=en') && lb.textContent.trim() === 'ES');
   lb.click(); await sleep(400); ok('back to Spanish', document.documentElement.lang === 'es' && !location.search.includes('lang'));
   ok('compact timeline starts with Savana', document.querySelector('.tl-item h3')?.textContent === 'Savana');
+  ok('IsAcademy right after Savana, with its «En paralelo» badge', document.querySelectorAll('.tl-item h3')[1]?.textContent === 'IsAcademy' && !!document.querySelectorAll('.tl-item')[1].querySelector('.tl-badge'));
+  ok('Savana draws its three promotions as steps', document.querySelectorAll('.tl-item')[0].querySelectorAll('.tl-steps li').length === 3);
+  ok('every timeline stop sits on the rail', (() => { const r = document.querySelector('.tl-rail').getBoundingClientRect(), c = r.left + r.width / 2;
+    return [...document.querySelectorAll('.tl-stop')].every(s => { const b = s.getBoundingClientRect(); return Math.abs(b.left + b.width / 2 - c) < 1; }); })());
+  ok('contact without the extra «También me encuentras» links', !document.querySelector('.contact-more') && !/También me encuentras/.test(document.body.innerText));
+  ok('eight intro milestones, Savana last in three steps', (() => { const s = JSON.parse(document.getElementById('cv-data')?.textContent || 'null')?.es?.steps || [];
+    return s.length === 8 && s.slice(-3).every(x => x.includes('Savana ·')) && /IsAcademy/.test(s[4]); })());
   ok('ladder: three rungs, current on top', document.querySelectorAll('.rung').length === 3 && document.querySelector('.rung-now'));
   ok('five ecosystem groups', document.querySelectorAll('.eco').length === 5);
   ok('external links rel=noopener', [...document.querySelectorAll('a[href^="http"]')].every(a => /noopener/.test(a.rel)));

@@ -37,7 +37,7 @@ a { color: inherit; text-decoration: none; }
 
 /* rhythm: the web hierarchy, tighter */
 .container { max-width: none !important; padding: 0 !important; }
-.section, .hero { padding: 3.6mm 0 0 !important; background: transparent !important; }
+.section, .hero { padding: 3mm 0 0 !important; background: transparent !important; }
 .hero-grid { display: block !important; }
 .hero .eyebrow { margin-bottom: 1mm; }
 .hero h1 { margin-bottom: 2mm; }
@@ -65,9 +65,12 @@ h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height:
 .summary-copy p, .summary-copy p:first-child { font-size: 9.5pt; color: var(--text); }
 .about-grid, .story-grid { display: grid !important; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) !important; gap: 5mm !important; align-items: start; }
 .cases-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 3mm !important; }
-.creds-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 3mm !important; }
-.timeline { gap: 2.2mm !important; }
-.tl-item { padding: 2.6mm 4mm !important; }
+.creds-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 2.4mm !important; }
+.timeline { gap: 1.6mm !important; }
+.tl-wrap { padding-left: 0 !important; } .tl-rail, .tl-stop { display: none !important; }
+/* the promotions are already in the Savana text: on paper the steps would only repeat them */
+.tl-steps { display: none !important; }
+.tl-item { padding: 2mm 3.6mm !important; } .tl-head { margin-bottom: 1mm !important; } .tl-badge { font-size: 7pt !important; padding: .3mm 2mm !important; }
 .tl-item h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height: 1.25; }
 .creds-grid h3 { font-size: 11pt !important; }
 .tl-role { font-size: 8.6pt !important; }
@@ -82,7 +85,7 @@ h3, .card h3, .case h3, .tl-item h3 { font-size: 10.5pt !important; line-height:
 
 /* page breaks: titles stay with their content, blocks never split */
 h2, h3 { break-after: avoid; }
-.card, .tl-item, .layer, .stat, .rung, .contact-link, .ladder { break-inside: avoid; }
+.card, .tl-item, .layer, .stat, .rung, .ladder { break-inside: avoid; }
 
 /* the way back to the interactive CV and to IsAcademy */
 .print-foot { display: block !important; margin: 1.5mm 0 0; font-size: 7.5pt; color: var(--text-2); }
