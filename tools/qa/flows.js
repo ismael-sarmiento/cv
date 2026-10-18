@@ -40,7 +40,10 @@
     getComputedStyle(el).opacity === '1' && parseFloat(getComputedStyle(el).fontSize) >= 14));
   ok('mobile promotions use the available width instead of three narrow columns', innerWidth > 640 ||
     [...track.children].every(el => el.getBoundingClientRect().width >= track.getBoundingClientRect().width - 1));
-  ok('career accents always finish', track.getAnimations({ subtree: true }).every(a => a.effect.getTiming().iterations !== Infinity));
+  track.scrollIntoView({ block: 'center', behavior: 'instant' });
+  await sleep(2500);
+  ok('career accents finish after the track enters the viewport', !track.classList.contains('is-pending')
+    && !track.classList.contains('steps-in') && track.getAnimations({ subtree: true }).every(a => a.playState !== 'running'));
   ok('every timeline stop sits on the rail', (() => { const r = document.querySelector('.tl-rail').getBoundingClientRect(), c = r.left + r.width / 2;
     return [...document.querySelectorAll('.tl-stop')].every(s => { const b = s.getBoundingClientRect(); return Math.abs(b.left + b.width / 2 - c) < 1; }); })());
   ok('contact without the extra «También me encuentras» links', !document.querySelector('.contact-more') && !/También me encuentras/.test(document.body.innerText));
