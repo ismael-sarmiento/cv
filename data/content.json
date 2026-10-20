@@ -120,18 +120,21 @@
           "message": "Mensaje",
           "messagePh": "Cuéntame en qué puedo ayudarte…",
           "accept": "He leído la información de privacidad y acepto que Ismael Sarmiento use mis datos para responder a mi mensaje.",
-          "privacy": "Información de privacidad: responsable, Ismael Sarmiento. Finalidad: responder a tu mensaje. Tus datos no se ceden a terceros; para enviarlo se usan Cloudflare Turnstile, que comprueba que no eres un bot (<a href=\"https://www.cloudflare.com/turnstile-privacy-policy/\" target=\"_blank\" rel=\"noopener\">aviso de privacidad de Turnstile</a>), y el servicio de correo Resend. Puedes acceder, rectificar o suprimir tus datos escribiendo a <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
+          "privacy": "Responsable: Ismael Sarmiento. Usaré los datos que facilites para responder a tu mensaje y gestionar su seguimiento. La ficha privada, incluido el contexto de conexión disponible, se conserva 90 días. Cloudflare proporciona alojamiento, almacenamiento y protección Turnstile; Resend envía la notificación por correo. Consulta los datos tratados, conservación, proveedores y tus derechos en el <a href=\"/privacy/\">aviso de privacidad</a>. Puedes ejercer tus derechos escribiendo a <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
           "send": "Enviar mensaje",
           "sending": "Enviando…",
-          "ok": "¡Gracias! He recibido tu mensaje y te responderé pronto.",
+          "ok": "Gracias. Tu mensaje se ha recibido correctamente.",
           "error": "No se ha podido enviar. Escríbeme por correo o por WhatsApp.",
           "required": "Este campo es obligatorio.",
           "badEmail": "Revisa el email.",
           "needPrivacy": "Necesito tu aceptación para poder responderte.",
           "waysLead": "O escríbeme directamente",
           "mail": "Correo",
-          "title": "¿Hablamos?"
-        }
+          "title": "¿Hablamos?",
+          "saved": "Mensaje guardado correctamente. La notificación por correo no está confirmada; no necesitas volver a enviarlo."
+        },
+        "privacyLabel": "Privacidad",
+        "privacyHref": "/privacy/"
       }
     },
     "en": {
@@ -237,18 +240,21 @@
           "message": "Message",
           "messagePh": "Tell me how I can help…",
           "accept": "I have read the privacy information and agree that Ismael Sarmiento may use my data to reply to my message.",
-          "privacy": "Privacy information: controller, Ismael Sarmiento. Purpose: to reply to your message. Your data is not shared with third parties; sending it uses Cloudflare Turnstile, which checks that you are not a bot (<a href=\"https://www.cloudflare.com/turnstile-privacy-policy/\" target=\"_blank\" rel=\"noopener\">Turnstile privacy notice</a>), and the Resend email service. You can access, rectify or delete your data by writing to <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
+          "privacy": "Controller: Ismael Sarmiento. I use the details you provide to reply and follow up on your message. The private record, including available connection context, is kept for 90 days. Cloudflare provides hosting, storage and Turnstile protection; Resend sends the email notification. See the data, retention, providers and your rights in the <a href=\"/privacy/?lang=en\">privacy notice</a>. To exercise your rights, email <a href=\"mailto:ismaelantonio.professional@gmail.com\">ismaelantonio.professional@gmail.com</a>.",
           "send": "Send message",
           "sending": "Sending…",
-          "ok": "Thank you! I have received your message and will reply soon.",
+          "ok": "Thank you. Your message has been received.",
           "error": "It could not be sent. Please write to me by email or on WhatsApp.",
           "required": "This field is required.",
           "badEmail": "Please check the email.",
           "needPrivacy": "I need your consent to be able to reply.",
           "waysLead": "Or write to me directly",
           "mail": "Email",
-          "title": "Let's talk"
-        }
+          "title": "Let's talk",
+          "saved": "Your message has been saved. Its email notification is unconfirmed; you do not need to submit it again."
+        },
+        "privacyLabel": "Privacy",
+        "privacyHref": "/privacy/?lang=en"
       }
     }
   },

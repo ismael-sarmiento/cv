@@ -8,7 +8,7 @@ export function initContact(i18n) {
   const t = key => i18n.t(`ui.cv.form.${key}`);
   initContactForm({
     form,
-    texts: () => ({ required: t('required'), badEmail: t('badEmail'), needPrivacy: t('needPrivacy'), send: t('send'), sending: t('sending'), ok: t('ok'), error: t('error') }),
+    texts: () => ({ required: t('required'), badEmail: t('badEmail'), needPrivacy: t('needPrivacy'), send: t('send'), sending: t('sending'), ok: t('ok'), saved: t('saved'), error: t('error') }),
     buildEmail: async f => {
       const v = name => f.elements[name].value.trim();
       const language = i18n.lang() === 'en' ? 'Inglés' : 'Español';

@@ -503,6 +503,7 @@ def footer():
       <span>© <span data-year>2026</span> Ismael Sarmiento</span>
       <!-- the footer of every site of the universe (portada tools/build.py): the other sites, then the ways to reach Ismael -->
       <nav class="footer-links" aria-label="Ismael Sarmiento">
+        <a href="/privacy/" data-i18n-href="ui.cv.privacyHref">{T('ui.cv.privacyLabel')}</a>
         <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/">IsAcademy</a>
         {way('WhatsApp', 'WhatsApp')}{way('Email', T('ui.cv.form.mail'))}
         <a href="{e(D['meta']['linkedin'])}" rel="noopener me">LinkedIn</a><a href="{e(D['meta']['github'])}" rel="noopener me">GitHub</a>
