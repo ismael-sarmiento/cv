@@ -24,7 +24,7 @@ VERSION = sys.argv[1] if len(sys.argv) > 1 else '20261014a'
 D = json.loads((ROOT / 'data/content.json').read_text())
 SITE = 'https://ismael-sarmiento.github.io'
 BASE = f'{SITE}/cv/'
-TODAY = '2026-10-14'
+TODAY = '2026-10-26'
 CF_TOKEN = '1af8978bb58b4f6cb3771790a71c784c'  # Cloudflare Web Analytics (shared with the portada)
 
 
@@ -332,7 +332,7 @@ def main():
                   for g in range(len(D['ecosystem']['groups'])))
     layers = ''.join(f'<li class="layer"><span class="node" aria-hidden="true"></span><div>{T(f"hero.layers.{i}.title", "h3")}{T(f"hero.layers.{i}.text", "p")}</div></li>'
                      for i in range(count('hero.layers')))
-    proofs = ''.join(f'<article class="card reveal">{T("ui.labels.keyValue", "p", "eyebrow")}{T(f"hero.proofPoints.{i}.title", "h3")}{T(f"hero.proofPoints.{i}.body", "p")}</article>'
+    proofs = ''.join(f'<article class="card contribution reveal">{T("ui.labels.keyValue", "p", "eyebrow")}{T(f"hero.proofPoints.{i}.title", "h3")}{T(f"hero.proofPoints.{i}.body", "p")}</article>'
                      for i in range(count('hero.proofPoints')))
     pillars = ''.join(f'<article class="pillar reveal">{T(f"summary.pillars.{i}.label", "h3")}{T(f"summary.pillars.{i}.text", "p")}</article>'
                       for i in range(count('summary.pillars')))
@@ -393,7 +393,7 @@ def main():
           </div>
         </div>
         <aside class="hero-panel reveal" {A('aria-label', 'ui.cv.careerLabel')}>
-          <div class="hero-id"><span class="portrait hero-portrait"><img src="/assets/brand/ismael.jpg" width="264" height="264" alt="Ismael Sarmiento" fetchpriority="high"></span>
+          <div class="hero-id"><a class="portrait hero-portrait" href="{e(D['meta']['linkedin'])}" target="_blank" rel="noopener noreferrer" {A('aria-label', 'ui.cv.portraitLinkedinLabel')}><img src="/assets/brand/ismael.jpg" width="264" height="264" alt="Ismael Sarmiento" fetchpriority="high"></a>
             <div><p class="hero-id-name">Ismael Sarmiento</p>{T('hero.portraitCaption', 'p', 'hero-id-role')}</div></div>
           <div class="card card--static">
             {T('ui.labels.overview', 'p', 'eyebrow')}
@@ -410,10 +410,8 @@ def main():
     <section class="section alt" id="summary" data-section="summary">
       <div class="container">
         {section_head('ui.navigation.summary', 'summary.heading', 'summary.lead')}
-        <div class="summary-grid stagger">
-          <article class="summary-copy reveal">{ps('summary.paragraphs')}</article>
-          {proofs}
-        </div>
+        <div class="summary-copy reveal">{ps('summary.paragraphs')}</div>
+        <div class="summary-grid stagger">{proofs}</div>
         <div class="pillars stagger">{pillars}</div>
       </div>
     </section>

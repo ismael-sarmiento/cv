@@ -6,9 +6,9 @@ export function initContact(i18n) {
   const form = document.getElementById('cvForm');
   if (!form) return;
   const t = key => i18n.t(`ui.cv.form.${key}`);
-  initContactForm({
+  const contact = initContactForm({
     form,
-    texts: () => ({ required: t('required'), badEmail: t('badEmail'), needPrivacy: t('needPrivacy'), send: t('send'), sending: t('sending'), ok: t('ok'), saved: t('saved'), error: t('error') }),
+    texts: () => ({ required: t('required'), badEmail: t('badEmail'), needPrivacy: t('needPrivacy'), send: t('send'), sending: t('sending'), ok: t('ok'), saved: t('saved'), uncertain: t('uncertain'), error: t('error') }),
     buildEmail: async f => {
       const v = name => f.elements[name].value.trim();
       const language = i18n.lang() === 'en' ? 'Inglés' : 'Español';
@@ -19,4 +19,5 @@ export function initContact(i18n) {
       };
     },
   });
+  i18n.onChange(contact.refreshTexts);
 }

@@ -45,24 +45,22 @@
 .ticks li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); }
 
 /* ===================== 3. Sections ===================== */
-/* the long summary on the left, the three contributions stacked on the right */
-.summary-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 18px; }
-@media (min-width: 1001px) { .summary-copy { position: sticky; top: 96px; align-self: start; } }
-.summary-copy { grid-row: span 3; }
+/* Read the overview first, then four contributions with equal visual weight. */
+.summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.summary-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; margin-bottom: 28px; }
 .card > p { color: var(--text-2); }
-.summary-copy p { color: var(--text-2); font-size: 17px; }
-.summary-copy p:first-child { color: var(--text); font-size: 19px; }
+.summary-copy p { margin: 0; color: var(--text-2); font-size: 17px; }
 .card h3 { font-size: 19px; margin-bottom: 8px; }
 .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 28px; }
 .pillar { border-top: 2px solid var(--gold); padding-top: 14px; }
 .pillar h3 { font-size: 17px; margin-bottom: 6px; }
 .pillar p { color: var(--text-2); font-size: 15px; margin: 0; }
-.about-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 40px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 40px; align-items: center; }
 .about-grid p { color: var(--text-2); }
 .stats { display: grid; gap: 18px; }
 .stat strong { display: block; color: var(--gold-text); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
 .stat p { margin: 0; color: var(--text); }
-.story-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 32px; align-items: start; }
+.story-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 32px; align-items: center; }
 .story-copy p { color: var(--text-2); }
 /* career ladder: first role at the bottom, current role at the top; it climbs when it enters the screen */
 .ladder { list-style: none; position: relative; display: flex; flex-direction: column-reverse; gap: 16px; margin: 4px 0 24px; padding: 0 0 0 2px; }
@@ -84,7 +82,7 @@
   border: 1px solid var(--gold); color: var(--gold-text); }
 .ladder.reveal { opacity: 1; transform: none; }
 .focus-label { margin-top: 6px; }
-.cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .case .ticks { margin-top: 12px; }
 /* Timeline: the rail follows the reader; promotions start when their own track is visible.
    Each connector reaches the next node before it settles. Text is readable throughout. */
@@ -99,7 +97,7 @@
 .tl-item.lit { border-color: color-mix(in srgb, var(--gold) 28%, var(--line)); }
 /* Keep the stop on its rail: hover accents the surface without moving the whole card. */
 @media (hover: hover) and (pointer: fine) { .tl-item.in:hover { box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); } }
-.tl-stop { position: absolute; left: -30px; top: 27px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg-alt); border: 2px solid var(--line); transition: background .4s ease, border-color .4s ease, box-shadow .4s ease; }
+.tl-stop { position: absolute; left: -30px; top: calc(50% - 6.5px); width: 13px; height: 13px; border-radius: 50%; background: var(--bg-alt); border: 2px solid var(--line); transition: background .4s ease, border-color .4s ease, box-shadow .4s ease; }
 .tl-item.lit .tl-stop { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px var(--gold-glow); }
 .tl-side { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 .tl-badge { font-size: 11.5px; padding: 3px 10px; }
@@ -108,12 +106,12 @@
 .tl-step { --step: 0; position: relative; min-width: 0; padding-top: 33px; }
 .tl-step[data-step="1"] { --step: 1; }
 .tl-step[data-step="2"] { --step: 2; }
-.tl-step-link { position: absolute; top: 14px; left: 7px; width: calc(100% + 20px); height: 2px; background: var(--line); }
+.tl-step-link { position: absolute; top: 14px; left: 50%; width: calc(100% + 20px); height: 2px; background: var(--line); }
 .tl-step-link i { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-2)); transform-origin: left; }
-.tl-step-dot { position: absolute; z-index: 1; top: 8px; left: 0; width: 14px; height: 14px; border-radius: 50%;
+.tl-step-dot { position: absolute; z-index: 1; top: 8px; left: calc(50% - 7px); width: 14px; height: 14px; border-radius: 50%;
   border: 2px solid var(--gold); background: var(--gold); }
-.tl-step-copy { position: relative; display: grid; gap: 7px; padding: 10px 12px; margin-left: -12px; border-radius: var(--radius-sm); }
-.tl-step-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; min-height: 22px; }
+.tl-step-copy { position: relative; display: grid; gap: 7px; padding: 10px 0; text-align: center; border-radius: var(--radius-sm); }
+.tl-step-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; justify-content: center; min-height: 22px; }
 .tl-step-year { font-family: var(--font-mono); font-size: 12px; color: var(--gold-text); }
 .tl-step-role { font-size: 15px; font-weight: 500; color: var(--text-2); line-height: 1.4; }
 .tl-step-tag { padding: 2px 7px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--line));
@@ -185,11 +183,10 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
 /* ===================== 6. Responsive ===================== */
 @media (max-width: 1000px) {
   .hero-grid, .about-grid, .story-grid { grid-template-columns: 1fr; }
-  .summary-grid { grid-template-columns: 1fr; }
-  .summary-copy { grid-row: auto; }
   .creds-grid, .cases-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
+  .summary-grid, .summary-copy { grid-template-columns: 1fr; }
   .hero { padding: 40px 0 56px; }
   .hero-portrait { --portrait-size: 84px; padding: 4px; }
   .cases-grid { grid-template-columns: 1fr; }
@@ -202,10 +199,11 @@ body.summary-mode .nav a[data-nav="story"], body.summary-mode .nav a[data-nav="c
   .tl-steps { grid-template-columns: 1fr; gap: 0; padding-top: 20px; }
   .tl-step { padding: 0 0 18px 30px; }
   .tl-step:last-child { padding-bottom: 0; }
-  .tl-step-dot { top: 14px; }
+  .tl-step-dot { top: 14px; left: 0; }
   .tl-step-link { top: 21px; left: 6px; width: 2px; height: 100%; }
   .tl-step-link i { background: linear-gradient(var(--gold), var(--gold-2)); transform-origin: top; }
-  .tl-step-copy { padding: 8px 10px; margin-left: -10px; gap: 4px; }
+  .tl-step-copy { padding: 8px 10px; margin-left: -10px; gap: 4px; text-align: left; }
+  .tl-step-meta { justify-content: flex-start; }
   .tl-step-role { font-size: 14px; }
   .tl-steps.is-pending .tl-step-link i { transform: scaleY(0); }
   .tl-steps.steps-in .tl-step-link i { animation-name: tl-link-fill-vertical; }

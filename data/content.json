@@ -124,6 +124,7 @@
           "send": "Enviar mensaje",
           "sending": "Enviando…",
           "ok": "Gracias. Tu mensaje se ha recibido correctamente.",
+          "uncertain": "No hemos podido confirmar la recepción. Lo escrito sigue en el formulario. Antes de volver a enviarlo, puedes confirmarlo por las vías de contacto de abajo.",
           "error": "No se ha podido enviar. Escríbeme por correo o por WhatsApp.",
           "required": "Este campo es obligatorio.",
           "badEmail": "Revisa el email.",
@@ -134,7 +135,8 @@
           "saved": "Mensaje guardado correctamente. La notificación por correo no está confirmada; no necesitas volver a enviarlo."
         },
         "privacyLabel": "Privacidad",
-        "privacyHref": "/privacy/"
+        "privacyHref": "/privacy/",
+        "portraitLinkedinLabel": "Ver el perfil de Ismael Sarmiento en LinkedIn (se abre en una pestaña nueva)"
       }
     },
     "en": {
@@ -244,6 +246,7 @@
           "send": "Send message",
           "sending": "Sending…",
           "ok": "Thank you. Your message has been received.",
+          "uncertain": "We could not confirm receipt. Your draft is still in the form. Before submitting it again, you can check using the contact options below.",
           "error": "It could not be sent. Please write to me by email or on WhatsApp.",
           "required": "This field is required.",
           "badEmail": "Please check the email.",
@@ -254,7 +257,8 @@
           "saved": "Your message has been saved. Its email notification is unconfirmed; you do not need to submit it again."
         },
         "privacyLabel": "Privacy",
-        "privacyHref": "/privacy/?lang=en"
+        "privacyHref": "/privacy/?lang=en",
+        "portraitLinkedinLabel": "View Ismael Sarmiento’s LinkedIn profile (opens in a new tab)"
       }
     }
   },
@@ -350,6 +354,10 @@
         {
           "title": "Calidad, trazabilidad y control",
           "body": "Trabajo el ciclo de vida completo del dato, desde su entrada y validación hasta su monitorización, bloqueo o eliminación."
+        },
+        {
+          "title": "Arquitectura y liderazgo técnico",
+          "body": "Conecto decisiones de arquitectura, componentes reutilizables y acompañamiento técnico para construir plataformas que los equipos puedan evolucionar y operar."
         }
       ],
       "en": [
@@ -364,6 +372,10 @@
         {
           "title": "Quality, traceability, and control",
           "body": "I work across the full data lifecycle, from ingestion and validation to monitoring, blocking, or deletion."
+        },
+        {
+          "title": "Architecture and technical leadership",
+          "body": "I connect architecture decisions, reusable components and technical mentoring to build platforms that teams can evolve and operate."
         }
       ]
     },
