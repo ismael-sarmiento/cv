@@ -61,7 +61,7 @@
         "launcherQuestion": "¿Qué quieres hacer?",
         "openChat": "Abrir chat",
         "empty": "Puedo resumir la experiencia en Savana, explicar FHIR y OMOP, hablar de calidad y gobierno del dato, trayectoria, seguridad del asistente o forma de trabajo.",
-        "noMatch": "No tengo una respuesta exacta para eso en esta versión beta. Puedo responder sobre experiencia, capacidades, seguridad del asistente, docencia, contacto o límites de privacidad."
+        "noMatch": "No tengo una respuesta exacta para eso en esta versión beta. Puedo responder sobre experiencia, capacidades, seguridad del asistente, docencia, IsGame, contacto o límites de privacidad."
       },
       "cv": {
         "tag": "CV Online",
@@ -183,7 +183,7 @@
         "launcherQuestion": "What do you want to do?",
         "openChat": "Open chat",
         "empty": "I can summarise Savana experience, FHIR and OMOP interoperability, data quality and governance, career path, assistant safety, or working style.",
-        "noMatch": "I do not have an exact answer for that in this beta version. I can answer about experience, capabilities, assistant safety, teaching, contact, or privacy limits."
+        "noMatch": "I do not have an exact answer for that in this beta version. I can answer about experience, capabilities, assistant safety, teaching, IsGame, contact, or privacy limits."
       },
       "cv": {
         "tag": "CV Online",
@@ -1038,6 +1038,28 @@
           ]
         },
         {
+          "q": "¿Qué es IsGame?",
+          "a": "IsGame es el juego de mundo abierto de IsAcademy: recorres Neo Academia, una ciudad de datos e IA, hablas con seis mentores y aprendes jugando, directamente en el navegador. Tu progreso se guarda solo en tu navegador.",
+          "keywords": [
+            "isgame",
+            "juego",
+            "jugar",
+            "neo academia",
+            "mundo abierto",
+            "game"
+          ],
+          "actions": [
+            {
+              "label": "Jugar a IsGame",
+              "href": "/isgame/"
+            },
+            {
+              "label": "Conocer IsAcademy",
+              "href": "/isacademy/"
+            }
+          ]
+        },
+        {
           "q": "¿Lidera equipos?",
           "a": "Sí. Como Head of Data Management en Savana lidera el área de Data Management y equipos de datos de alto rendimiento, sin perder cercanía con la arquitectura, la construcción de soluciones y el diseño de producto.",
           "keywords": [
@@ -1215,6 +1237,28 @@
             "students",
             "courses",
             "founder"
+          ]
+        },
+        {
+          "q": "What is IsGame?",
+          "a": "IsGame is IsAcademy's open-world game: you explore Neo Academia, a city of data and AI, talk to six mentors and learn by playing, right in your browser. Your progress stays in your browser.",
+          "keywords": [
+            "isgame",
+            "game",
+            "play",
+            "neo academia",
+            "open world",
+            "open-world"
+          ],
+          "actions": [
+            {
+              "label": "Play IsGame",
+              "href": "/isgame/?lang=en"
+            },
+            {
+              "label": "Discover IsAcademy",
+              "href": "/isacademy/?lang=en"
+            }
           ]
         },
         {

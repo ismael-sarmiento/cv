@@ -23,7 +23,7 @@
   const input = p.querySelector('.as-form input'), form = p.querySelector('.as-form');
   const ask = async q => { input.value = q; form.requestSubmit(); await sleep(2600); return [...p.querySelectorAll('.msg-bot')].pop().innerText; };
   for (const [q, expected] of [['¿Qué es IsAcademy?', 'IsAcademy es la academia'], ['¿Lidera equipos?', 'lidera el área'],
-    ['¿Qué hace en Savana?', 'En Savana pasó'], ['¿Cómo puedo contactar con él?', 'Por correo'], ['xyzzy', 'No tengo una respuesta']]) {
+    ['¿Qué hace en Savana?', 'En Savana pasó'], ['¿Qué es IsGame?', 'IsGame es el juego'], ['¿Cómo puedo contactar con él?', 'Por correo'], ['xyzzy', 'No tengo una respuesta']]) {
     ok(`Alan answers «${q}»`, (await ask(q)).includes(expected));
   }
   p.querySelector('.as-close').click(); await sleep(300); ok('panel closes', p.hidden);

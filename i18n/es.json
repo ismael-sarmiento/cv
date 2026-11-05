@@ -44,7 +44,7 @@
 "ui.assistant.launcherQuestion": "¿Qué quieres hacer?",
 "ui.assistant.openChat": "Abrir chat",
 "ui.assistant.empty": "Puedo resumir la experiencia en Savana, explicar FHIR y OMOP, hablar de calidad y gobierno del dato, trayectoria, seguridad del asistente o forma de trabajo.",
-"ui.assistant.noMatch": "No tengo una respuesta exacta para eso en esta versión beta. Puedo responder sobre experiencia, capacidades, seguridad del asistente, docencia, contacto o límites de privacidad.",
+"ui.assistant.noMatch": "No tengo una respuesta exacta para eso en esta versión beta. Puedo responder sobre experiencia, capacidades, seguridad del asistente, docencia, IsGame, contacto o límites de privacidad.",
 "ui.cv.tag": "CV Online",
 "ui.cv.home": "Inicio",
 "ui.cv.enter": "Entrar al CV",
