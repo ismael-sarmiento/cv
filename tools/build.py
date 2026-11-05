@@ -24,7 +24,7 @@ VERSION = sys.argv[1] if len(sys.argv) > 1 else '20261014a'
 D = json.loads((ROOT / 'data/content.json').read_text())
 SITE = 'https://ismael-sarmiento.github.io'
 BASE = f'{SITE}/cv/'
-TODAY = '2026-10-26'
+TODAY = '2026-11-04'
 CF_TOKEN = '1af8978bb58b4f6cb3771790a71c784c'  # Cloudflare Web Analytics (shared with the portada)
 
 

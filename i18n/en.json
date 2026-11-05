@@ -215,7 +215,7 @@
 "case_studies.items.1.summary": "I drove clinical data transformations toward FHIR and OMOP to connect operational exchange, semantic normalisation, and advanced analytics on a more consistent and reusable foundation.",
 "case_studies.items.1.outcomes.0": "FHIR for electronic healthcare information exchange",
 "case_studies.items.1.outcomes.1": "OMOP CDM for standardisation and advanced analytics",
-"case_studies.items.1.outcomes.2": "A bridge between operational integration and downstream value",
+"case_studies.items.1.outcomes.2": "Hands-on experience with clinical terminologies such as SNOMED CT",
 "case_studies.items.2.id": "lifecycle",
 "case_studies.items.2.title": "Data Lifecycle Management",
 "case_studies.items.2.kicker": "Visibility and control",

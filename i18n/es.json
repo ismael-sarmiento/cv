@@ -215,7 +215,7 @@
 "case_studies.items.1.summary": "Impulsé transformaciones de datos clínicos hacia FHIR y OMOP para conectar intercambio operativo, normalización semántica y analítica avanzada sobre una base más consistente y reutilizable.",
 "case_studies.items.1.outcomes.0": "FHIR para intercambio electrónico de información clínica",
 "case_studies.items.1.outcomes.1": "OMOP CDM para estandarización y analítica avanzada",
-"case_studies.items.1.outcomes.2": "Puente entre integración operativa y explotación de valor",
+"case_studies.items.1.outcomes.2": "Experiencia práctica con terminologías clínicas como SNOMED CT",
 "case_studies.items.2.id": "lifecycle",
 "case_studies.items.2.title": "Gestión del ciclo de vida del dato",
 "case_studies.items.2.kicker": "Visibilidad y control",
