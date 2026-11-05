@@ -4,8 +4,8 @@ import { createAssistant, faqMatcher as matcher } from '/assets/ds/assistant.js'
 
 export function initAssistant(data, i18n) {
   const alan = createAssistant({
-    ...data.es.assistant,
-    match: matcher(data.es.faq),
+    ...data[i18n.lang()].assistant,
+    match: matcher(data[i18n.lang()].faq),
     onAction: ({ href }) => {
       if (href?.startsWith('#')) document.getElementById(href.slice(1))?.scrollIntoView({ block: 'start' });
       else if (href) window.open(href, '_blank', 'noopener');   // WhatsApp and other sites open beside the CV

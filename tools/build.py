@@ -70,10 +70,11 @@ sha = lambda s: base64.b64encode(hashlib.sha256(s.encode()).digest()).decode()
 # applied before the first paint: shared theme choice + a flag that lets CSS show the intro only with JavaScript
 # before the first paint: .js, the stored theme, .i18n-wait while a stored English choice loads (no Spanish flash) and
 # .sig-handoff when the visitor arrives from another intro with the signature already written (intro.js)
-BOOT = ("var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('isa-theme');"
+BOOT = ("var d=document.documentElement;try{var t=localStorage.getItem('isa-theme');"
         "if(t==='light'||t==='dark')d.dataset.theme=t;var q=new URLSearchParams(location.search).get('lang');"
         "if(q==='en'||(q!=='es'&&localStorage.getItem('isa-lang')==='en'))d.classList.add('i18n-wait');"
         "var h=+sessionStorage.getItem('sig-handoff');if(h&&Date.now()-h<4000)d.classList.add('sig-handoff')}catch(e){}")
+BOOT += '\n' + (ROOT.parent / 'ismael-sarmiento.github.io/assets/ds/startup.js').read_text()
 DS_MODULES = ['/assets/ds/ds.js', '/assets/ds/frame-guard.js', '/assets/ds/views.js', '/assets/ds/favicon.js', '/assets/ds/contact.js', '/assets/ds/i18n.js', '/assets/ds/signature.js', '/assets/ds/fx.js', '/assets/ds/intro.js',
               '/assets/ds/avatar.js', '/assets/ds/assistant.js']
 MODULES = DS_MODULES + sorted(f'/cv/js/{f.name}' for f in (ROOT / 'js').glob('*.js'))
@@ -221,6 +222,7 @@ def head():
   <link rel="preload" href="/assets/ds/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{v('/assets/ds/tokens.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/base.css')}">
+  <link rel="stylesheet" href="{v('/assets/ds/startup.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/intro.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/contact.css')}">
   <link rel="stylesheet" href="{v('/assets/ds/assistant.css')}">
@@ -229,7 +231,7 @@ def head():
   <link rel="stylesheet" href="{v('/cv/css/cv.css')}">
   <link rel="stylesheet" href="{v('/cv/css/print.css')}" media="print">
   <script type="importmap">{IMPORT_MAP}</script>
-  <script type="module" src="{v('/cv/js/app.js')}"></script>
+  <script type="module" data-startup-entry src="{v('/cv/js/app.js')}"></script>
   <script type="application/ld+json">{json.dumps(structured_data(), ensure_ascii=False)}</script>
   <script type="application/json" id="cv-data">{data_block}</script>
 </head>'''

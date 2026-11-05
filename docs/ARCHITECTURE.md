@@ -21,6 +21,15 @@
 
 ## Behaviour (js/)
 
+- Startup recovery is shared with Inicio and IsAcademy. Their generators embed `/assets/ds/startup.js` before first
+  paint and hash its exact bytes in the CSP. The guard enables `.js`, waits at most ten seconds for `ready()`, and
+  recovers on entry load/initialisation failure. Recovery removes the scripting flag and releases the intro's own
+  focus isolation; it remains final for that document, so late loads cannot cover the page again. Static Spanish
+  content, native details, PDF and contact links remain available. `startup.css` hides buttons and lead forms that
+  cannot work without the application. CSS reveals are visible by default, including with JavaScript disabled.
+- Alan is imported independently after core startup. His network/module failure does not disable contact, navigation
+  or the intro. His initial language is the current page language, even when he arrives after a language switch.
+
 - `app.js` wires everything (`?pdf` opens every text for the PDF build, `?pdf=dark` prints the dark theme) and starts the intro shared by every site
   (`/assets/ds/intro.js` + `intro.css`) with the CV milestones: every visit, skipped on deep links and `?pdf`, `#top`
   counts as the start; "Saltar intro" / Escape; coming from another site of the universe the signature appears already
