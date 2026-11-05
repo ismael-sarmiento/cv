@@ -68,6 +68,8 @@
   ok('the intro offers «Entrar al CV» and «Descargar PDF»', document.querySelectorAll('#intro .intro-actions .btn').length === 2);
   ok('no DataHub or Power BI → Superset (LinkedIn rule)', !/DataHub|Power BI|Superset/.test(document.body.innerText));
   ok('no horizontal overflow', document.documentElement.scrollWidth <= innerWidth);
+  ok('footer: sites → contact → Privacidad → Volver arriba', [...document.querySelectorAll('.footer-links a, .footer-top')]
+    .map(a => a.textContent.trim()).join('|') === 'Inicio|IsAcademy|IsGame|WhatsApp|Correo|LinkedIn|GitHub|Privacidad|Volver arriba');
   console.log(R.join('\n'));
   return R.filter(r => r.startsWith('FAIL')).length ? 'FAILURES' : 'ALL PASS';
 })();

@@ -501,13 +501,14 @@ def footer():
     return f'''<footer class="footer">
     <div class="container footer-row">
       <span>© <span data-year>2026</span> Ismael Sarmiento</span>
-      <!-- the footer of every site of the universe (portada tools/build.py): the other sites, then the ways to reach Ismael -->
+      <!-- the footer of every site of the universe (portada tools/build.py): the other sites, the ways to reach Ismael, Privacy, back to top -->
       <nav class="footer-links" aria-label="Ismael Sarmiento">
-        <a href="/privacy/" data-i18n-href="ui.cv.privacyHref">{T('ui.cv.privacyLabel')}</a>
-        <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/">IsAcademy</a><a href="/isgame/">IsGame</a>
+        <a href="/" data-i18n-href="ui.cv.homeHref">{T('ui.cv.home')}</a><a href="/isacademy/" data-i18n-href="ui.cv.isacademyHref">IsAcademy</a><a href="/isgame/" data-i18n-href="ui.cv.isgameHref">IsGame</a>
         {way('WhatsApp', 'WhatsApp')}{way('Email', T('ui.cv.form.mail'))}
         <a href="{e(D['meta']['linkedin'])}" rel="noopener me">LinkedIn</a><a href="{e(D['meta']['github'])}" rel="noopener me">GitHub</a>
+        <a href="/privacy/" data-i18n-href="ui.cv.privacyHref">{T('ui.cv.privacyLabel')}</a>
       </nav>
+      <a class="footer-top" href="#top">{T('ui.cv.top')}</a>
       <p class="print-foot">{T('ui.cv.printOnline')}: <a href="https://ismael-sarmiento.github.io/cv/" data-i18n-href="ui.cv.printCvHref" rel="noopener">ismael-sarmiento.github.io/cv/</a> · IsAcademy: <a href="https://ismael-sarmiento.github.io/isacademy/" data-i18n-href="ui.cv.printIsaHref" rel="noopener">ismael-sarmiento.github.io/isacademy/</a></p>
     </div>
   </footer>'''
