@@ -1,5 +1,9 @@
 # AGENTS.md — cv (CV Online)
 
+> **Moved.** IsProfile · CV Online now lives at https://isuniverse.dev/profile/ (repository `profile`, a copy with history of
+> this one). This repository only publishes the redirect from `/cv/` to `/profile/` and copies of the PDFs.
+> Shared links and printed QR codes arrive here: never delete it. Work happens in `profile`.
+
 ## Parent
 
 Global roots (L0):

@@ -1,5 +1,7 @@
 # Ismael Sarmiento · CV Online
 
+> **Se ha mudado.** IsProfile · CV Online vive ahora en https://isuniverse.dev/profile/ (repositorio [`profile`](https://github.com/ismael-sarmiento/profile), copia con historial de este). Este repositorio solo publica la redirección de `/cv/` a `/profile/` y copias de los PDF: enlaces compartidos y QR impresos llegan aquí, así que **no se borra**.
+
 > *Online CV of Ismael Sarmiento, Head of Data Management at Savana. Spanish and English.*
 
 CV web de **Ismael Sarmiento**, Head of Data Management en Savana y antes Lead Data Engineer: gobierno del dato,
